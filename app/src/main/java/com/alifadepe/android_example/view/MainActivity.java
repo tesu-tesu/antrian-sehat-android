@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.alifadepe.android_example.R;
 import com.alifadepe.android_example.contract.MainContract;
+import com.alifadepe.android_example.interactor.MainInteractor;
 import com.alifadepe.android_example.presenter.MainPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        presenter = new MainPresenter(this, UtilProvider.getSharedPreferencesUtil());
+        presenter = new MainPresenter(this, new MainInteractor(UtilProvider.getSharedPreferencesUtil()));
         presenter.checkIsUserLogin();
     }
 

@@ -1,52 +1,35 @@
 package com.alifadepe.android_example.presenter;
 
 import com.alifadepe.android_example.api_response.LoginResponse;
-import com.alifadepe.android_example.constant.ApiConstant;
+import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.contract.LoginContract;
-import com.alifadepe.android_example.util.SharedPreferencesUtil;
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.ParsedRequestListener;
+import com.alifadepe.android_example.interactor.LoginInteractor;
 
 public class LoginPresenter implements LoginContract.Presenter {
     private LoginContract.View view;
-    private SharedPreferencesUtil sharedPreferencesUtil;
+    private LoginInteractor interactor;
 
-    public LoginPresenter(LoginContract.View view, SharedPreferencesUtil sharedPreferencesUtil) {
+    public LoginPresenter(LoginContract.View view, LoginInteractor interactor) {
         this.view = view;
-        this.sharedPreferencesUtil = sharedPreferencesUtil;
+        this.interactor = interactor;
     }
 
     @Override
     public void login(String username, String password) {
         view.startLoading();
+        interactor.requestLogin(username, password, new RequestCallback<LoginResponse>() {
+            @Override
+            public void requestSuccess(LoginResponse data) {
+                view.endLoading();
+                view.loginSuccess();
+                interactor.saveToken(data.token);
+            }
 
-        AndroidNetworking.post(ApiConstant.BASE_URL + "login.php")
-                .addBodyParameter("username", username)
-                .addBodyParameter("password", password)
-                .build()
-                .getAsObject(LoginResponse.class, new ParsedRequestListener<LoginResponse>() {
-                    @Override
-                    public void onResponse(LoginResponse response) {
-                        view.endLoading();
-
-                        if(response == null){
-                            view.loginFailed("Null Response");
-                        }
-                        else if(response.is_success){
-                            sharedPreferencesUtil.setToken(response.token);
-                            view.loginSuccess();
-                        }
-                        else {
-                            view.loginFailed(response.message);
-                        }
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-                        view.endLoading();
-                        view.loginFailed(anError.getMessage());
-                    }
-                });
+            @Override
+            public void requestFailed(String errorMessage) {
+                view.endLoading();
+                view.loginFailed(errorMessage);
+            }
+        });
     }
 }

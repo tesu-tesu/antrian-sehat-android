@@ -9,4 +9,8 @@ public interface MainContract {
     interface Presenter {
         void checkIsUserLogin();
     }
+
+    interface Interactor {
+        boolean isUserLogin();
+    }
 }

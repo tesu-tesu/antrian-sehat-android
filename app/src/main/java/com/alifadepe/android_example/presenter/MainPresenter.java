@@ -1,20 +1,20 @@
 package com.alifadepe.android_example.presenter;
 
 import com.alifadepe.android_example.contract.MainContract;
-import com.alifadepe.android_example.util.SharedPreferencesUtil;
+import com.alifadepe.android_example.interactor.MainInteractor;
 
 public class MainPresenter implements MainContract.Presenter {
     private MainContract.View view;
-    private SharedPreferencesUtil sharedPreferencesUtil;
+    private MainInteractor interactor;
 
-    public MainPresenter(MainContract.View view, SharedPreferencesUtil sharedPreferencesUtil) {
+    public MainPresenter(MainContract.View view, MainInteractor interactor) {
         this.view = view;
-        this.sharedPreferencesUtil = sharedPreferencesUtil;
+        this.interactor = interactor;
     }
 
     @Override
     public void checkIsUserLogin() {
-        if(sharedPreferencesUtil.getToken() != null){
+        if(interactor.isUserLogin()){
             view.whenUserLogin();
         }
         else {

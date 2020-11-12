@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.alifadepe.android_example.adapter.ListBookAdapter;
 import com.alifadepe.android_example.contract.ListBookContract;
 import com.alifadepe.android_example.databinding.ActivityListBookBinding;
+import com.alifadepe.android_example.interactor.ListBookInteractor;
 import com.alifadepe.android_example.model.Book;
 import com.alifadepe.android_example.presenter.ListBookPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
@@ -26,7 +27,7 @@ public class ListBookActivity extends AppCompatActivity implements ListBookContr
         super.onCreate(savedInstanceState);
         binding = ActivityListBookBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        presenter = new ListBookPresenter(this, UtilProvider.getSharedPreferencesUtil());
+        presenter = new ListBookPresenter(this, new ListBookInteractor(UtilProvider.getSharedPreferencesUtil()));
 
         initView();
         presenter.requestListBook();

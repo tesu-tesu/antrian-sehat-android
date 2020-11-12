@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.alifadepe.android_example.contract.LoginContract;
 import com.alifadepe.android_example.databinding.ActivityLoginBinding;
+import com.alifadepe.android_example.interactor.LoginInteractor;
 import com.alifadepe.android_example.presenter.LoginPresenter;
 import com.alifadepe.android_example.util.UtilProvider;
 
@@ -22,7 +23,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        presenter = new LoginPresenter(this, UtilProvider.getSharedPreferencesUtil());
+        presenter = new LoginPresenter(this, new LoginInteractor(UtilProvider.getSharedPreferencesUtil()));
         initView();
     }
 
