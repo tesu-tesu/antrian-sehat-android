@@ -24,11 +24,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void whenUserLogin() {
+        finish();
         startActivity(new Intent(getApplicationContext(), ListBookActivity.class));
     }
 
     @Override
     public void whenUserNotLogin() {
+        finish();
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 }

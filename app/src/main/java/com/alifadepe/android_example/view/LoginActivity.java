@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void loginSuccess() {
+        finish();
         startActivity(new Intent(this, ListBookActivity.class));
     }
 
