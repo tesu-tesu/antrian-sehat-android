@@ -3,13 +3,12 @@ package com.alifadepe.android_example.presenter;
 import com.alifadepe.android_example.api_response.LoginResponse;
 import com.alifadepe.android_example.callback.RequestCallback;
 import com.alifadepe.android_example.contract.LoginContract;
-import com.alifadepe.android_example.interactor.LoginInteractor;
 
 public class LoginPresenter implements LoginContract.Presenter {
     private LoginContract.View view;
-    private LoginInteractor interactor;
+    private LoginContract.Interactor interactor;
 
-    public LoginPresenter(LoginContract.View view, LoginInteractor interactor) {
+    public LoginPresenter(LoginContract.View view, LoginContract.Interactor interactor) {
         this.view = view;
         this.interactor = interactor;
     }
