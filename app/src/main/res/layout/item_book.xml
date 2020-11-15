@@ -5,7 +5,7 @@
     <data>
         <variable
             name="book"
-            type="com.alifadepe.android_example.model.Book" />
+            type="com.antriansehat.application.model.Book" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
