@@ -7,6 +7,8 @@
     <string name="logout">Logout</string>
     <string name="book_title">Book title</string>
     <string name="book_description">Book description</string>
-    <string name="sudah_punya_akun">Sudah punya akun? </string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
     <string name="masuk">Masuk</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="daftar_sekarang">Daftar Sekarang</string>
 </resources>
