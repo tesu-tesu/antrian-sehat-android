@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="whiteBone">#FCFEFE</color>
+    <color name="app_backg_main">#F8FAFD</color>
+
+    <color name="bottom_bar">#3999C0</color>
 </resources>
