@@ -14,6 +14,18 @@
     <string name="no_more_list">no more list</string>
     <string name="puskesmas_item_name">Puskesmas A</string>
     <string name="address_item_name">Klampis, Sinarmas jaya</string>
+    <string name="tvHistoryTitle">History</string>
+    <string name="txt_hari_ini">Hari ini</string>
+    <string name="tv_akan_datang">Akan Datang</string>
+    <string name="tv_selesai">Selesai</string>
+    <string name="poliklinik_item_name">Poli Umum</string>
+    <string name="nik_item_number">3515108270500001</string>
+    <string name="no_antrian_label">No. Antrian:</string>
+    <string name="no_antrian_value">12</string>
+    <string name="saat_ini_label">saat ini:   </string>
+    <string name="saat_ini_value">2/10</string>
+    <string name="tanggal_akan_datang">4 Desember 2020</string>
+    <string name="status_antrian">Sudah Diperiksa</string>
     <string name="titleArticleLabel">7 Makanan Enak dan Sehat</string>
     <string name="artikel_kesehatan_label">Tahukah Anda?</string>
     <string name="residence_number">3561297650000001</string>
@@ -31,4 +43,5 @@
     <string name="poli">Poli Umum</string>
     <string name="health_agency">Puskesmas Klampis</string>
     <string name="tvPuskesmasTitle">Daftar Puskesmas</string>
+
 </resources>
