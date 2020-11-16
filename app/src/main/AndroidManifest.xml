@@ -5,17 +5,18 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.antriansehat.application.Starter"
+        android:name=".Starter"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name="com.antriansehat.application.view.PuskesmasList"></activity>
-        <activity android:name="com.antriansehat.application.view.ListBookActivity" />
-        <activity android:name="com.antriansehat.application.view.LoginActivity" />
-        <activity android:name="com.antriansehat.application.view.MainActivity">
+        <activity android:name=".view.RiwayatTiketActivity"></activity>
+        <activity android:name=".view.PuskesmasListActivity" />
+        <activity android:name=".view.ListBookActivity" />
+        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
