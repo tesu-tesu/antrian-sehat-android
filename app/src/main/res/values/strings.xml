@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Antrian Sehat</string>
-    <string name="tvPuskesmasTitle">Daftar Puskemas</string>
+    <string name="app_name">Android Example</string>
+    <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
@@ -14,4 +14,21 @@
     <string name="no_more_list">no more list</string>
     <string name="puskesmas_item_name">Puskesmas A</string>
     <string name="address_item_name">Klampis, Sinarmas jaya</string>
+    <string name="titleArticleLabel">7 Makanan Enak dan Sehat</string>
+    <string name="artikel_kesehatan_label">Tahukah Anda?</string>
+    <string name="residence_number">3561297650000001</string>
+    <string name="waiting_list_label">Antrian Terdekat Anda</string>
+    <string name="order_number_label">No. Antrian:</string>
+    <string name="order_number">13</string>
+    <string name="current_waiting_list">10</string>
+    <string name="slash">/</string>
+    <string name="latest_waiting_list">30</string>
+    <string name="current_waiting_list_label">Saat ini:</string>
+    <string name="create_waiting_list_bt_label">Daftar Antrian</string>
+    <string name="list_poly_bt_label">Daftar Poli</string>
+    <string name="list_HA_bt_label">Daftar Puskesmas</string>
+    <string name="show_ticket_bt_label">Show Ticket</string>
+    <string name="poli">Poli Umum</string>
+    <string name="health_agency">Puskesmas Klampis</string>
+    <string name="tvPuskesmasTitle">Daftar Puskesmas</string>
 </resources>
