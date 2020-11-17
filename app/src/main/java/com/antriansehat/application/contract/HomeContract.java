@@ -1,6 +1,6 @@
 package com.antriansehat.application.contract;
 
-public interface MainContract {
+public interface HomeContract {
     interface View {
         void whenUserLogin();
         void whenUserNotLogin();
