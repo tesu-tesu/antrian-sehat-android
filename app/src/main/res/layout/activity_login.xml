@@ -77,20 +77,26 @@
             app:layout_constraintStart_toStartOf="@+id/fsPassword"
             app:layout_constraintTop_toTopOf="@+id/fsPassword">
 
-            <EditText
-                android:id="@+id/etPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword" />
-
-            <ImageView
-                android:id="@+id/btShowPassword"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                app:passwordToggleEnabled="true"
+                app:passwordToggleDrawable="@drawable/view__1_"
+                app:passwordToggleContentDescription="@string/show_password_text"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/view__1_" />
+                app:passwordToggleTint="@color/blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Password"
+                    android:layout_marginBottom="12dp"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
 
         <ProgressBar
