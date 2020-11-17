@@ -48,4 +48,5 @@
     <string name="poli">Poli Umum</string>
     <string name="health_agency">Puskesmas Klampis</string>
     <string name="tvPuskesmasTitle">Daftar Puskesmas</string>
+    <string name="show_password_text">show password</string>
 </resources>
