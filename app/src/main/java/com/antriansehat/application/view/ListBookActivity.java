@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.antriansehat.application.adapter.ListBookAdapter;
 import com.antriansehat.application.contract.ListBookContract;
 import com.antriansehat.application.databinding.ActivityListBookBinding;
 import com.antriansehat.application.interactor.ListBookInteractor;
@@ -52,7 +51,7 @@ public class ListBookActivity extends AppCompatActivity implements ListBookContr
 
     @Override
     public void showListBook(List<Book> books) {
-        binding.recyclerView.setAdapter(new ListBookAdapter(books, getLayoutInflater()));
+//        binding.recyclerView.setAdapter(new ListBookAdapter(books, getLayoutInflater()));
     }
 
     @Override
@@ -70,6 +69,6 @@ public class ListBookActivity extends AppCompatActivity implements ListBookContr
     private void onLogoutButtonClick(){
         presenter.logout();
         finish();
-        startActivity(new Intent(this, LoginActivity.class));
+//        startActivity(new Intent(this, LoginActivity.class));
     }
 }

@@ -138,10 +138,8 @@
         android:layout_height="100dp"
         android:background="@drawable/gradient_navbar"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/scrollViewWrapper"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStarOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
