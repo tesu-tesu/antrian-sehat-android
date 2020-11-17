@@ -32,6 +32,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void whenUserNotLogin() {
         finish();
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+//        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 }
