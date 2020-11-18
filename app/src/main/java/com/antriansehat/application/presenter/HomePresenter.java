@@ -1,11 +1,6 @@
 package com.antriansehat.application.presenter;
 
-import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.HomeContract;
-import com.antriansehat.application.model.Book;
-import com.antriansehat.application.model.WaitingList;
-
-import java.util.List;
 
 public class HomePresenter implements HomeContract.Presenter {
     private HomeContract.View view;
@@ -24,33 +19,5 @@ public class HomePresenter implements HomeContract.Presenter {
         else {
             view.whenUserNotLogin();
         }
-    }
-
-    @Override
-    public void requestNearestWaitingList() {
-//        view.startLoading();
-        interactor.requestNearestWaitingList(new RequestCallback<WaitingList>() {
-            @Override
-            public void requestSuccess(WaitingList waitingList) {
-//                view.endLoading();
-                view.showNearestWaitingList(waitingList);
-            }
-
-            @Override
-            public void requestFailed(String errorMessage) {
-//                view.endLoading();
-                view.showError(errorMessage);
-            }
-        });
-    }
-
-    @Override
-    public void requestListArticle() {
-
-    }
-
-    @Override
-    public void logout() {
-
     }
 }
