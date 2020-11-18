@@ -15,7 +15,9 @@ import com.antriansehat.application.presenter.HomePresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity implements HomeContract.View, BottomNavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements HomeContract.View,
+            BottomNavigationView.OnNavigationItemSelectedListener,
+            BaseAuthenticatedView {
     private HomeContract.Presenter presenter;
     private ActivityHomeBinding binding;
 
@@ -48,6 +50,12 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        bottomBarAction(item);
+        return false;
+    }
+
+    @Override
+    public void bottomBarAction(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_home:
                 break;
@@ -60,6 +68,5 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
                 startActivity(time);
                 break;
         }
-        return false;
     }
 }
