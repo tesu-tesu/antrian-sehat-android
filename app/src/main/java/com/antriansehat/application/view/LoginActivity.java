@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     private void initView(){
-        binding.loginButton.setOnClickListener(this);
+        binding.btLogin.setOnClickListener(this);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void loginSuccess() {
         finish();
-        startActivity(new Intent(this, ListBookActivity.class));
+        startActivity(new Intent(this, HomeActivity.class));
     }
 
     @Override
@@ -54,12 +54,12 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == binding.loginButton.getId()){
+        if(v.getId() == binding.btLogin.getId()){
             onButtonLoginClick();
         }
     }
 
     public void onButtonLoginClick(){
-        presenter.login(binding.username.getText().toString(), binding.password.getText().toString());
+        presenter.login(binding.etEmail.getText().toString(), binding.etPassword.getText().toString());
     }
 }

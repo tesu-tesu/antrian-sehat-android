@@ -6,27 +6,28 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.antriansehat.application.R;
-import com.antriansehat.application.contract.MainContract;
-import com.antriansehat.application.interactor.MainInteractor;
-import com.antriansehat.application.presenter.MainPresenter;
+import com.antriansehat.application.contract.HomeContract;
+import com.antriansehat.application.interactor.HomeInteractor;
+import com.antriansehat.application.presenter.HomePresenter;
 import com.antriansehat.application.util.UtilProvider;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View {
-    private MainContract.Presenter presenter;
+public class HomeActivity extends AppCompatActivity implements HomeContract.View {
+    private HomeContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
-        presenter = new MainPresenter(this, new MainInteractor(UtilProvider.getSharedPreferencesUtil()));
+        presenter = new HomePresenter(this, new HomeInteractor(UtilProvider.getSharedPreferencesUtil()));
         presenter.checkIsUserLogin();
     }
 
     @Override
     public void whenUserLogin() {
         finish();
-        startActivity(new Intent(getApplicationContext(), ListBookActivity.class));
+//        startActivity(new Intent(getApplicationContext(), ListBookActivity.class));
+        //loading data from API to show in home
     }
 
     @Override

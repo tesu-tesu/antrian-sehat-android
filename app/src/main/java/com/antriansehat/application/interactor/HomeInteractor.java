@@ -1,12 +1,12 @@
 package com.antriansehat.application.interactor;
 
-import com.antriansehat.application.contract.MainContract;
+import com.antriansehat.application.contract.HomeContract;
 import com.antriansehat.application.util.SharedPreferencesUtil;
 
-public class MainInteractor implements MainContract.Interactor {
+public class HomeInteractor implements HomeContract.Interactor {
     private SharedPreferencesUtil sharedPreferencesUtil;
 
-    public MainInteractor(SharedPreferencesUtil sharedPreferencesUtil) {
+    public HomeInteractor(SharedPreferencesUtil sharedPreferencesUtil) {
         this.sharedPreferencesUtil = sharedPreferencesUtil;
     }
 

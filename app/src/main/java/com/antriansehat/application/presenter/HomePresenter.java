@@ -1,12 +1,12 @@
 package com.antriansehat.application.presenter;
 
-import com.antriansehat.application.contract.MainContract;
+import com.antriansehat.application.contract.HomeContract;
 
-public class MainPresenter implements MainContract.Presenter {
-    private MainContract.View view;
-    private MainContract.Interactor interactor;
+public class HomePresenter implements HomeContract.Presenter {
+    private HomeContract.View view;
+    private HomeContract.Interactor interactor;
 
-    public MainPresenter(MainContract.View view, MainContract.Interactor interactor) {
+    public HomePresenter(HomeContract.View view, HomeContract.Interactor interactor) {
         this.view = view;
         this.interactor = interactor;
     }

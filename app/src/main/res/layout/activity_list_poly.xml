@@ -20,23 +20,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/puskesmasTitle"
+                android:id="@+id/PolyTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
                 android:ellipsize="marquee"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="@string/tvPuskesmasTitle"
+                android:text="@string/list_poly_bt_label"
                 android:textColor="#fff"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/btBack"
@@ -48,11 +47,13 @@
                 android:layout_width="28dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
-                app:layout_constraintBottom_toBottomOf="@id/puskesmasTitle"
+                app:layout_constraintBottom_toBottomOf="@id/PolyTitle"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/puskesmasTitle"
+                app:layout_constraintTop_toTopOf="@id/PolyTitle"
                 app:srcCompat="@drawable/ic_left_back" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -66,8 +67,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="12dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="4dp"
             android:background="@drawable/searchbar_rounded"
             android:gravity="center_horizontal"
