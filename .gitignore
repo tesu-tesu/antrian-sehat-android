@@ -13,5 +13,5 @@
 /captures
 .externalNativeBuild
 .cxx
-/src/main/java/com/antriansehat/application/constant
-/src/main/res/xml
+app/src/main/java/com/antriansehat/application/constant
+app/src/main/res/xml
