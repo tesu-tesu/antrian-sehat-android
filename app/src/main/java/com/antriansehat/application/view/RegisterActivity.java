@@ -57,6 +57,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     @Override
     public void registerSuccess(String message) {
         makeToast(message);
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

@@ -25,8 +25,6 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
     @Override
     public void whenUserLogin() {
-        finish();
-//        startActivity(new Intent(getApplicationContext(), ListBookActivity.class));
         //loading data from API to show in home
     }
 
