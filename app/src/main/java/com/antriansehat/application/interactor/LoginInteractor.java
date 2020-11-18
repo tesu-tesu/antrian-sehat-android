@@ -20,7 +20,7 @@ public class LoginInteractor implements LoginContract.Interactor {
 
     @Override
     public void requestLogin(String username, String password, final RequestCallback<LoginResponse> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "api/auth/login")
+        AndroidNetworking.post(ApiConstant.BASE_URL + "/auth/login")
                 .addBodyParameter("username", username)
                 .addBodyParameter("password", password)
                 .build()
@@ -47,7 +47,7 @@ public class LoginInteractor implements LoginContract.Interactor {
 
     @Override
     public void saveToken(String token) {
-        Log.d("token", token);
+        Log.d("token: ", token);
         sharedPreferencesUtil.setToken(token);
     }
 }
