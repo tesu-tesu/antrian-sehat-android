@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".view.RiwayatTiketActivity"></activity>
+        <activity android:name=".view.RiwayatTiketActivity"/>
+        <activity android:name=".view.ProfileActivity"/>
         <activity android:name=".view.PuskesmasListActivity" />
         <activity android:name=".view.ListBookActivity" />
         <activity android:name=".view.RegisterActivity" />
