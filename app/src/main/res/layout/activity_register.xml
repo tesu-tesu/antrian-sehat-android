@@ -226,7 +226,7 @@
                     android:text="@string/sudah_punya_akun" />
 
                 <TextView
-                    android:id="@+id/tvMasuk"
+                    android:id="@+id/linkedMasuk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"

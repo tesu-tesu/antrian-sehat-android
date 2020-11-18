@@ -1,6 +1,7 @@
 package com.antriansehat.application.presenter;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.antriansehat.application.api_response.LoginResponse;
 import com.antriansehat.application.api_response.RegisterResponse;
@@ -23,8 +24,8 @@ public class RegisterPresenter implements RegisterContract.Presenter{
             @Override
             public void requestSuccess(RegisterResponse data) {
                 view.endLoading();
-                view.registerSuccess();
-                interactor.saveToken(data.token);
+                view.registerSuccess(data.message);
+                interactor.saveToken(data.access_token);
             }
 
             @Override

@@ -8,7 +8,7 @@ public interface RegisterContract {
     interface View {
         void startLoading();
         void endLoading();
-        void registerSuccess();
+        void registerSuccess(String message);
         void registerFailed(String message);
     }
 

@@ -12,6 +12,8 @@ import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.contract.RegisterContract;
 import com.antriansehat.application.util.SharedPreferencesUtil;
 
+import static android.content.ContentValues.TAG;
+
 public class RegisterInteractor implements RegisterContract.Interactor{
     private SharedPreferencesUtil sharedPreferencesUtil;
 
@@ -23,7 +25,7 @@ public class RegisterInteractor implements RegisterContract.Interactor{
     public void requestRegister(String name, String phone, String email, String password,
                                 String confirmPassword,
                                 final RequestCallback<RegisterResponse> requestCallback) {
-Log.d("ROUTE", ApiConstant.BASE_URL + "auth/register");
+
         AndroidNetworking.post(ApiConstant.BASE_URL + "auth/register")
                 .addBodyParameter("name", name)
                 .addBodyParameter("phone", phone)
@@ -35,11 +37,11 @@ Log.d("ROUTE", ApiConstant.BASE_URL + "auth/register");
                 .getAsObject(RegisterResponse.class, new ParsedRequestListener<RegisterResponse>() {
                     @Override
                     public void onResponse(RegisterResponse response) {
-                        Log.d("RESPONSE", "AA");
+                        Log.d("RESPONSE", ""+response.message);
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                         }
-                        else if(response.is_success){
+                        else if(response.success){
                             requestCallback.requestSuccess(response);
                         }
                         else {
@@ -49,8 +51,7 @@ Log.d("ROUTE", ApiConstant.BASE_URL + "auth/register");
 
                     @Override
                     public void onError(ANError anError) {
-                        Log.d("ERROR", String.valueOf(anError));
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed(anError.getErrorBody());
                     }
                 });
 
