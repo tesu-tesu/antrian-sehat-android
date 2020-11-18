@@ -49,4 +49,9 @@
     <string name="health_agency">Puskesmas Klampis</string>
     <string name="tvPuskesmasTitle">Daftar Puskesmas</string>
     <string name="show_password_text">show password</string>
+    <string name="profile">Profile</string>
+    <string name="profile_name">John Doe</string>
+    <string name="total_antrian">0x mengantri</string>
+    <string name="kerabat_terdaftar_text_view">Kerabat yang Pernah Anda Daftarkan</string>
+    <string name="pengaturan">Pengaturan</string>
 </resources>
