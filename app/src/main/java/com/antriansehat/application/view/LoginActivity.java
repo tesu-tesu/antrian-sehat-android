@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -42,24 +43,40 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
-    public void loginSuccess() {
+    public void loginSuccess(String message) {
+        makeToast(message);
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
         finish();
-        startActivity(new Intent(this, HomeActivity.class));
     }
 
     @Override
     public void loginFailed(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        Log.d("err message: ", message);
+        makeToast(message);
     }
 
     @Override
     public void onClick(View v) {
         if(v.getId() == binding.btLogin.getId()){
             onButtonLoginClick();
+        }else if(v.getId() == binding.tvDaftar.getId()){
+            redirectToRegister();
         }
+    }
+
+    private void redirectToRegister() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 
     public void onButtonLoginClick(){
         presenter.login(binding.etEmail.getText().toString(), binding.etPassword.getText().toString());
+    }
+
+    private void makeToast(String message){
+        Toast.makeText(getApplicationContext(), message,
+                Toast.LENGTH_SHORT).show();
     }
 }

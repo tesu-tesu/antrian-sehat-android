@@ -7,7 +7,7 @@ public interface LoginContract {
     interface View {
         void startLoading();
         void endLoading();
-        void loginSuccess();
+        void loginSuccess(String message);
         void loginFailed(String message);
     }
 
