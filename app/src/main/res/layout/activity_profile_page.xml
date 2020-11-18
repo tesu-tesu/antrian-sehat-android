@@ -68,7 +68,6 @@
             android:layout_margin="20dp"
             app:cardCornerRadius="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="3sp"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -114,7 +113,7 @@
             app:layout_constraintHorizontal_bias="0.691"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvProfileName"
-            app:layout_constraintTop_toStartOf="@+id/tvProfileName"
+
             app:layout_constraintVertical_bias="0.437" />
 
 
