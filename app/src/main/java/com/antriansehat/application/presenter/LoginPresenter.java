@@ -1,5 +1,7 @@
 package com.antriansehat.application.presenter;
 
+import android.util.Log;
+
 import com.antriansehat.application.api_response.LoginResponse;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.LoginContract;
@@ -21,7 +23,8 @@ public class LoginPresenter implements LoginContract.Presenter {
             public void requestSuccess(LoginResponse data) {
                 view.endLoading();
                 view.loginSuccess();
-                interactor.saveToken(data.token);
+
+                interactor.saveToken(data.access_token);
             }
 
             @Override
