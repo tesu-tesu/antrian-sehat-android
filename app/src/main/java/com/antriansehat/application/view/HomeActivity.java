@@ -15,7 +15,7 @@ import com.antriansehat.application.presenter.HomePresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity implements HomeContract.View, BottomNavigationView.OnNavigationItemReselectedListener {
+public class HomeActivity extends AppCompatActivity implements HomeContract.View, BottomNavigationView.OnNavigationItemSelectedListener {
     private HomeContract.Presenter presenter;
     private ActivityHomeBinding binding;
 
@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     private void initView() {
-        binding.bottomNav.setOnNavigationItemReselectedListener(this);
+        binding.bottomNav.setOnNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     @Override
-    public void onNavigationItemReselected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_home:
                 break;
@@ -60,5 +60,6 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
                 startActivity(time);
                 break;
         }
+        return false;
     }
 }
