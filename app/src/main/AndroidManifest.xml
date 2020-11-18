@@ -17,8 +17,8 @@
         <activity android:name=".view.PuskesmasListActivity" />
         <activity android:name=".view.ListBookActivity" />
         <activity android:name=".view.HomeActivity" />
-        <activity android:name=".view.RegisterActivity" />
-        <activity android:name=".view.LoginActivity">
+        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

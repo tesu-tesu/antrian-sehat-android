@@ -20,8 +20,8 @@ public class LoginInteractor implements LoginContract.Interactor {
 
     @Override
     public void requestLogin(String username, String password, final RequestCallback<LoginResponse> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "/auth/login")
-                .addBodyParameter("username", username)
+        AndroidNetworking.post(ApiConstant.BASE_URL + "auth/login")
+                .addBodyParameter("email", username)
                 .addBodyParameter("password", password)
                 .build()
                 .getAsObject(LoginResponse.class, new ParsedRequestListener<LoginResponse>() {
@@ -40,14 +40,13 @@ public class LoginInteractor implements LoginContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed(anError.getErrorBody());
                     }
                 });
     }
 
     @Override
     public void saveToken(String token) {
-        Log.d("token: ", token);
         sharedPreferencesUtil.setToken(token);
     }
 }

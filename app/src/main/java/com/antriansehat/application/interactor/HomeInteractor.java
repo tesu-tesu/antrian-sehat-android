@@ -1,5 +1,7 @@
 package com.antriansehat.application.interactor;
 
+import android.util.Log;
+
 import com.antriansehat.application.contract.HomeContract;
 import com.antriansehat.application.util.SharedPreferencesUtil;
 
