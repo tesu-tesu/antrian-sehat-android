@@ -1,5 +1,6 @@
 package com.antriansehat.application.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -16,9 +17,8 @@ import com.antriansehat.application.model.Article;
 import com.antriansehat.application.model.WaitingList;
 import com.antriansehat.application.presenter.HomePresenter;
 import com.antriansehat.application.util.UtilProvider;
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
-
 import static androidx.constraintlayout.widget.ConstraintSet.VISIBLE;
 
 public class HomeActivity extends AppCompatActivity implements HomeContract.View, View.OnClickListener {
@@ -44,11 +44,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         binding.btListPoly.setOnClickListener(this);
         binding.btShowTicket.setOnClickListener(this);
         binding.cWaitingList.setOnClickListener(this);
-
-/*        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        binding.logoutButton.setOnClickListener(this);*/
     }
-
+  
     @Override
     public void whenUserLogin() {
         presenter.requestNearestWaitingList();
@@ -124,5 +121,4 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     public void onButtonCreateWaitingList() {
         //pindah ke health agency activity
     }
-
 }
