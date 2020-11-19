@@ -35,7 +35,6 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
         initView();
         presenter.checkIsUserLogin();
-        presenter.requestNearestWaitingList();
     }
 
     private void initView() {
@@ -61,14 +60,14 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
     @Override
     public void showNearestWaitingList(WaitingList waitingList) {
-        binding.errMessage.setText("");
-        binding.currentWaitingList.setText(waitingList.getCurrent_number());
-        binding.latestWaitingList.setText(waitingList.getLatest_number());
-        binding.orderNumber.setText(waitingList.getOrder_number());
+        binding.tvErrorMessage.setText("");
+        binding.tvCurrentWaitingList.setText(waitingList.getCurrent_number());
+        binding.tvLatestWaitingList.setText(waitingList.getLatest_number());
+        binding.tvOrderNumber.setText(waitingList.getOrder_number());
         binding.tvResidenceNumber.setText(waitingList.getResidence_number());
         binding.tvPoly.setText(waitingList.getPolyclinic());
         binding.tvHA.setText(waitingList.getHealth_agency());
-        binding.tvRegDate.setText(waitingList.getRegistered_date().toString());
+        binding.tvRegDate.setText(waitingList.getRegistered_date());
     }
 
     @Override
@@ -76,14 +75,15 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         //
     }
 
-    @SuppressLint("WrongConstant")
     @Override
     public void showError(String errorMessage) {
-        binding.currentWaitingListLabel.setText("");
-        binding.orderNumberLabel.setText("");
-        binding.waitingListLabel.setText("");
-        binding.errMessage.setText(errorMessage);
-        binding.errMessage.setVisibility(VISIBLE);
+        binding.tvRegDate.setText("");
+        binding.slash.setText("");
+        binding.tvCurrentWaitingListLabel.setText("");
+        binding.tvOrderNumberLabel.setText("");
+        binding.tvWaitingListLabel.setText("");
+        binding.tvErrorMessage.setText(errorMessage);
+        binding.tvErrorMessage.setVisibility(View.VISIBLE);
         Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 

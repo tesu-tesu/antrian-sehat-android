@@ -1,6 +1,9 @@
 package com.antriansehat.application.model;
 
+
+import java.text.DateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class WaitingList {
     private String id;
@@ -51,8 +54,11 @@ public class WaitingList {
         return health_agency;
     }
 
-    public Date getRegistered_date() {
-        return registered_date;
+    public String getRegistered_date() {
+        Locale locale = new Locale("id", "ID");
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.LONG, locale);
+
+        return dateFormat.format(registered_date);
     }
 
     public String getOrder_number() {
