@@ -25,16 +25,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/btBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="40dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/navigation_right_circle" />
-
-        <ImageView
             android:id="@+id/fsEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,25 +67,20 @@
             app:layout_constraintStart_toStartOf="@+id/fsPassword"
             app:layout_constraintTop_toTopOf="@+id/fsPassword">
 
-            <com.google.android.material.textfield.TextInputLayout
-                app:passwordToggleEnabled="true"
-                app:passwordToggleDrawable="@drawable/view__1_"
-                app:passwordToggleContentDescription="@string/show_password_text"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:ems="9"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <ImageView
+                android:id="@+id/btShowPassword"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:passwordToggleTint="@color/blue">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:ems="10"
-                    android:hint="Password"
-                    android:layout_marginBottom="12dp"
-                    android:inputType="textPassword" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+                app:srcCompat="@drawable/view__1_" />
 
         </LinearLayout>
 
@@ -144,7 +129,7 @@
                 android:text="@string/belum_punya_akun" />
 
             <TextView
-                android:id="@+id/tvDaftar"
+                android:id="@+id/linkedDaftar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

@@ -29,16 +29,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/btBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="40dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/navigation_right_circle" />
-
-            <ImageView
                 android:id="@+id/fsName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -17,6 +19,7 @@ import com.antriansehat.application.util.UtilProvider;
 public class LoginActivity extends AppCompatActivity implements LoginContract.View, View.OnClickListener {
     private LoginContract.Presenter presenter;
     private ActivityLoginBinding binding;
+    private boolean isShowPassword = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     private void initView(){
         binding.btLogin.setOnClickListener(this);
+        binding.btShowPassword.setOnClickListener(this);
+        binding.linkedDaftar.setOnClickListener(this);
     }
 
     @Override
@@ -52,7 +57,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void loginFailed(String message) {
-        Log.d("err message: ", message);
         makeToast(message);
     }
 
@@ -60,15 +64,26 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     public void onClick(View v) {
         if(v.getId() == binding.btLogin.getId()){
             onButtonLoginClick();
-        }else if(v.getId() == binding.tvDaftar.getId()){
-            redirectToRegister();
+        }else if(v.getId() == binding.btShowPassword.getId()){
+            onButtonShowPasswordClick();
+        }else if(v.getId() == binding.linkedDaftar.getId()){
+            onLinkedDaftarClick();
         }
     }
 
-    private void redirectToRegister() {
+    private void onButtonShowPasswordClick() {
+        if(!isShowPassword){
+            binding.etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            isShowPassword = true;
+        }else{
+            binding.etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            isShowPassword = false;
+        }
+    }
+
+    private void onLinkedDaftarClick() {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
-        this.finish();
     }
 
     public void onButtonLoginClick(){

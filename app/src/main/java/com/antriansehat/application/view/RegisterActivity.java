@@ -37,7 +37,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     }
 
     private void initView(){
-        binding.btBack.setOnClickListener(this);
         binding.btRegister.setOnClickListener(this);
         binding.btShowPassword.setOnClickListener(this);
         binding.btShowConfirmPassword.setOnClickListener(this);
@@ -74,9 +73,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == binding.btBack.getId()){
-//            onButtonRegisterClick();
-        }else if(view.getId() == binding.btRegister.getId()){
+        if(view.getId() == binding.btRegister.getId()){
             onButtonRegisterClick();
         }else if(view.getId() == binding.btShowPassword.getId()){
             onButtonShowPasswordClick();

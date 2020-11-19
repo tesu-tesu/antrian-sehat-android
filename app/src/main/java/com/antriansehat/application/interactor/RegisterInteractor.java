@@ -37,7 +37,6 @@ public class RegisterInteractor implements RegisterContract.Interactor{
                 .getAsObject(RegisterResponse.class, new ParsedRequestListener<RegisterResponse>() {
                     @Override
                     public void onResponse(RegisterResponse response) {
-                        Log.d("RESPONSE", ""+response.message);
                         if(response == null){
                             requestCallback.requestFailed("Null Response");
                         }
@@ -59,7 +58,6 @@ public class RegisterInteractor implements RegisterContract.Interactor{
 
     @Override
     public void saveToken(String token) {
-        Log.d("token", token);
         sharedPreferencesUtil.setToken(token);
     }
 }
