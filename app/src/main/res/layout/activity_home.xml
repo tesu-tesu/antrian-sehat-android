@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data></data>
+    <data>
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/whiteBlue">
+
+    <LinearLayout
+        android:id="@+id/topNav"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/gradient_navbar"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/puskesmasTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="marquee"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/tvPuskesmasTitle"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btBack"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <SearchView
+            android:id="@+id/searchTask"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/searchbar_rounded"
+            android:gravity="center_horizontal"
+            android:inputType="text"
+            android:paddingHorizontal="5dp"
+            android:queryHint="Cari puskesmas atau poli"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:backgroundTint="@color/whiteBlue">
+        android:id="@+id/cWaitingList"
+        android:layout_width="367dp"
+        android:layout_height="149dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bt_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topNav">
 
         <LinearLayout
             android:id="@+id/topNav"
@@ -75,11 +152,10 @@
 
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/waitingList"
-            android:layout_width="367dp"
-            android:layout_height="149dp"
-            android:layout_marginStart="24dp"
+        <LinearLayout
+            android:layout_width="135dp"
+            android:layout_height="76dp"
+            android:layout_marginHorizontal="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/bt_white"
@@ -200,21 +276,14 @@
                         android:text="@string/latest_waiting_list"
                         android:textColor="@color/blackFont" />
                 </LinearLayout>
-
-
+                <TextView
+                    android:id="@+id/tvRegDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registered_date"
+                    android:textColor="@color/blackFont" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/waitingListLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/waiting_list_label"
-                android:textColor="@color/blackFont"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -227,22 +296,96 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/waitingList">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btCreateWL"
-                android:layout_width="160dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/bt_green"
-                android:text="@string/create_waiting_list_bt_label"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                app:layout_constraintEnd_toStartOf="@+id/btShowTicket"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/errMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="@string/error_message"
+            android:textColor="@color/blackFont"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/waitingListLabel" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/choice"
+        android:layout_width="360dp"
+        android:layout_height="133dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cWaitingList">
+
+        <Button
+            android:id="@+id/btCreateWL"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bt_green"
+            android:text="@string/create_waiting_list_bt_label"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toStartOf="@+id/btShowTicket"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btListPoly"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bt_green"
+            android:text="@string/list_poly_bt_label"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btListHA"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btCreateWL" />
+
+        <Button
+            android:id="@+id/btListHA"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bt_green"
+            android:text="@string/list_HA_bt_label"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btListPoly"
+            app:layout_constraintTop_toBottomOf="@+id/btShowTicket" />
+
+        <Button
+            android:id="@+id/btShowTicket"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bt_green"
+            android:text="@string/show_ticket_bt_label"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/btCreateWL"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
             <Button
                 android:id="@+id/btListPoly"
@@ -335,21 +478,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:gravity="center|bottom">
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_nav_menu"
+            android:textAlignment="center"
+            app:itemBackground="@color/bottom_bar"
+            app:itemIconTint="@android:color/white"
+            app:itemTextColor="@android:color/white" />
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNav"
-                app:labelVisibilityMode="unlabeled"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:menu="@menu/bottom_nav_menu"
-                android:textAlignment="center"
-                app:itemBackground="@color/bottom_bar"
-                app:itemIconTint="@android:color/white"
-                app:itemTextColor="@android:color/white" />
-
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -6,87 +6,64 @@ public class WaitingList {
     private String id;
     private String status;
     private String barcode;
-    private String residenceNumber;
-    private Polyclinic polyclinic;
-    private HealthAgency healthAgency;
-    private Date registeredDate;
-    private int orderNumber;
-    private int latestWaitingList;
-    private int currentWaitingList;
+    private String residence_number;
+    private String polyclinic;
+    private String health_agency;
+    private Date registered_date;
+    private String order_number;
+    private String latest_number;
+    private String current_number;
 
-
-    public WaitingList(String id, String residenceNumber, Polyclinic polyclinic, HealthAgency healthAgency) {
-        this.id = id;
-        this.residenceNumber = residenceNumber;
-        this.polyclinic = polyclinic;
-        this.healthAgency = healthAgency;
-    }
-
-    public void setOrderInfo(int orderNumber, int currentWaitingList, int latestWaitingList) {
-        this.orderNumber = orderNumber;
-        this.currentWaitingList = currentWaitingList;
-        this.latestWaitingList = latestWaitingList;
-    }
-
-    public void setAdditionalInfo(Date registeredDate, String status, String barcode) {
-        this.registeredDate = registeredDate;
-        this.status = status;
-        this.barcode = barcode;
-    }
-
-    public WaitingList(String id, String status, String barcode, String residenceNumber,
-                       Polyclinic polyclinic, HealthAgency healthAgency, Date registeredDate,
-                       int orderNumber, int latestWaitingList, int currentWaitingList) {
+    public WaitingList(String id, String status, String barcode, String residence_number, String polyclinic, String health_agency, Date registered_date, String order_number, String latest_number, String current_number) {
         this.id = id;
         this.status = status;
         this.barcode = barcode;
-        this.residenceNumber = residenceNumber;
+        this.residence_number = residence_number;
         this.polyclinic = polyclinic;
-        this.healthAgency = healthAgency;
-        this.registeredDate = registeredDate;
-        this.orderNumber = orderNumber;
-        this.latestWaitingList = latestWaitingList;
-        this.currentWaitingList = currentWaitingList;
+        this.health_agency = health_agency;
+        this.registered_date = registered_date;
+        this.order_number = order_number;
+        this.latest_number = latest_number;
+        this.current_number = current_number;
     }
 
     public String getId() {
         return id;
     }
 
-    public Polyclinic getPolyclinic() {
-        return polyclinic;
-    }
-
-    public HealthAgency getHealthAgency() {
-        return healthAgency;
-    }
-
-    public Date getRegisteredDate() {
-        return registeredDate;
-    }
-
-    public int getOrderNumber() {
-        return orderNumber;
-    }
-
-    public int getLatestWaitingList() {
-        return latestWaitingList;
-    }
-
-    public int getCurrentWaitingList() {
-        return currentWaitingList;
-    }
-
-    public String getResidenceNumber() {
-        return residenceNumber;
+    public String getStatus() {
+        return status;
     }
 
     public String getBarcode() {
         return barcode;
     }
 
-    public String getStatus() {
-        return status;
+    public String getResidence_number() {
+        return residence_number;
     }
 
+    public String getPolyclinic() {
+        return polyclinic;
+    }
+
+    public String getHealth_agency() {
+        return health_agency;
+    }
+
+    public Date getRegistered_date() {
+        return registered_date;
+    }
+
+    public String getOrder_number() {
+        return order_number;
+    }
+
+    public String getLatest_number() {
+        return latest_number;
+    }
+
+    public String getCurrent_number() {
+        return current_number;
+    }
 }
