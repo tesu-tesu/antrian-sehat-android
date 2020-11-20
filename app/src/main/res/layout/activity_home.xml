@@ -76,7 +76,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cWaitingList"
-        android:layout_width="367dp"
+        android:layout_width="0dp"
         android:layout_height="149dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
@@ -87,12 +87,14 @@
         app:layout_constraintTop_toBottomOf="@id/topNav">
 
         <LinearLayout
+            android:id="@+id/leftLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvWaitingListLabel">
 
@@ -103,8 +105,8 @@
                 android:paddingBottom="4dp"
                 android:text="@string/residence_number"
                 android:textColor="@color/blackFont"
-                android:textStyle="bold"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/textView5"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="48dp" />
@@ -130,12 +132,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="135dp"
+            android:id="@+id/rightLabel"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:orientation="vertical"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvWaitingListLabel">
 
@@ -227,7 +231,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:visibility="invisible"
             android:id="@+id/tvErrorMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -235,6 +238,7 @@
             android:text="@string/error_message"
             android:textColor="@color/blackFont"
             android:textSize="16sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvWaitingListLabel" />
@@ -253,7 +257,7 @@
 
         <Button
             android:id="@+id/btCreateWL"
-            android:layout_width="160dp"
+            android:layout_width="144dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -268,7 +272,7 @@
 
         <Button
             android:id="@+id/btListPoly"
-            android:layout_width="160dp"
+            android:layout_width="144dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
@@ -284,7 +288,7 @@
 
         <Button
             android:id="@+id/btListHA"
-            android:layout_width="160dp"
+            android:layout_width="144dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
@@ -300,7 +304,7 @@
 
         <Button
             android:id="@+id/btShowTicket"
-            android:layout_width="160dp"
+            android:layout_width="144dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
