@@ -11,19 +11,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewTodolist"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:foreground="?android:attr/selectableItemBackground"
             android:background="@drawable/rounded_list_card"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,25 +31,23 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/btBack"
-                    android:layout_width="28dp"
+                    android:id="@+id/ivImageHealthAgency"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="32dp"
                     android:src="@drawable/ic_puskesmas_icon"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/layoutContentWrapper"
-                    app:layout_constraintBottom_toBottomOf="@id/layoutContentWrapper"
-                    android:layout_height="28dp" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
                     android:id="@+id/layoutContentWrapper"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="70dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/btBack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivImageHealthAgency"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
@@ -58,8 +56,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="@{healthAgency.name}"
-                        tools:text="Nama Puskesmas"
-                        android:textSize="24dp" />
+                        android:textSize="14dp"
+                        tools:text="Nama Puskesmas" />
 
                     <TextView
                         android:id="@+id/puskesmasAddress"
@@ -67,8 +65,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
                         android:text="@{healthAgency.address}"
-                        tools:text="Alamat"
-                        android:textSize="20dp" />
+                        android:textSize="12dp"
+                        tools:text="Alamat" />
 
 
                 </LinearLayout>

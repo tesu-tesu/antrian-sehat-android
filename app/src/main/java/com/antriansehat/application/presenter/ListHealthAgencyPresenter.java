@@ -3,6 +3,7 @@ package com.antriansehat.application.presenter;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.ListHealthAgencyContract;
 import com.antriansehat.application.model.HealthAgency;
+import com.antriansehat.application.model.Pagination;
 
 import java.util.List;
 
@@ -18,9 +19,9 @@ public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Prese
     @Override
     public void getHealthAgency() {
         view.startLoading();
-        interactor.requestListHealthAgency(new RequestCallback<List<HealthAgency>>() {
+        interactor.requestListHealthAgency(new RequestCallback<Pagination>() {
             @Override
-            public void requestSuccess(List<HealthAgency> data) {
+            public void requestSuccess(Pagination data) {
                 view.endLoading();
                 view.showListHealthAgencies(data);
             }

@@ -1,11 +1,14 @@
 package com.antriansehat.application.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.antriansehat.application.R;
 import com.antriansehat.application.databinding.ItemPuskesmasBinding;
 import com.antriansehat.application.model.HealthAgency;
 
@@ -23,7 +26,7 @@ public class ListHealthAgencyAdapter extends RecyclerView.Adapter<ListHealthAgen
     @NonNull
     @Override
     public ListHealthAgencyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ListHealthAgencyAdapter.ViewHolder(ItemPuskesmasBinding.inflate(layoutInflater));
+        return new ListHealthAgencyAdapter.ViewHolder(ItemPuskesmasBinding.inflate(layoutInflater, parent, false));
     }
 
     @Override

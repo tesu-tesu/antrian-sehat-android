@@ -14,6 +14,7 @@ import com.antriansehat.application.databinding.ActivityPuskesmasListBinding;
 import com.antriansehat.application.interactor.ListBookInteractor;
 import com.antriansehat.application.interactor.ListHealthAgencyInteractor;
 import com.antriansehat.application.model.HealthAgency;
+import com.antriansehat.application.model.Pagination;
 import com.antriansehat.application.presenter.ListBookPresenter;
 import com.antriansehat.application.presenter.ListHealthAgencyPresenter;
 import com.antriansehat.application.util.UtilProvider;
@@ -57,8 +58,8 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     }
 
     @Override
-    public void showListHealthAgencies(List<HealthAgency> healthAgencies) {
-        binding.rvListHealthAgencies.setAdapter(new ListHealthAgencyAdapter(healthAgencies, getLayoutInflater()));
+    public void showListHealthAgencies(Pagination pagination) {
+        binding.rvListHealthAgencies.setAdapter(new ListHealthAgencyAdapter(pagination.getData(), getLayoutInflater()));
     }
 
     @Override

@@ -11,6 +11,7 @@ import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.contract.ListHealthAgencyContract;
 import com.antriansehat.application.model.HealthAgency;
+import com.antriansehat.application.model.Pagination;
 import com.antriansehat.application.util.SharedPreferencesUtil;
 
 import java.util.List;
@@ -23,30 +24,27 @@ public class ListHealthAgencyInteractor implements ListHealthAgencyContract.Inte
     }
 
     @Override
-    public void requestListHealthAgency(final RequestCallback<List<HealthAgency>> requestCallback) {
+    public void requestListHealthAgency(final RequestCallback<Pagination> requestCallback) {
         AndroidNetworking.get(ApiConstant.BASE_URL + "admin/health-agency")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListHealthAgencyResponse.class, new ParsedRequestListener<ListHealthAgencyResponse>() {
                     @Override
                     public void onResponse(ListHealthAgencyResponse response) {
-                        if(response != null){
-                            Log.d("ERROR", "NULL");
+                        if(response == null){
                             requestCallback.requestFailed("Null Response");
                         }
                         else if(response.success){
-                            Log.d("Success", String.valueOf(response.data));
                             requestCallback.requestSuccess(response.data);
                         }
                         else {
-                            Log.d("ERROR", response.message);
                             requestCallback.requestFailed(response.message);
                         }
                     }
 
                     @Override
                     public void onError(ANError anError) {
-                        Log.d("ON ERROR", String.valueOf(anError));
+                        requestCallback.requestFailed(anError.getErrorBody());
                     }
                 });
     }

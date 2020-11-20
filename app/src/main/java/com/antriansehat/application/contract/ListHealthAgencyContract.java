@@ -2,6 +2,7 @@ package com.antriansehat.application.contract;
 
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.model.HealthAgency;
+import com.antriansehat.application.model.Pagination;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface ListHealthAgencyContract {
     interface View {
         void startLoading();
         void endLoading();
-        void showListHealthAgencies(List<HealthAgency> healthAgencies);
+        void showListHealthAgencies(Pagination pagination);
         void showError(String errorMessage);
     }
 
@@ -18,6 +19,6 @@ public interface ListHealthAgencyContract {
     }
 
     interface Interactor {
-        void requestListHealthAgency(RequestCallback<List<HealthAgency>> requestCallback);
+        void requestListHealthAgency(RequestCallback<Pagination> requestCallback);
     }
 }
