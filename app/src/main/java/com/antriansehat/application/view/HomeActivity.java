@@ -104,11 +104,13 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     public void onButtonShowTicket() {
-        //pindah ke show ticket activity
+        Intent intent = new Intent(this, ShowTicketActivity.class);
+        startActivity(intent);
     }
 
     public void onButtonListPoly() {
-        //pindah ke list poly activity
+        Intent intent = new Intent(this, ListPolyclinicActivity.class);
+        startActivity(intent);
     }
 
     public void onButtonListHA() {
@@ -117,7 +119,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     public void onButtonCreateWaitingList() {
-        //pindah ke health agency activity
+        Intent intent = new Intent(this, WaitingListActivity.class);
+        startActivity(intent);
     }
 
     @Override
