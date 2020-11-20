@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.antriansehat.application.adapter.ListBookAdapter;
 import com.antriansehat.application.contract.ListBookContract;
 import com.antriansehat.application.databinding.ActivityListBookBinding;
 import com.antriansehat.application.interactor.ListBookInteractor;
