@@ -24,8 +24,8 @@ public class ListHealthAgencyInteractor implements ListHealthAgencyContract.Inte
 
     @Override
     public void requestListHealthAgency(final RequestCallback<List<HealthAgency>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "books.php")
-                .addHeaders("Authorization", sharedPreferencesUtil.getToken())
+        AndroidNetworking.get(ApiConstant.BASE_URL + "admin/health-agency")
+                .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListHealthAgencyResponse.class, new ParsedRequestListener<ListHealthAgencyResponse>() {
                     @Override
@@ -46,8 +46,7 @@ public class ListHealthAgencyInteractor implements ListHealthAgencyContract.Inte
 
                     @Override
                     public void onError(ANError anError) {
-                        Log.d("ON ERROR", anError.getErrorBody());
-                        requestCallback.requestFailed(anError.getErrorBody());
+                        Log.d("ON ERROR", String.valueOf(anError));
                     }
                 });
     }

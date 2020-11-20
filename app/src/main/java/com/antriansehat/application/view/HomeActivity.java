@@ -112,7 +112,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     public void onButtonListHA() {
-        //pindah ke health agency activity
+        Intent intent = new Intent(this, ListHealthAgencyActivity.class);
+        startActivity(intent);
     }
 
     public void onButtonCreateWaitingList() {
