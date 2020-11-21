@@ -35,12 +35,12 @@
     <string name="artikel_kesehatan_label">Tahukah Anda?</string>
     <string name="residence_number"></string>
     <string name="waiting_list_label">Antrian Terdekat Anda</string>
-    <string name="order_number_label"></string>
+    <string name="order_number_label">No. Antrian: </string>
     <string name="order_number"></string>
     <string name="current_waiting_list"></string>
     <string name="slash">/</string>
     <string name="latest_waiting_list"></string>
-    <string name="current_waiting_list_label"></string>
+    <string name="current_waiting_list_label">Saat ini: </string>
     <string name="create_waiting_list_bt_label">Daftar Antrian</string>
     <string name="list_poly_bt_label">Daftar Poli</string>
     <string name="list_HA_bt_label">Daftar Puskesmas</string>

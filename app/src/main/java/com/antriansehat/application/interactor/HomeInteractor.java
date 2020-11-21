@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-import static androidx.constraintlayout.widget.StateSet.TAG;
+//import static androidx.constraintlayout.widget.StateSet.TAG;
 
 public class HomeInteractor implements HomeContract.Interactor {
     private SharedPreferencesUtil sharedPreferencesUtil;

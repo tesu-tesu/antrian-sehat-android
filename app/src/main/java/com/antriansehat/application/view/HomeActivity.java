@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -21,7 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
 import static androidx.constraintlayout.widget.ConstraintSet.VISIBLE;
 
-public class HomeActivity extends AppCompatActivity implements HomeContract.View, View.OnClickListener {
+public class HomeActivity extends AppCompatActivity implements HomeContract.View, View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener, BaseAuthenticatedView {
     private HomeContract.Presenter presenter;
     private ActivityHomeBinding binding;
 
@@ -33,12 +34,12 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
         presenter = new HomePresenter(this, new HomeInteractor(UtilProvider.getSharedPreferencesUtil()));
 
-        initView();
         presenter.checkIsUserLogin();
-        presenter.requestNearestWaitingList();
+        initView();
     }
 
     private void initView() {
+        binding.bottomNav.setOnNavigationItemSelectedListener(this);
         binding.btCreateWL.setOnClickListener(this);
         binding.btListHA.setOnClickListener(this);
         binding.btListPoly.setOnClickListener(this);
@@ -61,14 +62,15 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
     @Override
     public void showNearestWaitingList(WaitingList waitingList) {
-        binding.errMessage.setText("");
-        binding.currentWaitingList.setText(waitingList.getCurrent_number());
-        binding.latestWaitingList.setText(waitingList.getLatest_number());
-        binding.orderNumber.setText(waitingList.getOrder_number());
+        binding.tvCurrentWaitingList.setText(waitingList.getCurrent_number());
+        binding.tvLatestWaitingList.setText(waitingList.getLatest_number());
+        binding.tvOrderNumber.setText(waitingList.getOrder_number());
         binding.tvResidenceNumber.setText(waitingList.getResidence_number());
         binding.tvPoly.setText(waitingList.getPolyclinic());
         binding.tvHA.setText(waitingList.getHealth_agency());
-        binding.tvRegDate.setText(waitingList.getRegistered_date().toString());
+        binding.tvRegDate.setText(waitingList.getRegistered_date());
+        binding.leftLabel.setVisibility(View.VISIBLE);
+        binding.rightLabel.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -76,15 +78,10 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         //
     }
 
-    @SuppressLint("WrongConstant")
     @Override
     public void showError(String errorMessage) {
-        binding.currentWaitingListLabel.setText("");
-        binding.orderNumberLabel.setText("");
-        binding.waitingListLabel.setText("");
-        binding.errMessage.setText(errorMessage);
-        binding.errMessage.setVisibility(VISIBLE);
-        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
+        binding.tvErrorMessage.setText(errorMessage);
+        binding.tvErrorMessage.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -107,18 +104,44 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     public void onButtonShowTicket() {
-        //pindah ke show ticket activity
+        Intent intent = new Intent(this, ShowTicketActivity.class);
+        startActivity(intent);
     }
 
     public void onButtonListPoly() {
-        //pindah ke list poly activity
+        Intent intent = new Intent(this, ListPolyclinicActivity.class);
+        startActivity(intent);
     }
 
     public void onButtonListHA() {
-        //pindah ke health agency activity
+        Intent intent = new Intent(this, ListHealthAgencyActivity.class);
+        startActivity(intent);
     }
 
     public void onButtonCreateWaitingList() {
-        //pindah ke health agency activity
+        Intent intent = new Intent(this, WaitingListActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void bottomBarAction(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_home:
+                break;
+            case R.id.action_user:
+                Intent profile = new Intent(HomeActivity.this,ProfileActivity.class);
+                startActivity(profile);
+                break;
+            case R.id.action_time:
+                Intent time = new Intent(HomeActivity.this,RiwayatTiketActivity.class);
+                startActivity(time);
+                break;
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        bottomBarAction(item);
+        return false;
     }
 }
