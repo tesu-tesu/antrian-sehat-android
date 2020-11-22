@@ -63,4 +63,10 @@
     <string name="NIK_ticket">3578061212120002</string>
     <string name="nama_puskesmas_tiket">Puskesmas Klampis</string>
     <string name="nama_poli_tiket">Poli Gigi</string>
+  
+    <!--Schedule-->
+    <string name="cari_puskesmas">Cari Puskesmas</string>
+    <string name="pilih_tanggal">Pilih Tanggal</string>
+    <string name="dateLabel">Date : </string>
+    <string name="date">Tue, Feb 2017</string>
 </resources>
