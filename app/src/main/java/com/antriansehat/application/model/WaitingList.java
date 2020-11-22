@@ -55,10 +55,9 @@ public class WaitingList {
     }
 
     public String getRegistered_date() {
-        Locale locale = new Locale("id", "ID");
-        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.LONG, locale);
-
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.LONG, new Locale("id", "ID"));
         return dateFormat.format(registered_date);
+//        return registered_date;
     }
 
     public String getOrder_number() {

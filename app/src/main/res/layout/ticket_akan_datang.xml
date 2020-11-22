@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="waitinglist"
+            type="com.antriansehat.application.model.WaitingList" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="8dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewTodolist"
@@ -39,7 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/nik_item_number"
+                    android:text="@{waitinglist.residence_number}"
                     android:textSize="16dp" />
 
                 <TextView
@@ -48,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/poppins_light"
-                    android:text="@string/puskesmas_item_name"
+                    android:text="@{waitinglist.health_agency}"
                     android:textSize="14sp" />
 
                 <TextView
@@ -56,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light"
-                    android:text="@string/poliklinik_item_name"
+                    android:text="@{waitinglist.polyclinic}"
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -90,7 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="@string/no_antrian_value"
+                        android:text= "@{waitinglist.order_number}"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -116,8 +123,30 @@
                         android:layout_marginLeft="4dp"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins_light"
-                        android:text="@string/saat_ini_value"
+                        android:text="@{waitinglist.current_number}"
                         android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/slash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="@string/slash"
+                        android:textColor="@color/blackFont"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tvLatestWaitingList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="@{waitinglist.latest_number}"
+                        android:textColor="@color/blackFont"
+                        android:textSize="12sp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -131,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins_light"
-                        android:text="@string/tanggal_akan_datang"
+                        android:text="@{waitinglist.registered_date}"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -143,3 +172,4 @@
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
