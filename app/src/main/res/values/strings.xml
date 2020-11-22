@@ -56,4 +56,10 @@
     <string name="pengaturan">Pengaturan</string>
     <string name="registered_date">Tanggal</string>
     <string name="error_message">error message</string>
+
+    <!--Schedule-->
+    <string name="cari_puskesmas">Cari Puskesmas</string>
+    <string name="pilih_tanggal">Pilih Tanggal</string>
+    <string name="dateLabel">Date : </string>
+    <string name="date">Tue, Feb 2017</string>
 </resources>
