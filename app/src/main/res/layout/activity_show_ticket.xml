@@ -90,9 +90,9 @@
             app:ticketScallopPositionPercent="65"
             app:ticketScallopRadius="10dp"
             app:ticketShowBorder="false"
-            app:ticketShadowColor="black"
+            app:ticketShadowColor="@color/blackFont"
             app:ticketShowDivider="true"
-            app:ticketBackgroundAfterDivider="#3C96C4"/>
+            app:ticketBackgroundAfterDivider="@color/blue"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/outline"
