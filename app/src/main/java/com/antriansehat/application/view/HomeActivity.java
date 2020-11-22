@@ -119,7 +119,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     public void onButtonCreateWaitingList() {
-        Intent intent = new Intent(this, WaitingListActivity.class);
+        Intent intent = new Intent(this, RiwayatTiketActivity.class);
         startActivity(intent);
     }
 
