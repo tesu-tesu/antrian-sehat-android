@@ -1,11 +1,10 @@
 package com.antriansehat.application.api_response;
 
-import com.antriansehat.application.model.Polyclinic;
-
-import java.util.List;
+import com.antriansehat.application.model.PaginationHealthAgency;
+import com.antriansehat.application.model.PaginationPolyclinic;
 
 public class ListPolyclinicResponse {
     public boolean success;
     public String message;
-    public List<Polyclinic> data;
+    public PaginationPolyclinic data;
 }

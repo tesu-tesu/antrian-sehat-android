@@ -2,11 +2,11 @@ package com.antriansehat.application.model;
 
 import java.util.List;
 
-public class Pagination {
+public class PaginationHealthAgency {
     private int current_page, from, last_page, per_page, to, total;
     private List<HealthAgency> data;
 
-    public Pagination(int current_page, int from, int last_page, int per_page, int to, int total, List<HealthAgency> data) {
+    public PaginationHealthAgency(int current_page, int from, int last_page, int per_page, int to, int total, List<HealthAgency> data) {
         this.current_page = current_page;
         this.from = from;
         this.last_page = last_page;
