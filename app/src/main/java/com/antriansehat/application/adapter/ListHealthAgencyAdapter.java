@@ -17,6 +17,7 @@ import java.util.List;
 public class ListHealthAgencyAdapter extends RecyclerView.Adapter<ListHealthAgencyAdapter.ViewHolder>{
     private List<HealthAgency> healthAgencies;
     private LayoutInflater layoutInflater;
+    private ClickListener listener;
 
     public ListHealthAgencyAdapter(List<HealthAgency> healthAgencies, LayoutInflater layoutInflater) {
         this.healthAgencies = healthAgencies;
@@ -52,4 +53,12 @@ public class ListHealthAgencyAdapter extends RecyclerView.Adapter<ListHealthAgen
             this.binding = binding;
         }
     }
+
+    public interface ClickListener {
+        public void onItemClick(int position, View v);
+    }
+    public void setOnItemClickListener(ClickListener listener){
+        this.listener = listener;
+    }
+
 }

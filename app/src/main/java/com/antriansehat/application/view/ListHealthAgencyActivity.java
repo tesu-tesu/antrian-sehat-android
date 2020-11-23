@@ -2,6 +2,7 @@ package com.antriansehat.application.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -38,6 +39,7 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     private void initView(){
         binding.rvListHealthAgencies.setLayoutManager(new LinearLayoutManager(this));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
+        binding.btBack.setOnClickListener(this);
     }
 
     @Override
@@ -64,8 +66,18 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     }
 
     @Override
-    public void showListHealthAgencies(PaginationHealthAgency pagination) {
+    public void showListHealthAgencies(final PaginationHealthAgency pagination) {
         binding.rvListHealthAgencies.setAdapter(new ListHealthAgencyAdapter(pagination.getData(), getLayoutInflater()));
+
+        ((ListHealthAgencyAdapter) binding.rvListHealthAgencies.getAdapter()).setOnItemClickListener(new ListHealthAgencyAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                String id = pagination.getData().get(position).getName();
+                Toast.makeText(getApplicationContext(), id,
+                        Toast.LENGTH_SHORT).show();
+//                editTask(id);
+            }
+        });
     }
 
     @Override
