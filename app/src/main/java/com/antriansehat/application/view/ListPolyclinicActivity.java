@@ -37,7 +37,7 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
     }
 
     private void initView(){
-        binding.recyclerViewTodoList.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvListPoly.setLayoutManager(new LinearLayoutManager(this));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
     }
 
@@ -54,17 +54,19 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
 
     @Override
     public void startLoading() {
-        binding.recyclerViewTodoList.setVisibility(View.GONE);
+        binding.progressBar.setVisibility(View.VISIBLE);
+        binding.rvListPoly.setVisibility(View.GONE);
     }
 
     @Override
     public void endLoading() {
-        binding.recyclerViewTodoList.setVisibility(View.VISIBLE);
+        binding.progressBar.setVisibility(View.GONE);
+        binding.rvListPoly.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showListPolyclinics(PaginationPolyclinic pagination) {
-        binding.recyclerViewTodoList.setAdapter(new ListPolyclinicAdapter(pagination.getData(), getLayoutInflater()));
+        binding.rvListPoly.setAdapter(new ListPolyclinicAdapter(pagination.getData(), getLayoutInflater()));
     }
 
     @Override
