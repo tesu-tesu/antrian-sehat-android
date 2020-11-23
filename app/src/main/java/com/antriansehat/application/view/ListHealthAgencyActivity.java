@@ -16,13 +16,10 @@ import com.antriansehat.application.adapter.ListHealthAgencyAdapter;
 import com.antriansehat.application.contract.ListHealthAgencyContract;
 import com.antriansehat.application.databinding.ActivityPuskesmasListBinding;
 import com.antriansehat.application.interactor.ListHealthAgencyInteractor;
-import com.antriansehat.application.model.HealthAgency;
-import com.antriansehat.application.model.Pagination;
+import com.antriansehat.application.model.PaginationHealthAgency;
 import com.antriansehat.application.presenter.ListHealthAgencyPresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.List;
 
 public class ListHealthAgencyActivity extends AppCompatActivity implements ListHealthAgencyContract.View, View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener, BaseAuthenticatedView {
     private ActivityPuskesmasListBinding binding;
@@ -69,7 +66,7 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     }
 
     @Override
-    public void showListHealthAgencies(final Pagination pagination) {
+    public void showListHealthAgencies(final PaginationHealthAgency pagination) {
         binding.rvListHealthAgencies.setAdapter(new ListHealthAgencyAdapter(pagination.getData(), getLayoutInflater()));
 
         ((ListHealthAgencyAdapter) binding.rvListHealthAgencies.getAdapter()).setOnItemClickListener(new ListHealthAgencyAdapter.ClickListener() {
