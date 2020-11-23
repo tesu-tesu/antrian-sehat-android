@@ -2,6 +2,7 @@ package com.antriansehat.application.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -11,15 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.antriansehat.application.R;
-import com.antriansehat.application.adapter.ListBookAdapter;
 import com.antriansehat.application.adapter.ListHealthAgencyAdapter;
 import com.antriansehat.application.contract.ListHealthAgencyContract;
 import com.antriansehat.application.databinding.ActivityPuskesmasListBinding;
-import com.antriansehat.application.interactor.ListBookInteractor;
 import com.antriansehat.application.interactor.ListHealthAgencyInteractor;
 import com.antriansehat.application.model.HealthAgency;
 import com.antriansehat.application.model.Pagination;
-import com.antriansehat.application.presenter.ListBookPresenter;
 import com.antriansehat.application.presenter.ListHealthAgencyPresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -44,6 +42,7 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     private void initView(){
         binding.rvListHealthAgencies.setLayoutManager(new LinearLayoutManager(this));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
+        binding.btBack.setOnClickListener(this);
     }
 
     @Override
@@ -70,8 +69,18 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     }
 
     @Override
-    public void showListHealthAgencies(Pagination pagination) {
+    public void showListHealthAgencies(final Pagination pagination) {
         binding.rvListHealthAgencies.setAdapter(new ListHealthAgencyAdapter(pagination.getData(), getLayoutInflater()));
+
+        ((ListHealthAgencyAdapter) binding.rvListHealthAgencies.getAdapter()).setOnItemClickListener(new ListHealthAgencyAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                String id = pagination.getData().get(position).getName();
+                Toast.makeText(getApplicationContext(), id,
+                        Toast.LENGTH_SHORT).show();
+//                editTask(id);
+            }
+        });
     }
 
     @Override

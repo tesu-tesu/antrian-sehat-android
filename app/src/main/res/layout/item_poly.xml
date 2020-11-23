@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewTodolist"
+        android:id="@+id/cardViewItemPoly"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
         android:layout_gravity="center"
