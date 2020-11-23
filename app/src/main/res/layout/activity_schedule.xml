@@ -3,11 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable
-            name="Schedule"
-            type="com.antriansehat.application.model.Schedule" />
-    </data>
+    <data/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:background="@color/app_backg_main"
@@ -87,6 +83,15 @@
         </LinearLayout>
 
         <!--Content-->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topNav" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cvHeaderPuskesmas"
             android:layout_width="match_parent"
@@ -98,7 +103,7 @@
             android:foreground="?android:attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topNav"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
             tools:ignore="MissingConstraints">
 
 
@@ -194,402 +199,13 @@
                         android:text="@string/date"/>
                 </LinearLayout>
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvListSchedule"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_horizontal"
-                    android:layout_marginBottom="15dp">
-
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="70dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/bt_blue_schedule">
-
-
-                        <TextView
-                            android:id="@+id/tvDay1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/open_sans"
-                            android:text="S"
-                            android:textAlignment="center"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvDate1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="27"
-                            android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="70dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvDay2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/open_sans"
-                            android:text="S"
-                            android:textAlignment="center"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvDate2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="28"
-                            android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="70dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvDay3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/open_sans"
-                            android:text="S"
-                            android:textAlignment="center"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvDate3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="29"
-                            android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="70dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvDay4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/open_sans"
-                            android:text="S"
-                            android:textAlignment="center"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvDate4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="30"
-                            android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="70dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvDay5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/open_sans"
-                            android:text="S"
-                            android:textAlignment="center"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvDate5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="31"
-                            android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="70dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvDay6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/open_sans"
-                            android:text="S"
-                            android:textAlignment="center"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvDate6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="32"
-                            android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="70dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvDay7"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/open_sans"
-                            android:text="S"
-                            android:textAlignment="center"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvDate7"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="33"
-                            android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center_horizontal">
-
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvTimeOpen1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="08.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:id="@+id/tvTimeClose1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="11.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvTimeOpen2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="08.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:id="@+id/tvTimeClose2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="11.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvTimeOpen3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="08.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:id="@+id/tvTimeClose3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="11.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvTimeOpen4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="08.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:id="@+id/tvTimeClose4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="11.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvTimeOpen5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="08.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:id="@+id/tvTimeClose5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="11.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvTimeOpen6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="08.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:id="@+id/tvTimeClose6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="11.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginHorizontal="5dp"
-                        android:orientation="vertical"
-                        android:gravity="center_vertical">
-
-
-                        <TextView
-                            android:id="@+id/tvTimeOpen7"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="08.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:id="@+id/tvTimeClose7"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/open_sans"
-                            android:text="11.00"
-                            android:textAlignment="center"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-                </LinearLayout>
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_centerVertical="true"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
