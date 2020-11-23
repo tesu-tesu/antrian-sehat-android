@@ -1,23 +1,26 @@
 package com.antriansehat.application.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.antriansehat.application.R;
 import com.antriansehat.application.databinding.ItemPuskesmasBinding;
 import com.antriansehat.application.model.HealthAgency;
+import com.antriansehat.application.model.User;
 
 import java.util.List;
 
 public class ListHealthAgencyAdapter extends RecyclerView.Adapter<ListHealthAgencyAdapter.ViewHolder>{
     private List<HealthAgency> healthAgencies;
     private LayoutInflater layoutInflater;
-    private ClickListener listener;
+    private ListHealthAgencyListener listHealthAgencyListener;
 
     public ListHealthAgencyAdapter(List<HealthAgency> healthAgencies, LayoutInflater layoutInflater) {
         this.healthAgencies = healthAgencies;
@@ -31,8 +34,22 @@ public class ListHealthAgencyAdapter extends RecyclerView.Adapter<ListHealthAgen
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListHealthAgencyAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ListHealthAgencyAdapter.ViewHolder holder, final int position) {
         holder.binding.setHealthAgency(healthAgencies.get(position));
+        holder.binding.cardViewItemPuskesmas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listHealthAgencyListener.onCardClick(healthAgencies.get(position));
+            }
+        });
+    }
+
+    public void setListHealthAgencyClickListener(ListHealthAgencyListener listHealthAgencyListener) {
+        this.listHealthAgencyListener = listHealthAgencyListener;
+    }
+
+    public interface ListHealthAgencyListener {
+        void onCardClick(HealthAgency healthAgency);
     }
 
     @Override
@@ -53,12 +70,4 @@ public class ListHealthAgencyAdapter extends RecyclerView.Adapter<ListHealthAgen
             this.binding = binding;
         }
     }
-
-    public interface ClickListener {
-        public void onItemClick(int position, View v);
-    }
-    public void setOnItemClickListener(ClickListener listener){
-        this.listener = listener;
-    }
-
 }
