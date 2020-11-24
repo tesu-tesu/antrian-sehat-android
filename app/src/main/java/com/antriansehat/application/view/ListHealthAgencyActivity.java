@@ -19,6 +19,7 @@ import com.antriansehat.application.databinding.ActivityPuskesmasListBinding;
 import com.antriansehat.application.interactor.ListHealthAgencyInteractor;
 import com.antriansehat.application.model.HealthAgency;
 import com.antriansehat.application.model.PaginationHealthAgency;
+import com.antriansehat.application.model.PaginationPolyclinic;
 import com.antriansehat.application.presenter.ListHealthAgencyPresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -107,6 +108,9 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
 
     @Override
     public void onCardClick(HealthAgency healthAgency) {
-        Log.d("idHA : " , "" + healthAgency.getId());
+        Intent polyclinicPage = new Intent(ListHealthAgencyActivity.this,ListPolyclinicActivity.class);
+        polyclinicPage.putExtra("idHA", healthAgency.getId());
+        startActivity(polyclinicPage);
+//        presenter.getPolyclinic(healthAgency.getId());
     }
 }
