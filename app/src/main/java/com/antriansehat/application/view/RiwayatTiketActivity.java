@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import com.antriansehat.application.adapter.RiwayatTiketAkanDatangAdapter;
 import com.antriansehat.application.adapter.RiwayatTiketHariIniAdapter;
 import com.antriansehat.application.adapter.RiwayatTiketSelesaiAdapter;
 import com.antriansehat.application.contract.RiwayatTiketContract;
+import com.antriansehat.application.contract.ShowTicketContract;
 import com.antriansehat.application.databinding.ActivityRiwayatTiketBinding;
 import com.antriansehat.application.interactor.RiwayatTiketInteractor;
 import com.antriansehat.application.model.WaitingList;
@@ -45,6 +47,7 @@ public class RiwayatTiketActivity extends AppCompatActivity implements RiwayatTi
         binding.historyAkanDatang.setLayoutManager(new LinearLayoutManager(this));
         binding.historySelesai.setLayoutManager(new LinearLayoutManager(this));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
+        binding.btBack.setOnClickListener(this);
     }
 
     @Override
@@ -99,13 +102,25 @@ public class RiwayatTiketActivity extends AppCompatActivity implements RiwayatTi
     }
 
     @Override
-    public void showFutureWaitingList(List<WaitingList> waitingLists) {
+    public void showFutureWaitingList(final List<WaitingList> waitingLists) {
         binding.historyAkanDatang.setAdapter(new RiwayatTiketAkanDatangAdapter(waitingLists, getLayoutInflater()));
+        ((RiwayatTiketAkanDatangAdapter) binding.historyAkanDatang.getAdapter()).setOnItemClickListener(new RiwayatTiketAkanDatangAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(WaitingList waitingList) {
+                showTicket(waitingList);
+            }
+        });
     }
 
     @Override
     public void showCurrentWaitingList(List<WaitingList> waitingLists) {
         binding.historyHariIni.setAdapter(new RiwayatTiketHariIniAdapter(waitingLists, getLayoutInflater()));
+        ((RiwayatTiketHariIniAdapter) binding.historyHariIni.getAdapter()).setOnItemClickListener(new RiwayatTiketHariIniAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(WaitingList waitingList) {
+                showTicket(waitingList);
+            }
+        });
     }
 
     @Override
@@ -117,5 +132,12 @@ public class RiwayatTiketActivity extends AppCompatActivity implements RiwayatTi
     public void showError(String errorMessage) {
         Toast.makeText(getApplicationContext(), errorMessage,
                 Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showTicket(WaitingList waitingList) {
+        Intent showTicket = new Intent(RiwayatTiketActivity.this, ShowTicketActivity.class);
+        showTicket.putExtra("waitinglist", waitingList);
+        startActivity(showTicket);
     }
 }
