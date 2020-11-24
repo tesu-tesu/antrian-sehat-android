@@ -39,12 +39,14 @@ public class ListScheduleAdapter extends RecyclerView.Adapter<ListScheduleAdapte
             @Override
             public void onClick(View view) {
                 listScheduleListener.onCardClick(schedules.get(position));
-                if(schedules.get(position).isChoice()){
-                    holder.binding.cardScheduleItem.setBackgroundResource(R.drawable.bt_blue_schedule);
-                    schedules.get(position).setChoice(false);
-                } else {
-                    holder.binding.cardScheduleItem.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    schedules.get(position).setChoice(true);
+                if(schedules.get(position).getId() != null){
+                    if (!schedules.get(position).isChoice()) {
+                        holder.binding.cardScheduleItem.setBackgroundResource(R.drawable.bt_blue_schedule);
+                        schedules.get(position).setChoice(true);
+                    } else {
+                        holder.binding.cardScheduleItem.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        schedules.get(position).setChoice(false);
+                    }
                 }
             }
         });

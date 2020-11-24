@@ -2,6 +2,8 @@ package com.antriansehat.application.model;
 
 import android.text.format.Time;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -11,13 +13,22 @@ public class Schedule {
     private boolean isChoice = false;
     private Date date;
 
-    public Schedule(String id, String polyclinic_id, String day, String time_open, String time_close, String charOfDay, Date date) {
+    public Schedule(String day, String time_open, String time_close, String charOfDay) {
+        this.day = day;
+        this.time_open = time_open;
+        this.time_close = time_close;
+        this.charOfDay = charOfDay;
+    }
+
+    public Schedule(String id, String polyclinic_id, String day, String time_open,
+                    String time_close, String charOfDay, boolean isChoice, Date date) {
         this.id = id;
         this.polyclinic_id = polyclinic_id;
         this.day = day;
         this.time_open = time_open;
         this.time_close = time_close;
         this.charOfDay = charOfDay;
+        this.isChoice = isChoice;
         this.date = date;
     }
 
@@ -69,6 +80,14 @@ public class Schedule {
         this.charOfDay = charOfDay;
     }
 
+    public boolean isChoice() {
+        return isChoice ? isChoice : false;
+    }
+
+    public void setChoice(boolean choice) {
+        isChoice = choice;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -77,15 +96,11 @@ public class Schedule {
         this.date = date;
     }
 
-    public boolean isChoice() {
-        return isChoice;
-    }
-
-    public void setChoice(boolean choice) {
-        isChoice = choice;
-    }
-
-    public String getDateOfDay(){
-        return String.valueOf(date.getDate());
+    public String dateOfDay(){
+        if(date == null)
+            return "-";
+        else{
+            return String.valueOf(date.getDate());
+        }
     }
 }

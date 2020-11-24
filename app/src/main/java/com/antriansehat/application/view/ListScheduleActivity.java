@@ -20,6 +20,7 @@ import com.antriansehat.application.presenter.ListSchedulePresenter;
 import com.antriansehat.application.util.UtilProvider;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -68,12 +69,29 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
         binding.tvAddress.setText(scheduleOfHA.get(0).getHealth_agency().getAddress());
         binding.tvDate.setText(new SimpleDateFormat(" EEEE, dd MMMM yyyy").format(new Date()));
 
-        final ListScheduleAdapter listScheduleAdapter = new ListScheduleAdapter(scheduleOfHA.get(0).getSorted(), getLayoutInflater());
+        List<Schedule> scheduleList = new ArrayList<Schedule>();
+        String[] charOfDay = new String[]{"M", "S", "S", "R", "K", "J", "S"};
+        for(int i = 0 ; i < 7 ; i++){
+            boolean isFound = false;
+            for(Schedule schedule : scheduleOfHA.get(0).getSorted()){
+                if(schedule.getDay().equals(String.valueOf(i))){
+                    scheduleList.add(schedule);
+                    isFound = true;
+                    break;
+                }
+            }
+            if(!isFound)
+                scheduleList.add(new Schedule(String.valueOf(i), "-", "-", charOfDay[i]));
+        }
+
+        Log.d("SIZE 2 : ", String.valueOf(scheduleList.size()));
+        final ListScheduleAdapter listScheduleAdapter = new ListScheduleAdapter(scheduleList, getLayoutInflater());
         binding.rvListSchedule.setAdapter(listScheduleAdapter);
         listScheduleAdapter.setListHealthAgencyClickListener(new ListScheduleAdapter.ListScheduleListener() {
             @Override
             public void onCardClick(Schedule schedule) {
-                Log.d("SCHEDULE : " , schedule.getId());
+                if(schedule.getId() != null)
+                    Log.d("SCHEDULE : " , schedule.getId());
             }
         });
     }
