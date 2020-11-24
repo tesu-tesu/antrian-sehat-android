@@ -1,11 +1,12 @@
 package com.antriansehat.application.model;
 
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class WaitingList {
+public class WaitingList implements Serializable {
     private String id;
     private String status;
     private String barcode;

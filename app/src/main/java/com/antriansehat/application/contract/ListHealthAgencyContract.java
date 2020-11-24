@@ -1,16 +1,13 @@
 package com.antriansehat.application.contract;
 
 import com.antriansehat.application.callback.RequestCallback;
-import com.antriansehat.application.model.HealthAgency;
-import com.antriansehat.application.model.Pagination;
-
-import java.util.List;
+import com.antriansehat.application.model.PaginationHealthAgency;
 
 public interface ListHealthAgencyContract {
     interface View {
         void startLoading();
         void endLoading();
-        void showListHealthAgencies(Pagination pagination);
+        void showListHealthAgencies(PaginationHealthAgency pagination);
         void showError(String errorMessage);
     }
 
@@ -19,6 +16,6 @@ public interface ListHealthAgencyContract {
     }
 
     interface Interactor {
-        void requestListHealthAgency(RequestCallback<Pagination> requestCallback);
+        void requestListHealthAgency(RequestCallback<PaginationHealthAgency> requestCallback);
     }
 }

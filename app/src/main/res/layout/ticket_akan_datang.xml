@@ -13,7 +13,7 @@
     android:layout_marginBottom="8dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewTodolist"
+        android:id="@+id/cardView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="@{waitinglist.residence_number}"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/puskesmasName"
@@ -120,7 +120,7 @@
                         android:id="@+id/saatIniValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
+                        android:layout_marginStart="4dp"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins_light"
                         android:text="@{waitinglist.current_number}"
@@ -130,7 +130,7 @@
                         android:id="@+id/slash"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
+                        android:layout_marginStart="4dp"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins_light"
                         android:text="@string/slash"
@@ -141,7 +141,7 @@
                         android:id="@+id/tvLatestWaitingList"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
+                        android:layout_marginStart="4dp"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins_light"
                         android:text="@{waitinglist.latest_number}"

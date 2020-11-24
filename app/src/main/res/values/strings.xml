@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android Example</string>
+    <string name="app_name">Antrian Sehat</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -59,10 +59,11 @@
     <string name="daftar_antrian">Daftar Antrian</string>
     <string name="nama_puskesmas_show_ticket">Puskesmas Klampis</string>
     <string name="nama_poli_show_ticket">Poli Gigi</string>
-    <string name="nomer_antrian_ticket">No Antrian 12</string>
+    <string name="nomer_antrian_label">No. Antrian </string>
     <string name="NIK_ticket">3578061212120002</string>
     <string name="nama_puskesmas_tiket">Puskesmas Klampis</string>
     <string name="nama_poli_tiket">Poli Gigi</string>
+    <string name="kartu_antrian_label">Kartu Antrian</string>
   
     <!--Schedule-->
     <string name="cari_puskesmas">Cari Puskesmas</string>

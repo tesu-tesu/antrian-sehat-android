@@ -27,13 +27,8 @@ public class RiwayatTiketInteractor implements RiwayatTiketContract.Interactor {
                 .getAsObject(UserWaitingListResponse.class, new ParsedRequestListener<UserWaitingListResponse>() {
                     @Override
                     public void onResponse(UserWaitingListResponse response) {
-                        Log.d("ABC", "onResponse: BERHASIL CARI");
                         if(response.success){
-//                            UserWaitingList userWaitingList = new UserWaitingList(response.futureWaitingList, response.currentWaitingList, response.historyWaitingList);
-//                            Log.d("FUTURE", "onResponse: " + response.futureWaitingList.get(0).getStatus());
-                            Log.d("ABC", "onResponse: " + response.success);
                             requestCallback.requestSuccess(response.waitingList);
-
                         }
                         else {
                             requestCallback.requestFailed("Gagal");
@@ -42,8 +37,7 @@ public class RiwayatTiketInteractor implements RiwayatTiketContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        Log.d("gagal", "onError: " + anError.toString());
-//                        requestCallback.requestFailed(anError.getErrorBody());
+                        requestCallback.requestFailed(anError.getErrorBody());
                     }
                 });
     }

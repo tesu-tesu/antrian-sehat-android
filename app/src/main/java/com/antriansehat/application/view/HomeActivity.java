@@ -62,13 +62,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
     @Override
     public void showNearestWaitingList(WaitingList waitingList) {
-        binding.tvCurrentWaitingList.setText(waitingList.getCurrent_number());
-        binding.tvLatestWaitingList.setText(waitingList.getLatest_number());
-        binding.tvOrderNumber.setText(waitingList.getOrder_number());
-        binding.tvResidenceNumber.setText(waitingList.getResidence_number());
-        binding.tvPoly.setText(waitingList.getPolyclinic());
-        binding.tvHA.setText(waitingList.getHealth_agency());
-        binding.tvRegDate.setText(waitingList.getRegistered_date());
+        binding.setWaitingList(waitingList);
         binding.leftLabel.setVisibility(View.VISIBLE);
         binding.rightLabel.setVisibility(View.VISIBLE);
     }
@@ -119,7 +113,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     public void onButtonCreateWaitingList() {
-        Intent intent = new Intent(this, WaitingListActivity.class);
+        Intent intent = new Intent(this, RiwayatTiketActivity.class);
         startActivity(intent);
     }
 
