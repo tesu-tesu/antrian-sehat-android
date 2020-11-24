@@ -40,7 +40,7 @@ public class LoginInteractor implements LoginContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getErrorBody());
+                        requestCallback.requestFailed(anError.getErrorDetail());
                     }
                 });
     }

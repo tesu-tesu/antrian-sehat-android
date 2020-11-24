@@ -1,14 +1,22 @@
 package com.antriansehat.application.interactor;
 
+import android.util.Log;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.antriansehat.application.api_response.ListHealthAgencyResponse;
+import com.antriansehat.application.api_response.ListPolyclinicResponse;
+import com.antriansehat.application.api_response.ListPolyclinicResponseFromHA;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.contract.ListHealthAgencyContract;
 import com.antriansehat.application.model.PaginationHealthAgency;
+import com.antriansehat.application.model.PaginationPolyclinic;
+import com.antriansehat.application.model.PolymasterFromSelectedHA;
 import com.antriansehat.application.util.SharedPreferencesUtil;
+
+import java.util.List;
 
 public class ListHealthAgencyInteractor implements ListHealthAgencyContract.Interactor {
     private SharedPreferencesUtil sharedPreferencesUtil;
@@ -42,4 +50,5 @@ public class ListHealthAgencyInteractor implements ListHealthAgencyContract.Inte
                     }
                 });
     }
+
 }

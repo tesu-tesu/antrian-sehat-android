@@ -1,8 +1,15 @@
 package com.antriansehat.application.presenter;
 
+import android.util.Log;
+
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.ListHealthAgencyContract;
 import com.antriansehat.application.model.PaginationHealthAgency;
+import com.antriansehat.application.model.PaginationPolyclinic;
+import com.antriansehat.application.model.Polyclinic;
+import com.antriansehat.application.model.PolymasterFromSelectedHA;
+
+import java.util.List;
 
 public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Presenter {
     private ListHealthAgencyContract.View view;
@@ -30,4 +37,5 @@ public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Prese
             }
         });
     }
+
 }

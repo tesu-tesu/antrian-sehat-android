@@ -2,6 +2,10 @@ package com.antriansehat.application.contract;
 
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.model.PaginationHealthAgency;
+import com.antriansehat.application.model.PaginationPolyclinic;
+import com.antriansehat.application.model.PolymasterFromSelectedHA;
+
+import java.util.List;
 
 public interface ListHealthAgencyContract {
     interface View {
