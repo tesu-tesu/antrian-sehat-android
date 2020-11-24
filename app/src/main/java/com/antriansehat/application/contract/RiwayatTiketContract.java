@@ -16,6 +16,7 @@ public interface RiwayatTiketContract {
         void showCurrentWaitingList(List<WaitingList> waitingLists);
         void showHistoryWaitingList(List<WaitingList> waitingLists);
         void showError(String errorMessage);
+        void showTicket(WaitingList waitingList);
     }
 
     interface Presenter {
