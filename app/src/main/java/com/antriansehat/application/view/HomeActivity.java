@@ -3,12 +3,10 @@ package com.antriansehat.application.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.antriansehat.application.R;
 import com.antriansehat.application.contract.HomeContract;
@@ -20,7 +18,6 @@ import com.antriansehat.application.presenter.HomePresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
-import static androidx.constraintlayout.widget.ConstraintSet.VISIBLE;
 
 public class HomeActivity extends AppCompatActivity implements HomeContract.View, View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener, BaseAuthenticatedView {
     private HomeContract.Presenter presenter;
@@ -44,15 +41,11 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         binding.btListHA.setOnClickListener(this);
         binding.btListPoly.setOnClickListener(this);
         binding.btShowTicket.setOnClickListener(this);
-        binding.cWaitingList.setOnClickListener(this);
     }
   
     @Override
     public void whenUserLogin() {
         presenter.requestNearestWaitingList();
-//        finish();
-//        startActivity(new Intent(getApplicationContext(), ListBookActivity.class));
-        //loading data from API to show in home
     }
 
     public void whenUserNotLogin() {
@@ -62,6 +55,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
     @Override
     public void showNearestWaitingList(WaitingList waitingList) {
+        binding.cardWaitingList.setOnClickListener(this);
         binding.setWaitingList(waitingList);
         binding.leftLabel.setVisibility(View.VISIBLE);
         binding.rightLabel.setVisibility(View.VISIBLE);
@@ -90,7 +84,16 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
             onButtonListHA();
         }else if(view.getId() == binding.btCreateWL.getId()){
             onButtonCreateWaitingList();
+        } else if(view.getId() == binding.cardWaitingList.getId()) {
+            onButtonShowSpecificTicket();
         }
+    }
+
+    private void onButtonShowSpecificTicket() {
+        WaitingList waitingList = binding.getWaitingList();
+        Intent showTicket = new Intent(HomeActivity.this, ShowTicketActivity.class);
+        showTicket.putExtra("waitinglist", waitingList);
+        startActivity(showTicket);
     }
 
     public void onCardNearestWaitingList() {
