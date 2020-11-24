@@ -1,6 +1,7 @@
 package com.antriansehat.application.adapter;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import java.util.List;
 public class RiwayatTiketHariIniAdapter extends RecyclerView.Adapter<RiwayatTiketHariIniAdapter.ViewHolder> {
     private List<WaitingList> waitingLists;
     private LayoutInflater layoutInflater;
+    private RiwayatTiketHariIniAdapter.ItemClickListener listener;
 
     public RiwayatTiketHariIniAdapter(List<WaitingList> waitingLists, LayoutInflater layoutInflater) {
         this.waitingLists = waitingLists;
@@ -28,8 +30,14 @@ public class RiwayatTiketHariIniAdapter extends RecyclerView.Adapter<RiwayatTike
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RiwayatTiketHariIniAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RiwayatTiketHariIniAdapter.ViewHolder holder, final int position) {
         holder.binding.setWaitinglist(waitingLists.get(position));
+        holder.binding.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClick(waitingLists.get(position));
+            }
+        });
     }
 
     @Override
@@ -49,5 +57,13 @@ public class RiwayatTiketHariIniAdapter extends RecyclerView.Adapter<RiwayatTike
             super(binding.getRoot());
             this.binding = binding;
         }
+    }
+
+    public void setOnItemClickListener(RiwayatTiketHariIniAdapter.ItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public interface ItemClickListener {
+        void onItemClick(WaitingList waitingList);
     }
 }
