@@ -8,6 +8,9 @@ public class ScheduleOfHA {
     private HealthAgency health_agency;
     private Polyclinic poly_master;
 
+    public ScheduleOfHA() {
+    }
+
     public ScheduleOfHA(String id, String poly_master_id, String health_agency_id,
                         List<Schedule> sorted, HealthAgency health_agency, Polyclinic poly_master) {
         this.id = id;

@@ -63,29 +63,13 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
     }
 
     @Override
-    public void showListSchedule(List<ScheduleOfHA> scheduleOfHA) {
-        binding.tvPuskesmas.setText(scheduleOfHA.get(0).getHealth_agency().getName());
-        binding.tvPolyclinic.setText(scheduleOfHA.get(0).getPoly_master().getName());
-        binding.tvAddress.setText(scheduleOfHA.get(0).getHealth_agency().getAddress());
+    public void showListSchedule(ScheduleOfHA scheduleOfHA) {
+        binding.tvPuskesmas.setText(scheduleOfHA.getHealth_agency().getName());
+        binding.tvPolyclinic.setText(scheduleOfHA.getPoly_master().getName());
+        binding.tvAddress.setText(scheduleOfHA.getHealth_agency().getAddress());
         binding.tvDate.setText(new SimpleDateFormat(" EEEE, dd MMMM yyyy").format(new Date()));
 
-        List<Schedule> scheduleList = new ArrayList<Schedule>();
-        String[] charOfDay = new String[]{"M", "S", "S", "R", "K", "J", "S"};
-        for(int i = 0 ; i < 7 ; i++){
-            boolean isFound = false;
-            for(Schedule schedule : scheduleOfHA.get(0).getSorted()){
-                if(schedule.getDay().equals(String.valueOf(i))){
-                    scheduleList.add(schedule);
-                    isFound = true;
-                    break;
-                }
-            }
-            if(!isFound)
-                scheduleList.add(new Schedule(String.valueOf(i), "-", "-", charOfDay[i]));
-        }
-
-        Log.d("SIZE 2 : ", String.valueOf(scheduleList.size()));
-        final ListScheduleAdapter listScheduleAdapter = new ListScheduleAdapter(scheduleList, getLayoutInflater());
+        final ListScheduleAdapter listScheduleAdapter = new ListScheduleAdapter(scheduleOfHA.getSorted(), getLayoutInflater());
         binding.rvListSchedule.setAdapter(listScheduleAdapter);
         listScheduleAdapter.setListHealthAgencyClickListener(new ListScheduleAdapter.ListScheduleListener() {
             @Override

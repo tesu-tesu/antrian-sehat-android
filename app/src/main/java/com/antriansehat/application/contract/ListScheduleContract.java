@@ -10,7 +10,7 @@ public interface ListScheduleContract {
     interface View {
         void startLoading();
         void endLoading();
-        void showListSchedule(List<ScheduleOfHA> scheduleOfHA);
+        void showListSchedule(ScheduleOfHA scheduleOfHA);
         void showError(String errorMessage);
     }
 
