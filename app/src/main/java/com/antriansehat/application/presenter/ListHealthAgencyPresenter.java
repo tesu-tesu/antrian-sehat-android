@@ -5,6 +5,8 @@ import com.antriansehat.application.contract.ListHealthAgencyContract;
 import com.antriansehat.application.model.HealthAgency;
 import com.antriansehat.application.model.Pagination;
 
+import java.util.List;
+
 public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Presenter {
     private ListHealthAgencyContract.View view;
     private ListHealthAgencyContract.Interactor interactor;
@@ -30,6 +32,24 @@ public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Prese
                 view.showError(errorMessage);
             }
         });
+    }
+
+    @Override
+    public void getHealthAgencyOfPolyId(String poly_id) {
+        view.startLoading();
+        interactor.requestListHealthAgencyOfPolyId(new RequestCallback<List<HealthAgency>>() {
+            @Override
+            public void requestSuccess(List<HealthAgency> data) {
+                view.endLoading();
+                view.showListHealthAgencies(data);
+            }
+
+            @Override
+            public void requestFailed(String errorMessage) {
+                view.endLoading();
+                view.showError(errorMessage);
+            }
+        }, poly_id);
     }
 
 }
