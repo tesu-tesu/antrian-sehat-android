@@ -2,6 +2,7 @@ package com.antriansehat.application.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
         BaseAuthenticatedView {
     private ActivityPuskesmasListBinding binding;
     private ListHealthAgencyPresenter presenter;
+    private boolean isFromPoly = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,16 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     }
 
     private void initView(){
-        presenter.getHealthAgency();
+        Intent intent = getIntent();
+        String idPoly = intent.getStringExtra("idPoly");
+
+        if (idPoly == null){
+            presenter.getHealthAgency();
+        }else{
+            this.isFromPoly = true;
+            presenter.getHealthAgencyOfPolyId(idPoly);
+        }
+
         binding.rvListHealthAgencies.setLayoutManager(new LinearLayoutManager(this));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);    //BottomNavigationView.OnNavigationItemSelectedListener
         binding.btBack.setOnClickListener(this);
@@ -106,9 +117,10 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
 
     @Override
     public void onCardClick(HealthAgency healthAgency) {
-        Intent polyclinicPage = new Intent(ListHealthAgencyActivity.this,ListPolyclinicActivity.class);
-        polyclinicPage.putExtra("idHA", healthAgency.getId());
-        startActivity(polyclinicPage);
-//        presenter.getPolyclinic(healthAgency.getId());
+        if(!isFromPoly){
+            Intent polyclinicPage = new Intent(ListHealthAgencyActivity.this,ListPolyclinicActivity.class);
+            polyclinicPage.putExtra("idHA", healthAgency.getId());
+            startActivity(polyclinicPage);
+        }
     }
 }

@@ -16,9 +16,11 @@ public interface ListHealthAgencyContract {
 
     interface Presenter {
         void getHealthAgency();
+        void getHealthAgencyOfPolyId(String poly_id);
     }
 
     interface Interactor {
         void requestListHealthAgency(RequestCallback<Pagination<HealthAgency>> requestCallback);
+        void requestListHealthAgencyOfPolyId(RequestCallback<List<HealthAgency>> requestCallback, String poly_id);
     }
 }

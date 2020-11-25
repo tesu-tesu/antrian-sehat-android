@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.antriansehat.application.R;
+import com.antriansehat.application.adapter.ListHealthAgencyAdapter;
 import com.antriansehat.application.adapter.ListPolyclinicAdapter;
 import com.antriansehat.application.contract.ListPolyclinicContract;
 import com.antriansehat.application.databinding.ActivityListPolyBinding;
@@ -23,9 +24,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
-public class ListPolyclinicActivity extends AppCompatActivity implements ListPolyclinicContract.View, View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener, BaseAuthenticatedView {
+public class ListPolyclinicActivity extends AppCompatActivity implements ListPolyclinicContract.View,
+        View.OnClickListener,
+        BottomNavigationView.OnNavigationItemSelectedListener,
+        ListPolyclinicAdapter.ListPolyclinicListener,
+        BaseAuthenticatedView {
     private ActivityListPolyBinding binding;
     private ListPolyclinicPresenter presenter;
+    private boolean isFromHA = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +46,11 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
     private void initView(){
         Intent intent = getIntent();
         String idHa = intent.getStringExtra("idHA");
+
         if (idHa == null){
             presenter.getPolyclinic();
         }else{
+            this.isFromHA = true;
             presenter.getPolyclinicFromHA(idHa);
         }
 
@@ -70,8 +78,11 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
     }
 
     @Override
-    public void showListPolyclinics(List<Polyclinic> data) {
-        binding.rvListPoly.setAdapter(new ListPolyclinicAdapter(data, getLayoutInflater()));
+    public void showListPolyclinics(List<Polyclinic> polyclinics) {
+        ListPolyclinicAdapter listPolyclinicAdapter = new ListPolyclinicAdapter(polyclinics, getLayoutInflater());
+        binding.rvListPoly.setAdapter(listPolyclinicAdapter);
+
+        listPolyclinicAdapter.setListPolyclinicClickListener(this); //ListHealthAgencyAdapter.ListHealthAgencyListener
     }
 
     @Override
@@ -102,5 +113,14 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         bottomBarAction(item);
         return false;
+    }
+
+    @Override
+    public void onCardClick(Polyclinic polyclinic) {
+        if(!isFromHA){
+            Intent healthAgencyPage = new Intent(ListPolyclinicActivity.this,ListHealthAgencyActivity.class);
+            healthAgencyPage.putExtra("idPoly", polyclinic.getId());
+            startActivity(healthAgencyPage);
+        }
     }
 }
