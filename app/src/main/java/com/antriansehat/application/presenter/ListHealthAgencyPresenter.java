@@ -1,15 +1,9 @@
 package com.antriansehat.application.presenter;
 
-import android.util.Log;
-
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.ListHealthAgencyContract;
-import com.antriansehat.application.model.PaginationHealthAgency;
-import com.antriansehat.application.model.PaginationPolyclinic;
-import com.antriansehat.application.model.Polyclinic;
-import com.antriansehat.application.model.PolymasterFromSelectedHA;
-
-import java.util.List;
+import com.antriansehat.application.model.HealthAgency;
+import com.antriansehat.application.model.Pagination;
 
 public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Presenter {
     private ListHealthAgencyContract.View view;
@@ -23,11 +17,11 @@ public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Prese
     @Override
     public void getHealthAgency() {
         view.startLoading();
-        interactor.requestListHealthAgency(new RequestCallback<PaginationHealthAgency>() {
+        interactor.requestListHealthAgency(new RequestCallback<Pagination<HealthAgency>>() {
             @Override
-            public void requestSuccess(PaginationHealthAgency data) {
+            public void requestSuccess(Pagination<HealthAgency> data) {
                 view.endLoading();
-                view.showListHealthAgencies(data);
+                view.showListHealthAgencies(data.getData());
             }
 
             @Override

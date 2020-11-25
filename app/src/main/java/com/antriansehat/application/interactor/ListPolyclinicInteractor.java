@@ -10,8 +10,7 @@ import com.antriansehat.application.api_response.ListPolyclinicResponseFromHA;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.contract.ListPolyclinicContract;
-import com.antriansehat.application.model.PaginationHealthAgency;
-import com.antriansehat.application.model.PaginationPolyclinic;
+import com.antriansehat.application.model.Pagination;
 import com.antriansehat.application.model.Polyclinic;
 import com.antriansehat.application.model.PolymasterFromSelectedHA;
 import com.antriansehat.application.util.SharedPreferencesUtil;
@@ -26,7 +25,7 @@ public class ListPolyclinicInteractor implements ListPolyclinicContract.Interact
     }
 
     @Override
-    public void requestListPolyclinic(final RequestCallback<PaginationPolyclinic> requestCallback) {
+    public void requestListPolyclinic(final RequestCallback<Pagination<Polyclinic>> requestCallback) {
         AndroidNetworking.get(ApiConstant.BASE_URL + "admin/poly-master")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()

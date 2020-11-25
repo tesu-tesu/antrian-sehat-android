@@ -4,8 +4,7 @@ import android.util.Log;
 
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.ListPolyclinicContract;
-import com.antriansehat.application.model.PaginationHealthAgency;
-import com.antriansehat.application.model.PaginationPolyclinic;
+import com.antriansehat.application.model.Pagination;
 import com.antriansehat.application.model.Polyclinic;
 import com.antriansehat.application.model.PolymasterFromSelectedHA;
 
@@ -24,11 +23,11 @@ public class ListPolyclinicPresenter implements ListPolyclinicContract.Presenter
     @Override
     public void getPolyclinic() {
         view.startLoading();
-        interactor.requestListPolyclinic(new RequestCallback<PaginationPolyclinic>() {
+        interactor.requestListPolyclinic(new RequestCallback<Pagination<Polyclinic>>() {
             @Override
-            public void requestSuccess(PaginationPolyclinic data) {
+            public void requestSuccess(Pagination<Polyclinic> data) {
                 view.endLoading();
-                view.showListPolyclinics(data);
+                view.showListPolyclinics(data.getData());
             }
 
             @Override

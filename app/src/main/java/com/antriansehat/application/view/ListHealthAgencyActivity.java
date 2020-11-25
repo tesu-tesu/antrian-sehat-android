@@ -2,7 +2,6 @@ package com.antriansehat.application.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -10,7 +9,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.antriansehat.application.R;
 import com.antriansehat.application.adapter.ListHealthAgencyAdapter;
@@ -18,11 +16,11 @@ import com.antriansehat.application.contract.ListHealthAgencyContract;
 import com.antriansehat.application.databinding.ActivityPuskesmasListBinding;
 import com.antriansehat.application.interactor.ListHealthAgencyInteractor;
 import com.antriansehat.application.model.HealthAgency;
-import com.antriansehat.application.model.PaginationHealthAgency;
-import com.antriansehat.application.model.PaginationPolyclinic;
 import com.antriansehat.application.presenter.ListHealthAgencyPresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
 
 public class ListHealthAgencyActivity extends AppCompatActivity implements ListHealthAgencyContract.View,
         View.OnClickListener,
@@ -69,8 +67,8 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     }
 
     @Override
-    public void showListHealthAgencies(PaginationHealthAgency pagination) {
-        ListHealthAgencyAdapter listHealthAgencyAdapter = new ListHealthAgencyAdapter(pagination.getData(), getLayoutInflater());
+    public void showListHealthAgencies(List<HealthAgency> healthAgencies) {
+        ListHealthAgencyAdapter listHealthAgencyAdapter = new ListHealthAgencyAdapter(healthAgencies, getLayoutInflater());
         binding.rvListHealthAgencies.setAdapter(listHealthAgencyAdapter);
 
         listHealthAgencyAdapter.setListHealthAgencyClickListener(this); //ListHealthAgencyAdapter.ListHealthAgencyListener
