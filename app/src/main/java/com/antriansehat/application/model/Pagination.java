@@ -2,11 +2,11 @@ package com.antriansehat.application.model;
 
 import java.util.List;
 
-public class PaginationHealthAgency {
+public class Pagination<T>{
     private int current_page, from, last_page, per_page, to, total;
-    private List<HealthAgency> data;
+    private List<T> data;
 
-    public PaginationHealthAgency(int current_page, int from, int last_page, int per_page, int to, int total, List<HealthAgency> data) {
+    public Pagination(int current_page, int from, int last_page, int per_page, int to, int total, List<T> data) {
         this.current_page = current_page;
         this.from = from;
         this.last_page = last_page;
@@ -64,11 +64,11 @@ public class PaginationHealthAgency {
         this.total = total;
     }
 
-    public List<HealthAgency> getData() {
+    public List<T> getData() {
         return data;
     }
 
-    public void setData(List<HealthAgency> data) {
+    public void setData(List<T> data) {
         this.data = data;
     }
 }

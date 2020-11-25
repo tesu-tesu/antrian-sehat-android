@@ -16,10 +16,7 @@ import com.antriansehat.application.adapter.ListPolyclinicAdapter;
 import com.antriansehat.application.contract.ListPolyclinicContract;
 import com.antriansehat.application.databinding.ActivityListPolyBinding;
 import com.antriansehat.application.interactor.ListPolyclinicInteractor;
-import com.antriansehat.application.model.PaginationHealthAgency;
-import com.antriansehat.application.model.PaginationPolyclinic;
 import com.antriansehat.application.model.Polyclinic;
-import com.antriansehat.application.model.PolymasterFromSelectedHA;
 import com.antriansehat.application.presenter.ListPolyclinicPresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -70,11 +67,6 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
     public void endLoading() {
         binding.progressBar.setVisibility(View.GONE);
         binding.rvListPoly.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void showListPolyclinics(PaginationPolyclinic pagination) {
-        binding.rvListPoly.setAdapter(new ListPolyclinicAdapter(pagination.getData(), getLayoutInflater()));
     }
 
     @Override
