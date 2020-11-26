@@ -20,4 +20,64 @@ public class DaftarAntrian {
         return dateFormat.format(registered_date);
     }
 
+    public DaftarAntrian(int id, String residence_number, int scheduleId, int polyclinicId, int healthAgencyId, Date registered_date) {
+        this.id = id;
+        this.residence_number = residence_number;
+        this.scheduleId = scheduleId;
+        this.polyclinicId = polyclinicId;
+        this.healthAgencyId = healthAgencyId;
+        this.registered_date = registered_date;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getResidence_number() {
+        return residence_number;
+    }
+
+    public void setResidence_number(String residence_number) {
+        this.residence_number = residence_number;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getScheduleId() {
+        return scheduleId;
+    }
+
+    public void setScheduleId(int scheduleId) {
+        this.scheduleId = scheduleId;
+    }
+
+    public int getPolyclinicId() {
+        return polyclinicId;
+    }
+
+    public void setPolyclinicId(int polyclinicId) {
+        this.polyclinicId = polyclinicId;
+    }
+
+    public int getHealthAgencyId() {
+        return healthAgencyId;
+    }
+
+    public void setHealthAgencyId(int healthAgencyId) {
+        this.healthAgencyId = healthAgencyId;
+    }
+
+    public void setRegistered_date(Date registered_date) {
+        this.registered_date = registered_date;
+    }
 }
