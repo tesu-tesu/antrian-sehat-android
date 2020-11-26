@@ -12,12 +12,11 @@ import com.antriansehat.application.model.ScheduleOfHA;
 import com.antriansehat.application.util.SharedPreferencesUtil;
 
 public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor {
-    private SharedPreferencesUtil sharedPreferencesUtil;
+    private final SharedPreferencesUtil sharedPreferencesUtil;
 
     public DaftarAntrianInteractor(SharedPreferencesUtil sharedPreferencesUtil) {
         this.sharedPreferencesUtil = sharedPreferencesUtil;
     }
-
 
     @Override
     public void requestSchedule(ScheduleOfHA scheduleOfHA) {

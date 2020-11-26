@@ -25,7 +25,7 @@ public class DaftarAntrianPresenter implements DaftarAntrianContract.Presenter {
 
             @Override
             public void requestFailed(String errorMessage) {
-
+                view.registerFailed(errorMessage);
             }
         });
     }
