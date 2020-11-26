@@ -19,7 +19,7 @@ public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor
     }
 
     @Override
-    public void requestSchedule(ScheduleOfHA scheduleOfHA) {
+    public void requestSelectedSchedule(ScheduleOfHA scheduleOfHA) {
 
     }
 

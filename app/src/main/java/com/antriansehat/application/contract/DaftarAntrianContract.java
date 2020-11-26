@@ -17,7 +17,7 @@ public interface DaftarAntrianContract {
     }
 
     public interface Interactor {
-        void requestSchedule(ScheduleOfHA scheduleOfHA);
+        void requestSelectedSchedule(ScheduleOfHA scheduleOfHA);
         void getResidenceNumber(String id);
         void requestRegister(String residence_number, String polyclinic, String health_agency, RequestCallback<DaftarAntrianResponse> daftarAntrianResponseRequestCallback);
     }
