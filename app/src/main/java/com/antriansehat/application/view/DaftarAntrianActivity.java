@@ -17,7 +17,7 @@ import com.antriansehat.application.util.UtilProvider;
 public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAntrianContract.View, View.OnClickListener {
     private ActivityDaftarAntrianBinding binding;
     private DaftarAntrianPresenter presenter;
-    private WaitingList waitingList;
+    private boolean isFromCurrentUser = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

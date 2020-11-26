@@ -1,5 +1,7 @@
 package com.antriansehat.application.contract;
 
+import com.antriansehat.application.model.ScheduleOfHA;
+
 public interface DaftarAntrianContract {
 
     public interface View {
@@ -12,8 +14,8 @@ public interface DaftarAntrianContract {
     }
 
     public interface Interactor {
-        void requestSchedule();
+        void requestSchedule(ScheduleOfHA scheduleOfHA);
         void requestRegister(String schedule, String residence_number, String health_agency, String polyclinic, String order_number);
-        void getResidenceNumber();
+        void getResidenceNumber(String id);
     }
 }

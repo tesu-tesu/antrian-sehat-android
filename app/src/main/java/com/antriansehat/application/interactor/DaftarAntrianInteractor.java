@@ -22,7 +22,8 @@ public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor
     }
 
     @Override
-    public void getResidenceNumber() {
+    public void getResidenceNumber(String id) {
 
     }
+
 }
