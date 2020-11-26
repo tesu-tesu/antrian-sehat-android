@@ -20,7 +20,7 @@ public class DaftarAntrianPresenter implements DaftarAntrianContract.Presenter {
         interactor.requestRegister(residence_number, polyclinic, health_agency, new RequestCallback<DaftarAntrianResponse>() {
             @Override
             public void requestSuccess(DaftarAntrianResponse data) {
-
+                view.registerSuccess(data.message);
             }
 
             @Override

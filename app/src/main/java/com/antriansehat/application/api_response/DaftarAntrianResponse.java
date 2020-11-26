@@ -7,5 +7,5 @@ import com.antriansehat.application.model.UserWaitingList;
 public class DaftarAntrianResponse {
     public boolean success;
     public String message;
-    public ScheduleOfHA scheduleOfHA;
+    public ScheduleOfHA selectedScheduleOfHA;
 }

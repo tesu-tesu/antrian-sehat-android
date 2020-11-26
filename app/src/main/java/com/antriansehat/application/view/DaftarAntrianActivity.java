@@ -30,7 +30,6 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
 
         presenter = new DaftarAntrianPresenter(this, new DaftarAntrianInteractor(UtilProvider.getSharedPreferencesUtil()));
         scheduleOfHA = (ScheduleOfHA) getIntent().getExtras().get("schedule");
-
         initView();
     }
 
