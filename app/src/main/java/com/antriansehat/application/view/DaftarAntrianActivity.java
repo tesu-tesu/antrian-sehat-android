@@ -9,15 +9,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.antriansehat.application.contract.DaftarAntrianContract;
 import com.antriansehat.application.databinding.ActivityDaftarAntrianBinding;
 import com.antriansehat.application.interactor.DaftarAntrianInteractor;
+import com.antriansehat.application.model.ScheduleOfHA;
 import com.antriansehat.application.model.WaitingList;
 import com.antriansehat.application.presenter.DaftarAntrianPresenter;
 import com.antriansehat.application.presenter.ShowTicketPresenter;
 import com.antriansehat.application.util.UtilProvider;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAntrianContract.View, View.OnClickListener {
     private ActivityDaftarAntrianBinding binding;
     private DaftarAntrianPresenter presenter;
     private boolean isFromCurrentUser = true;
+    private ScheduleOfHA scheduleOfHA;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,14 +29,15 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
         setContentView(binding.getRoot());
 
         presenter = new DaftarAntrianPresenter(this, new DaftarAntrianInteractor(UtilProvider.getSharedPreferencesUtil()));
+        scheduleOfHA = (ScheduleOfHA) getIntent().getExtras().get("schedule");
 
         initView();
-
     }
 
     private void initView() {
 
-        binding.btBack.setOnClickListener(this);
+
+        binding.bottomNav.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
     }
 
     @Override
