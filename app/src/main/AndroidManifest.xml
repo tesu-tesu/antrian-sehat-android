@@ -24,6 +24,7 @@
         <activity android:name=".view.ListPolyclinicActivity"/>
         <activity android:name=".view.HomeActivity"/>
         <activity android:name=".view.ListScheduleActivity"/>
+        <activity android:name=".view.DaftarAntrianActivity"/>
         <activity
             android:name=".view.SplashScreenActivity"
             android:theme="@style/SplashScreenStyle">

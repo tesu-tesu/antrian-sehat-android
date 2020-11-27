@@ -49,7 +49,6 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
 
     @Override
     public void onClick(View view) {
-
     }
 
     @Override
@@ -76,10 +75,20 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
         listScheduleAdapter.setListHealthAgencyClickListener(new ListScheduleAdapter.ListScheduleListener() {
             @Override
             public void onCardClick(Schedule schedule) {
-                if(schedule.getId() != null)
-                    Log.d("SCHEDULE : " , schedule.getId());
+                if(schedule.getId() != null) {
+                    Log.d("SCHEDULE : ", schedule.getId());
+                    Log.d("SCHEDULE DATE : ", new SimpleDateFormat("YYYY-MM-dd").format(schedule.getDate()));
+                    redirectRegister(schedule);
+                }
             }
         });
+    }
+
+    private void redirectRegister(Schedule schedule) {
+        Intent registerWaitingList = new Intent(ListScheduleActivity.this, DaftarAntrianActivity.class);
+        registerWaitingList.putExtra("date", schedule.getDate());
+        registerWaitingList.putExtra("idSchedule", schedule.getId());
+        startActivity(registerWaitingList);
     }
 
     @Override
