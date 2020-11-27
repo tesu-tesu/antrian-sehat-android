@@ -17,7 +17,7 @@ public interface ListPolyclinicContract {
 
     interface Presenter {
         void getPolyclinic();
-        void getPolyclinicFromHA(String id);
+        void getPolyclinicFromHA(String idHA);
     }
 
     interface Interactor {
