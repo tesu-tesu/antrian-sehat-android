@@ -4,11 +4,13 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.antriansehat.application.api_response.DaftarAntrianResponse;
-import com.antriansehat.application.api_response.RegisterResponse;
+import com.antriansehat.application.api_response.ResidenceNumberResponse;
+import com.antriansehat.application.api_response.WaitingListFromScheduleResponse;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.contract.DaftarAntrianContract;
-import com.antriansehat.application.model.ScheduleOfHA;
+import com.antriansehat.application.model.WaitingList;
+import com.antriansehat.application.model.WaitingListFromSchedule;
 import com.antriansehat.application.util.SharedPreferencesUtil;
 
 public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor {
@@ -19,41 +21,72 @@ public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor
     }
 
     @Override
-    public void requestSelectedSchedule(ScheduleOfHA scheduleOfHA) {
-
-    }
-
-    @Override
-    public void getResidenceNumber(String id) {
-
-    }
-
-    @Override
-    public void requestRegister(String residence_number, String polyclinic, String health_agency, final RequestCallback<DaftarAntrianResponse> daftarAntrianResponseRequestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "pasien/book-waiting-list/")
+    public void requestResidenceNumber(final RequestCallback<String> requestCallback) {
+        AndroidNetworking.get(ApiConstant.BASE_URL + "user/get-residence-number")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
-                .addBodyParameter("residence_number", residence_number)
-                .addBodyParameter("polyclinic", polyclinic)
-                .addBodyParameter("health_agency", health_agency)
                 .build()
-                .getAsObject(DaftarAntrianResponse.class, new ParsedRequestListener<DaftarAntrianResponse>() {
-
+                .getAsObject(ResidenceNumberResponse.class, new ParsedRequestListener<ResidenceNumberResponse>() {
                     @Override
-                    public void onResponse(DaftarAntrianResponse response) {
-                        if(response == null){
-                            daftarAntrianResponseRequestCallback.requestFailed("Null Response");
-                        }
-                        else if(response.success){
-                            daftarAntrianResponseRequestCallback.requestSuccess(response);
-                        }
-                        else {
-                            daftarAntrianResponseRequestCallback.requestFailed(response.message);
+                    public void onResponse(ResidenceNumberResponse response) {
+                        if(response.success) {
+                            requestCallback.requestSuccess(response.data);
+                        } else {
+                            requestCallback.requestFailed(null);
                         }
                     }
 
                     @Override
                     public void onError(ANError anError) {
-                        daftarAntrianResponseRequestCallback.requestFailed(anError.getErrorBody());
+                        requestCallback.requestFailed(anError.getMessage());
+                    }
+                });
+    }
+
+    @Override
+    public void requestWaitingList(String idSchedule, String date, final RequestCallback<WaitingListFromSchedule> requestCallback) {
+        AndroidNetworking.get(ApiConstant.BASE_URL + "user/get-waiting-list/" + idSchedule+ "/" + date)
+                .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
+                .build()
+                .getAsObject(WaitingListFromScheduleResponse.class, new ParsedRequestListener<WaitingListFromScheduleResponse>() {
+                    @Override
+                    public void onResponse(WaitingListFromScheduleResponse response) {
+                        if(response.success) {
+                            requestCallback.requestSuccess(response.data);
+                        } else {
+                            requestCallback.requestFailed(response.message);
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        requestCallback.requestFailed(anError.getMessage());
+                    }
+                });
+    }
+
+    @Override
+    public void requestRegister(String idSchedule, String date, String residenceNumber, final RequestCallback<WaitingList> requestCallback) {
+        AndroidNetworking.post(ApiConstant.BASE_URL + "admin/waiting-list/")
+                .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
+                .addBodyParameter("schedule", idSchedule)
+                .addBodyParameter("registered_date", String.valueOf(date))
+                .addBodyParameter("residence_number", residenceNumber)
+                .build()
+                .getAsObject(DaftarAntrianResponse.class, new ParsedRequestListener<DaftarAntrianResponse>() {
+
+                    @Override
+                    public void onResponse(DaftarAntrianResponse response) {
+                        if(response.success){
+                            requestCallback.requestSuccess(response.data);
+                        }
+                        else {
+                            requestCallback.requestFailed(response.message);
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        requestCallback.requestFailed(anError.getErrorBody());
                     }
                 });
     }
