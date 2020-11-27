@@ -2,6 +2,7 @@ package com.antriansehat.application.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -11,19 +12,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.antriansehat.application.R;
+import com.antriansehat.application.adapter.ListHealthAgencyAdapter;
 import com.antriansehat.application.adapter.ListPolyclinicAdapter;
 import com.antriansehat.application.contract.ListPolyclinicContract;
 import com.antriansehat.application.databinding.ActivityListPolyBinding;
 import com.antriansehat.application.interactor.ListPolyclinicInteractor;
-import com.antriansehat.application.model.PaginationHealthAgency;
-import com.antriansehat.application.model.PaginationPolyclinic;
+import com.antriansehat.application.model.Polyclinic;
 import com.antriansehat.application.presenter.ListPolyclinicPresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class ListPolyclinicActivity extends AppCompatActivity implements ListPolyclinicContract.View, View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener, BaseAuthenticatedView {
+import java.util.List;
+
+public class ListPolyclinicActivity extends AppCompatActivity implements ListPolyclinicContract.View,
+        View.OnClickListener,
+        BottomNavigationView.OnNavigationItemSelectedListener,
+        ListPolyclinicAdapter.ListPolyclinicListener,
+        BaseAuthenticatedView {
     private ActivityListPolyBinding binding;
     private ListPolyclinicPresenter presenter;
+    private boolean isFromHA = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +41,19 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
         presenter = new ListPolyclinicPresenter(this, new ListPolyclinicInteractor(UtilProvider.getSharedPreferencesUtil()));
 
         initView();
-        presenter.getPolyclinic();
     }
 
     private void initView(){
+        Intent intent = getIntent();
+        String idHa = intent.getStringExtra("idHA");
+
+        if (idHa == null){
+            presenter.getPolyclinic();
+        }else{
+            this.isFromHA = true;
+            presenter.getPolyclinicFromHA(idHa);
+        }
+
         binding.rvListPoly.setLayoutManager(new LinearLayoutManager(this));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
     }
@@ -46,10 +63,6 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
         if(view.getId() == binding.btBack.getId()){
             finish();
         }
-    }
-
-    private void goToBackPage() {
-        finish();
     }
 
     @Override
@@ -65,8 +78,11 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
     }
 
     @Override
-    public void showListPolyclinics(PaginationPolyclinic pagination) {
-        binding.rvListPoly.setAdapter(new ListPolyclinicAdapter(pagination.getData(), getLayoutInflater()));
+    public void showListPolyclinics(List<Polyclinic> polyclinics) {
+        ListPolyclinicAdapter listPolyclinicAdapter = new ListPolyclinicAdapter(polyclinics, getLayoutInflater());
+        binding.rvListPoly.setAdapter(listPolyclinicAdapter);
+
+        listPolyclinicAdapter.setListPolyclinicClickListener(this); //ListHealthAgencyAdapter.ListHealthAgencyListener
     }
 
     @Override
@@ -97,5 +113,14 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         bottomBarAction(item);
         return false;
+    }
+
+    @Override
+    public void onCardClick(Polyclinic polyclinic) {
+        if(!isFromHA){
+            Intent healthAgencyPage = new Intent(ListPolyclinicActivity.this,ListHealthAgencyActivity.class);
+            healthAgencyPage.putExtra("idPoly", polyclinic.getId());
+            startActivity(healthAgencyPage);
+        }
     }
 }

@@ -10,7 +10,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.antriansehat.application.R;
 import com.antriansehat.application.adapter.ListHealthAgencyAdapter;
@@ -18,10 +17,11 @@ import com.antriansehat.application.contract.ListHealthAgencyContract;
 import com.antriansehat.application.databinding.ActivityPuskesmasListBinding;
 import com.antriansehat.application.interactor.ListHealthAgencyInteractor;
 import com.antriansehat.application.model.HealthAgency;
-import com.antriansehat.application.model.PaginationHealthAgency;
 import com.antriansehat.application.presenter.ListHealthAgencyPresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
 
 public class ListHealthAgencyActivity extends AppCompatActivity implements ListHealthAgencyContract.View,
         View.OnClickListener,
@@ -30,6 +30,7 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
         BaseAuthenticatedView {
     private ActivityPuskesmasListBinding binding;
     private ListHealthAgencyPresenter presenter;
+    private boolean isFromPoly = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,16 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     }
 
     private void initView(){
-        presenter.getHealthAgency();
+        Intent intent = getIntent();
+        String idPoly = intent.getStringExtra("idPoly");
+
+        if (idPoly == null){
+            presenter.getHealthAgency();
+        }else{
+            this.isFromPoly = true;
+            presenter.getHealthAgencyOfPolyId(idPoly);
+        }
+
         binding.rvListHealthAgencies.setLayoutManager(new LinearLayoutManager(this));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);    //BottomNavigationView.OnNavigationItemSelectedListener
         binding.btBack.setOnClickListener(this);
@@ -68,8 +78,8 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     }
 
     @Override
-    public void showListHealthAgencies(PaginationHealthAgency pagination) {
-        ListHealthAgencyAdapter listHealthAgencyAdapter = new ListHealthAgencyAdapter(pagination.getData(), getLayoutInflater());
+    public void showListHealthAgencies(List<HealthAgency> healthAgencies) {
+        ListHealthAgencyAdapter listHealthAgencyAdapter = new ListHealthAgencyAdapter(healthAgencies, getLayoutInflater());
         binding.rvListHealthAgencies.setAdapter(listHealthAgencyAdapter);
 
         listHealthAgencyAdapter.setListHealthAgencyClickListener(this); //ListHealthAgencyAdapter.ListHealthAgencyListener
@@ -107,6 +117,10 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
 
     @Override
     public void onCardClick(HealthAgency healthAgency) {
-        Log.d("idHA : " , "" + healthAgency.getId());
+        if(!isFromPoly){
+            Intent polyclinicPage = new Intent(ListHealthAgencyActivity.this,ListPolyclinicActivity.class);
+            polyclinicPage.putExtra("idHA", healthAgency.getId());
+            startActivity(polyclinicPage);
+        }
     }
 }

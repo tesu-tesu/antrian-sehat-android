@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.antriansehat.application.R;
 import com.antriansehat.application.databinding.ItemPolyBinding;
+import com.antriansehat.application.model.HealthAgency;
 import com.antriansehat.application.model.Polyclinic;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 public class ListPolyclinicAdapter extends RecyclerView.Adapter<ListPolyclinicAdapter.ViewHolder>{
     private List<Polyclinic> polyclinics;
     private LayoutInflater layoutInflater;
+    private ListPolyclinicListener listPolyclinicListener;
 
     public ListPolyclinicAdapter(List<Polyclinic> polyclinics, LayoutInflater layoutInflater) {
         this.polyclinics = polyclinics;
@@ -30,8 +32,22 @@ public class ListPolyclinicAdapter extends RecyclerView.Adapter<ListPolyclinicAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListPolyclinicAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ListPolyclinicAdapter.ViewHolder holder, final int position) {
         holder.binding.setPolyclinic(polyclinics.get(position));
+        holder.binding.cardViewItemPoly.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listPolyclinicListener.onCardClick(polyclinics.get(position));
+            }
+        });
+    }
+
+    public void setListPolyclinicClickListener(ListPolyclinicAdapter.ListPolyclinicListener listPolyclinicListener) {
+        this.listPolyclinicListener = listPolyclinicListener;
+    }
+
+    public interface ListPolyclinicListener {
+        void onCardClick(Polyclinic polyclinic);
     }
 
     @Override

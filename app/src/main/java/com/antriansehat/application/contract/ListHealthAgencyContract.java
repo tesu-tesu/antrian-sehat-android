@@ -1,21 +1,26 @@
 package com.antriansehat.application.contract;
 
 import com.antriansehat.application.callback.RequestCallback;
-import com.antriansehat.application.model.PaginationHealthAgency;
+import com.antriansehat.application.model.HealthAgency;
+import com.antriansehat.application.model.Pagination;
+
+import java.util.List;
 
 public interface ListHealthAgencyContract {
     interface View {
         void startLoading();
         void endLoading();
-        void showListHealthAgencies(PaginationHealthAgency pagination);
+        void showListHealthAgencies(List<HealthAgency> healthAgencies);
         void showError(String errorMessage);
     }
 
     interface Presenter {
         void getHealthAgency();
+        void getHealthAgencyOfPolyId(String poly_id);
     }
 
     interface Interactor {
-        void requestListHealthAgency(RequestCallback<PaginationHealthAgency> requestCallback);
+        void requestListHealthAgency(RequestCallback<Pagination<HealthAgency>> requestCallback);
+        void requestListHealthAgencyOfPolyId(RequestCallback<List<HealthAgency>> requestCallback, String poly_id);
     }
 }
