@@ -45,10 +45,11 @@
     <string name="dateLabel">Date : </string>
     <string name="date">Tue, 23 Feb 2017</string>
     <string name="daftar_antrian_label">Daftar Antrian</string>
+    <string name="titleArticleLabel">judul artikel</string>
 
     <!--Spinner-->
     <string-array name="pilihan_register">
-        <item></item>
+        <item>Pilih Pendaftar</item>
         <item>Diri Sendiri</item>
         <item>Orang Lain</item>
     </string-array>
