@@ -1,5 +1,6 @@
 package com.antriansehat.application.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,7 +42,8 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
     }
 
     private void initView(){
-        presenter.getScheduleOfHA();
+        Intent intent = getIntent();
+        presenter.getScheduleOfHA(intent.getStringExtra("idHA"), intent.getStringExtra("idPoly"));
         binding.rvListSchedule.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
     }
 
