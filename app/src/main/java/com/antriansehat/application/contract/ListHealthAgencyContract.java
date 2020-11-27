@@ -16,7 +16,7 @@ public interface ListHealthAgencyContract {
 
     interface Presenter {
         void getHealthAgency();
-        void getHealthAgencyOfPolyId(String poly_id);
+        void getHealthAgencyOfPolyId(String idPoly);
     }
 
     interface Interactor {

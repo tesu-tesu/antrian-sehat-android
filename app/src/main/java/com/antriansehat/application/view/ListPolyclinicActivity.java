@@ -121,6 +121,11 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
             Intent healthAgencyPage = new Intent(ListPolyclinicActivity.this,ListHealthAgencyActivity.class);
             healthAgencyPage.putExtra("idPoly", polyclinic.getId());
             startActivity(healthAgencyPage);
+        }else{
+            Intent healthAgencyPage = new Intent(ListPolyclinicActivity.this,ListScheduleActivity.class);
+            healthAgencyPage.putExtra("idPoly", polyclinic.getId());
+            healthAgencyPage.putExtra("idHA", getIntent().getStringExtra("idHA"));
+            startActivity(healthAgencyPage);
         }
     }
 }

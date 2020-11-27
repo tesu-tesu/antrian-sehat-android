@@ -39,7 +39,7 @@ public class ListPolyclinicPresenter implements ListPolyclinicContract.Presenter
     }
 
     @Override
-    public void getPolyclinicFromHA(String id) {
+    public void getPolyclinicFromHA(String idHA) {
         view.startLoading();
         interactor.requestListPolyclinic(new RequestCallback<List<PolymasterFromSelectedHA>>() {
             @Override
@@ -58,7 +58,7 @@ public class ListPolyclinicPresenter implements ListPolyclinicContract.Presenter
                 view.endLoading();
                 view.showError(errorMessage);
             }
-        }, id);
+        }, idHA);
     }
 
 }
