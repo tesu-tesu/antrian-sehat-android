@@ -49,6 +49,9 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
     }
 
     private void initView() {
+        idSchedule = getIntent().getExtras().get("idSchedule").toString();
+        date = (Date) getIntent().getExtras().get("date");
+
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
         binding.spinner.setOnItemSelectedListener(this);
 

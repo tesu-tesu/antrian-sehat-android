@@ -1,9 +1,5 @@
 package com.antriansehat.application.presenter;
 
-import android.util.Log;
-
-import com.antriansehat.application.api_response.DaftarAntrianResponse;
-import com.antriansehat.application.api_response.RegisterResponse;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.DaftarAntrianContract;
 import com.antriansehat.application.model.WaitingList;
@@ -58,7 +54,7 @@ public class DaftarAntrianPresenter implements DaftarAntrianContract.Presenter {
         interactor.requestRegister(idSchedule, dateString, residenceNumber, new RequestCallback<WaitingList>() {
             @Override
             public void requestSuccess(WaitingList response) {
-                view.registerSuccess(response.getBarcode());
+                view.registerSuccess("Sukses Mendaftar");
             }
 
             @Override

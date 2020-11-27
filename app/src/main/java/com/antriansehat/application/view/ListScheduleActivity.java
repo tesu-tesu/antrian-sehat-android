@@ -2,29 +2,22 @@ package com.antriansehat.application.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.antriansehat.application.R;
-import com.antriansehat.application.adapter.ListHealthAgencyAdapter;
 import com.antriansehat.application.adapter.ListScheduleAdapter;
 import com.antriansehat.application.contract.ListScheduleContract;
 import com.antriansehat.application.databinding.ActivityScheduleBinding;
 import com.antriansehat.application.interactor.ListScheduleInteractor;
-import com.antriansehat.application.model.HealthAgency;
 import com.antriansehat.application.model.Schedule;
 import com.antriansehat.application.model.ScheduleOfHA;
 import com.antriansehat.application.presenter.ListSchedulePresenter;
 import com.antriansehat.application.util.UtilProvider;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 public class ListScheduleActivity extends AppCompatActivity implements ListScheduleContract.View, View.OnClickListener{
     private ActivityScheduleBinding binding;
@@ -77,9 +70,17 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
             @Override
             public void onCardClick(Schedule schedule) {
                 if(schedule.getId() != null)
-                    Log.d("SCHEDULE : " , schedule.getId());
+                    redirectToRegister(schedule);
             }
         });
+    }
+
+    private void redirectToRegister(Schedule schedule) {
+        Intent registerWaitingList = new Intent(ListScheduleActivity.this, DaftarAntrianActivity.class);
+        registerWaitingList.putExtra("idSchedule", schedule.getId());
+        registerWaitingList.putExtra("date", new SimpleDateFormat("YYYY-MM-dd").format(schedule.getDate()));
+
+        startActivity(registerWaitingList);
     }
 
     @Override
