@@ -15,10 +15,10 @@ public interface ListScheduleContract {
     }
 
     interface Presenter {
-        void getScheduleOfHA();
+        void getScheduleOfHA(String idHA, String idPoly);
     }
 
     interface Interactor {
-        void requestListScheduleOfHA(RequestCallback<List<ScheduleOfHA>> requestCallback);
+        void requestListScheduleOfHA(RequestCallback<List<ScheduleOfHA>> requestCallback, String idHA);
     }
 }
