@@ -5,5 +5,5 @@ import com.antriansehat.application.model.WaitingList;
 public class NearestWaitingListResponse {
     public boolean success;
     public boolean message;
-    public WaitingList waiting_list;
+    public WaitingList data;
 }
