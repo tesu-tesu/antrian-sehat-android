@@ -3,6 +3,7 @@ package com.antriansehat.application.view;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -50,7 +51,7 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
 
     private void initView() {
         idSchedule = getIntent().getExtras().get("idSchedule").toString();
-        date = (Date) getIntent().getExtras().get("date");
+        date = (Date) getIntent().getSerializableExtra("date");
 
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
         binding.spinner.setOnItemSelectedListener(this);
