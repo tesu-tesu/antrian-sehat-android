@@ -109,11 +109,13 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
     }
 
     @Override
-    public void registerSuccess(String message) {
-        Intent home = new Intent(DaftarAntrianActivity.this, HomeActivity.class);
-        finish();
-        startActivity(home);
-        makeToast(message);
+    public void registerSuccess(WaitingList waitingList) {
+        finishAffinity();
+        Intent showTicket = new Intent(DaftarAntrianActivity.this, ShowTicketActivity.class);
+        showTicket.putExtra("newTicket", true);
+        showTicket.putExtra("waitinglist", waitingList);
+        startActivity(showTicket);
+        makeToast("Sukses Mendaftar");
     }
 
     @Override
@@ -124,6 +126,7 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
     @Override
     public void showError(String errorMessage) {
         makeToast(errorMessage);
+        finish();
     }
 
     private void makeToast(String message){
@@ -135,8 +138,8 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
     public void bottomBarAction(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_home:
-                Intent homePage = new Intent(DaftarAntrianActivity.this, HomeActivity.class);
-                startActivity(homePage);
+//                Intent homePage = new Intent(DaftarAntrianActivity.this, HomeActivity.class);
+//                startActivity(homePage);
                 break;
             case R.id.action_user:
                 Intent profilePage = new Intent(DaftarAntrianActivity.this, ProfileActivity.class);
