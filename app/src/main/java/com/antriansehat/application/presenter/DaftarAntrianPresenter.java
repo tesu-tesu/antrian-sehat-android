@@ -49,12 +49,12 @@ public class DaftarAntrianPresenter implements DaftarAntrianContract.Presenter {
     }
 
     @Override
-    public void register(String idSchedule, Date date, String residenceNumber) {
+    public void register(String idSchedule, Date date, final String residenceNumber) {
         String dateString = new SimpleDateFormat("YYYY-MM-dd").format(date);
         interactor.requestRegister(idSchedule, dateString, residenceNumber, new RequestCallback<WaitingList>() {
             @Override
             public void requestSuccess(WaitingList response) {
-                view.registerSuccess("Sukses Mendaftar");
+                view.registerSuccess(response);
             }
 
             @Override

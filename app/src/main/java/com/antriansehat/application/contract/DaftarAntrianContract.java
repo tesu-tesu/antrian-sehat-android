@@ -13,7 +13,7 @@ public interface DaftarAntrianContract {
         void endLoading();
         void showWaitingList(WaitingListFromSchedule waitingList);
         void setResidenceNumber(String residenceNumber);
-        void registerSuccess(String message);
+        void registerSuccess(WaitingList waitingList);
         void registerFailed(String message);
         void showError(String errorMessage);
     }
