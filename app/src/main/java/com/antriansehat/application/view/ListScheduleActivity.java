@@ -2,6 +2,7 @@ package com.antriansehat.application.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -78,7 +79,7 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
     private void redirectToRegister(Schedule schedule) {
         Intent registerWaitingList = new Intent(ListScheduleActivity.this, DaftarAntrianActivity.class);
         registerWaitingList.putExtra("idSchedule", schedule.getId());
-        registerWaitingList.putExtra("date", new SimpleDateFormat("YYYY-MM-dd").format(schedule.getDate()));
+        registerWaitingList.putExtra("date", schedule.getDate());
 
         startActivity(registerWaitingList);
     }
