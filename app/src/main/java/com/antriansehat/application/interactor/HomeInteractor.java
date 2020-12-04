@@ -44,7 +44,7 @@ public class HomeInteractor implements HomeContract.Interactor {
                     @Override
                     public void onResponse(NearestWaitingListResponse response) {
                             if(response.success) {
-                                requestCallback.requestSuccess(response.waiting_list);
+                                requestCallback.requestSuccess(response.data);
 //                                Log.d("WAITINGLIST", "onResponse: " + response.waiting_list.getStatus());
                             } else {
                                 requestCallback.requestFailed("Anda belum memiliki antrian yang akan datang");

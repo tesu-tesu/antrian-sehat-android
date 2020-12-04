@@ -35,7 +35,7 @@ public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Prese
     }
 
     @Override
-    public void getHealthAgencyOfPolyId(String poly_id) {
+    public void getHealthAgencyOfPolyId(String idPoly) {
         view.startLoading();
         interactor.requestListHealthAgencyOfPolyId(new RequestCallback<List<HealthAgency>>() {
             @Override
@@ -49,7 +49,7 @@ public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Prese
                 view.endLoading();
                 view.showError(errorMessage);
             }
-        }, poly_id);
+        }, idPoly);
     }
 
 }

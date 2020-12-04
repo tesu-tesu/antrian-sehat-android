@@ -1,18 +1,13 @@
 <resources>
     <string name="app_name">Antrian Sehat</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="logout">Logout</string>
-    <string name="book_title">Book title</string>
-    <string name="book_description">Book description</string>
     <string name="sudah_punya_akun">Sudah punya akun?</string>
     <string name="masuk">Masuk</string>
     <string name="belum_punya_akun">Belum punya akun?</string>
     <string name="daftar_sekarang">Daftar Sekarang</string>
     <string name="no_more_list">no more list</string>
-    <string name="puskesmas_item_name">Puskesmas A</string>
     <string name="address_item_name">Klampis, Sinarmas jaya</string>
     <string name="nama_puskesmas">Puskesmas A</string>
     <string name="nama_poli">Poli A</string>
@@ -23,46 +18,25 @@
     <string name="txt_hari_ini">Hari ini</string>
     <string name="tv_akan_datang">Akan Datang</string>
     <string name="tv_selesai">Selesai</string>
-    <string name="poliklinik_item_name">Poli Umum</string>
-    <string name="nik_item_number">3515108270500001</string>
     <string name="no_antrian_label">No. Antrian:</string>
-    <string name="no_antrian_value">12</string>
     <string name="saat_ini_label">saat ini:   </string>
-    <string name="saat_ini_value">2/10</string>
-    <string name="tanggal_akan_datang">4 Desember 2020</string>
-    <string name="status_antrian">Sudah Diperiksa</string>
-    <string name="titleArticleLabel">7 Makanan Enak dan Sehat</string>
     <string name="artikel_kesehatan_label">Tahukah Anda?</string>
-    <string name="residence_number"></string>
     <string name="waiting_list_label">Antrian Terdekat Anda</string>
     <string name="order_number_label">No. Antrian: </string>
-    <string name="order_number"></string>
-    <string name="current_waiting_list"></string>
     <string name="slash">/</string>
-    <string name="latest_waiting_list"></string>
     <string name="current_waiting_list_label">Saat ini: </string>
     <string name="create_waiting_list_bt_label">Daftar Antrian</string>
     <string name="list_poly_bt_label">Daftar Poli</string>
     <string name="list_HA_bt_label">Daftar Puskesmas</string>
     <string name="show_ticket_bt_label">Show Ticket</string>
-    <string name="poli">Poli Umum</string>
-    <string name="health_agency">Puskesmas Klampis</string>
     <string name="tvPuskesmasTitle">Daftar Puskesmas</string>
-    <string name="show_password_text">show password</string>
     <string name="profile">Profile</string>
     <string name="profile_name">John Doe</string>
     <string name="total_antrian">0x mengantri</string>
     <string name="kerabat_terdaftar_text_view">Kerabat yang Pernah Anda Daftarkan</string>
     <string name="pengaturan">Pengaturan</string>
-    <string name="registered_date">Tanggal</string>
     <string name="error_message">error message</string>
-    <string name="daftar_antrian">Daftar Antrian</string>
-    <string name="nama_puskesmas_show_ticket">Puskesmas Klampis</string>
-    <string name="nama_poli_show_ticket">Poli Gigi</string>
     <string name="nomer_antrian_label">No. Antrian </string>
-    <string name="NIK_ticket">3578061212120002</string>
-    <string name="nama_puskesmas_tiket">Puskesmas Klampis</string>
-    <string name="nama_poli_tiket">Poli Gigi</string>
     <string name="kartu_antrian_label">Kartu Antrian</string>
   
     <!--Schedule-->
@@ -70,4 +44,14 @@
     <string name="pilih_tanggal">Pilih Tanggal</string>
     <string name="dateLabel">Date : </string>
     <string name="date">Tue, 23 Feb 2017</string>
+    <string name="daftar_antrian_label">Daftar Antrian</string>
+    <string name="titleArticleLabel">judul artikel</string>
+
+    <!--Spinner-->
+    <string-array name="pilihan_register">
+        <item>Pilih Pendaftar</item>
+        <item>Diri Sendiri</item>
+        <item>Orang Lain</item>
+    </string-array>
+
 </resources>

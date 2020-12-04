@@ -2,8 +2,8 @@ package com.antriansehat.application.api_response;
 
 import com.antriansehat.application.model.WaitingList;
 
-public class NearestWaitingListResponse {
+public class ResidenceNumberResponse {
     public boolean success;
-    public boolean message;
-    public WaitingList data;
+    public String message;
+    public String data;
 }

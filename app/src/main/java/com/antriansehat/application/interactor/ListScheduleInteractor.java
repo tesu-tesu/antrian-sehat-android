@@ -23,8 +23,8 @@ public class ListScheduleInteractor implements ListScheduleContract.Interactor {
     }
 
     @Override
-    public void requestListScheduleOfHA(final RequestCallback<List<ScheduleOfHA>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "admin/health-agency/6/polyclinic")
+    public void requestListScheduleOfHA(final RequestCallback<List<ScheduleOfHA>> requestCallback, String idHA) {
+        AndroidNetworking.get(ApiConstant.BASE_URL + "admin/health-agency/"+ Integer.parseInt(idHA) +"/polyclinic")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListScheduleResponse.class, new ParsedRequestListener<ListScheduleResponse>() {
