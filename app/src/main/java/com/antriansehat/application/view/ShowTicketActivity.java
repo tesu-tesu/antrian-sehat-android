@@ -1,5 +1,6 @@
 package com.antriansehat.application.view;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -21,6 +22,7 @@ public class ShowTicketActivity extends AppCompatActivity implements ShowTicketC
     private ShowTicketContract.Presenter presenter;
     private ActivityShowTicketBinding binding;
     private WaitingList waitingList;
+    private boolean newTicket;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class ShowTicketActivity extends AppCompatActivity implements ShowTicketC
     }
 
     private void initView() {
+        newTicket = getIntent().getExtras().get("newTicket") != null ? true : false;
         presenter.requestQRCode(waitingList);
         binding.btBack.setOnClickListener(this);
     }
@@ -43,11 +46,15 @@ public class ShowTicketActivity extends AppCompatActivity implements ShowTicketC
     @Override
     public void onClick(View v) {
         if(v.getId() == binding.btBack.getId()){
-            goToBackPage();
+            backToHome();
         }
     }
 
-    private void goToBackPage() {
+    private void backToHome() {
+        if(newTicket) {
+            Intent home = new Intent(ShowTicketActivity.this, HomeActivity.class);
+            startActivity(home);
+        }
         finish();
     }
 
