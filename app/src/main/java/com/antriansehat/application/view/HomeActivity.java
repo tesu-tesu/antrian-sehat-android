@@ -54,6 +54,16 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
     public void showNearestWaitingList(WaitingList waitingList) {
         binding.cardWaitingList.setOnClickListener(this);
         binding.setWaitingList(waitingList);

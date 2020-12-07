@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface HomeContract {
     interface View {
+        void startLoading();
+        void endLoading();
         void whenUserLogin();
         void whenUserNotLogin();
         void showNearestWaitingList(WaitingList waitingList);
