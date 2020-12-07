@@ -84,16 +84,6 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
     }
 
     @Override
-    public void startLoading() {
-//        binding.progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void endLoading() {
-
-    }
-
-    @Override
     public void showWaitingList(WaitingListFromSchedule waitingList) {
         binding.setWaitingList(waitingList);
         binding.tvDate.setText(new SimpleDateFormat(" EEEE, dd MMMM yyyy").format(date));
@@ -106,6 +96,16 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
             binding.etNIK.setText(residenceNumber);
             binding.etNIK.setEnabled(false);
         }
+    }
+
+    @Override
+    public void startLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endLoading() {
+        binding.progressBar.setVisibility(View.GONE);
     }
 
     @Override
