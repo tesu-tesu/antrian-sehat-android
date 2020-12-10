@@ -50,6 +50,11 @@ public class ShowTicketActivity extends AppCompatActivity implements ShowTicketC
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        backToHome();
+    }
+
     private void backToHome() {
         if(newTicket) {
             Intent home = new Intent(ShowTicketActivity.this, HomeActivity.class);
