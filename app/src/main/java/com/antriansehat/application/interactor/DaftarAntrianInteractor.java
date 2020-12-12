@@ -1,5 +1,7 @@
 package com.antriansehat.application.interactor;
 
+import android.util.Log;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
@@ -59,7 +61,7 @@ public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getMessage());
+                        requestCallback.requestFailed(anError.getErrorBody());
                     }
                 });
     }
@@ -90,4 +92,6 @@ public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor
                     }
                 });
     }
+
+
 }
