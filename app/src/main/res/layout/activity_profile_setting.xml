@@ -85,7 +85,7 @@
             android:layout_width="356dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bt_white"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="140dp"
             android:paddingVertical="12dp"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintTop_toTopOf="@+id/topNav"
@@ -128,8 +128,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.404" />
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -181,7 +179,6 @@
             app:layout_constraintTop_toTopOf="@+id/fsEmail" />
 
 
-
         <ImageView
             android:id="@+id/fsNIK"
             android:layout_width="wrap_content"
@@ -206,18 +203,30 @@
             app:layout_constraintTop_toTopOf="@+id/fsNIK" />
 
         <Button
-            android:id="@+id/btnSave"
-            android:layout_width="320dp"
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
             android:layout_height="42dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnSave"
+            app:layout_constraintEnd_toEndOf="@id/fsNIK"
+            app:layout_constraintStart_toStartOf="@id/fsNIK"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/bt_white"
             android:fontFamily="@font/open_sans_semibold"
-            android:text="@string/selesai"
-            android:textColor="@color/blackFont"
+            android:text="Cancel"
+            android:textColor="@color/blackFont"/>
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bt_green"
+            android:fontFamily="@font/open_sans_semibold"
+            android:text="@string/simpan"
+            android:textColor="@color/whiteBlue"
             android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+            app:layout_constraintEnd_toEndOf="@id/fsNIK"
+            app:layout_constraintStart_toStartOf="@id/fsNIK" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
