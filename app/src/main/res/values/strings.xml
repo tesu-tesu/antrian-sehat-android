@@ -46,6 +46,11 @@
     <string name="date">Tue, 23 Feb 2017</string>
     <string name="daftar_antrian_label">Daftar Antrian</string>
     <string name="titleArticleLabel">judul artikel</string>
+    <string name="edit_profile">EDIT PROFILE</string>
+    <string name="entry_nama">Masukan Nama</string>
+    <string name="entry_email">Masukan Email</string>
+    <string name="entry_nik">Masukan NIK</string>
+    <string name="selesai">Selesai</string>
 
     <!--Spinner-->
     <string-array name="pilihan_register">
