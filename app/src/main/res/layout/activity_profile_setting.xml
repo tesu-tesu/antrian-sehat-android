@@ -10,31 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/app_backg_main"
-        android:backgroundTint="@color/whiteBlue"   >
-
-        <LinearLayout
-            android:id="@+id/linearLayout9"
-            android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:gravity="center|bottom"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNav"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                app:itemBackground="@color/bottom_bar"
-                app:itemIconTint="@android:color/white"
-                app:itemTextColor="@android:color/white"
-                app:labelVisibilityMode="unlabeled"
-                app:menu="@menu/bottom_nav_menu" />
-
-        </LinearLayout>
+        android:backgroundTint="@color/whiteBlue"  >
 
         <LinearLayout
             android:id="@+id/topNav"
@@ -85,10 +61,10 @@
             android:layout_width="356dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bt_white"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="20dp"
             android:paddingVertical="12dp"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintTop_toTopOf="@+id/topNav"
+            app:layout_constraintTop_toBottomOf="@+id/topNav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/bt_white"
@@ -202,18 +178,16 @@
             app:layout_constraintStart_toStartOf="@+id/fsNIK"
             app:layout_constraintTop_toTopOf="@+id/fsNIK" />
 
-        <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@id/fsNIK"
             app:layout_constraintStart_toStartOf="@id/fsNIK"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/bt_white"
-            android:fontFamily="@font/open_sans_semibold"
-            android:text="Cancel"
-            android:textColor="@color/blackFont"/>
+            app:layout_constraintTop_toBottomOf="@id/fsNIK" />
+
         <Button
             android:id="@+id/btnSave"
             android:layout_width="0dp"
@@ -222,11 +196,25 @@
             android:fontFamily="@font/open_sans_semibold"
             android:text="@string/simpan"
             android:textColor="@color/whiteBlue"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
             app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
             app:layout_constraintEnd_toEndOf="@id/fsNIK"
             app:layout_constraintStart_toStartOf="@id/fsNIK" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnSave"
+            app:layout_constraintEnd_toEndOf="@id/fsNIK"
+            app:layout_constraintStart_toStartOf="@id/fsNIK"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_white"
+            android:fontFamily="@font/open_sans_semibold"
+            android:text="Cancel"
+            android:textColor="@color/blackFont"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
