@@ -11,15 +11,6 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         this.interactor = interactor;
     }
 
-    @Override
-    public void checkIsUserLogin() {
-        if(interactor.isUserLogin()){
-            view.whenUserLogin();
-        }
-        else {
-            view.whenUserNotLogin();
-        }
-    }
 
     @Override
     public void logout() {

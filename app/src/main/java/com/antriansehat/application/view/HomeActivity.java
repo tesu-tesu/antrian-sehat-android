@@ -37,10 +37,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
     private void initView() {
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
-        binding.btCreateWL.setOnClickListener(this);
         binding.btListHA.setOnClickListener(this);
         binding.btListPoly.setOnClickListener(this);
-        binding.btShowTicket.setOnClickListener(this);
     }
   
     @Override
@@ -86,15 +84,11 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     public void onClick(View view) {
         if(view.getId() == binding.cWaitingList.getId()){
             onCardNearestWaitingList();
-        }else if(view.getId() == binding.btShowTicket.getId()){
-            onButtonShowTicket();
         }else if(view.getId() == binding.btListPoly.getId()){
             onButtonListPoly();
         }else if(view.getId() == binding.btListHA.getId()){
             onButtonListHA();
-        }else if(view.getId() == binding.btCreateWL.getId()){
-            onButtonCreateWaitingList();
-        } else if(view.getId() == binding.cardWaitingList.getId()) {
+        }else if(view.getId() == binding.cardWaitingList.getId()) {
             onButtonShowSpecificTicket();
         }
     }
@@ -110,11 +104,6 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         //tampilin fragment ticket dengan barcode
     }
 
-    public void onButtonShowTicket() {
-        Intent intent = new Intent(this, ShowTicketActivity.class);
-        startActivity(intent);
-    }
-
     public void onButtonListPoly() {
         Intent intent = new Intent(this, ListPolyclinicActivity.class);
         startActivity(intent);
@@ -122,11 +111,6 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
     public void onButtonListHA() {
         Intent intent = new Intent(this, ListHealthAgencyActivity.class);
-        startActivity(intent);
-    }
-
-    public void onButtonCreateWaitingList() {
-        Intent intent = new Intent(this, RiwayatTiketActivity.class);
         startActivity(intent);
     }
 
@@ -138,10 +122,12 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
             case R.id.action_user:
                 Intent profile = new Intent(HomeActivity.this,ProfileActivity.class);
                 startActivity(profile);
+                this.finish();
                 break;
             case R.id.action_time:
                 Intent time = new Intent(HomeActivity.this,RiwayatTiketActivity.class);
                 startActivity(time);
+                this.finish();
                 break;
         }
     }

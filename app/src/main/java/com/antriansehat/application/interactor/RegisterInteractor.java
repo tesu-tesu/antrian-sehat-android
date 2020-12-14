@@ -1,18 +1,13 @@
 package com.antriansehat.application.interactor;
 
-import android.util.Log;
-
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
-import com.antriansehat.application.api_response.LoginResponse;
 import com.antriansehat.application.api_response.RegisterResponse;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.contract.RegisterContract;
 import com.antriansehat.application.util.SharedPreferencesUtil;
-
-import static android.content.ContentValues.TAG;
 
 public class RegisterInteractor implements RegisterContract.Interactor{
     private SharedPreferencesUtil sharedPreferencesUtil;

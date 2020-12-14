@@ -26,7 +26,7 @@
     <string name="slash">/</string>
     <string name="current_waiting_list_label">Saat ini: </string>
     <string name="create_waiting_list_bt_label">Daftar Antrian</string>
-    <string name="list_poly_bt_label">Daftar Poli</string>
+    <string name="list_poly_bt_label">Daftar Poliklinik</string>
     <string name="list_HA_bt_label">Daftar Puskesmas</string>
     <string name="show_ticket_bt_label">Show Ticket</string>
     <string name="tvPuskesmasTitle">Daftar Puskesmas</string>
@@ -51,6 +51,7 @@
     <string name="entry_email">Masukan Email</string>
     <string name="entry_nik">Masukan NIK</string>
     <string name="simpan">Simpan</string>
+    <string name="selesai">Selesai</string>
 
     <!--Spinner-->
     <string-array name="pilihan_register">

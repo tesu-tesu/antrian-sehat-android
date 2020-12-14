@@ -47,7 +47,8 @@ public class RiwayatTiketActivity extends AppCompatActivity implements RiwayatTi
         binding.historyAkanDatang.setLayoutManager(new LinearLayoutManager(this));
         binding.historySelesai.setLayoutManager(new LinearLayoutManager(this));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
-        binding.btBack.setOnClickListener(this);
+//        binding.btBack.setOnClickListener(this);
+        binding.btBack.setVisibility(View.GONE);
     }
 
     @Override
@@ -55,13 +56,13 @@ public class RiwayatTiketActivity extends AppCompatActivity implements RiwayatTi
         switch (item.getItemId()) {
             case R.id.action_home:
                 Intent home = new Intent(RiwayatTiketActivity.this, HomeActivity.class);
-                finish();
                 startActivity(home);
+                this.finish();
                 break;
             case R.id.action_user:
                 Intent profile = new Intent(RiwayatTiketActivity.this,ProfileActivity.class);
-                finish();
                 startActivity(profile);
+                this.finish();
                 break;
             case R.id.action_time:
                 break;

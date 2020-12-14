@@ -1,12 +1,7 @@
 package com.antriansehat.application.interactor;
 
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.antriansehat.application.api_response.ProfileSettingResponse;
-import com.antriansehat.application.api_response.RegisterResponse;
 import com.antriansehat.application.callback.RequestCallback;
-import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.contract.ProfileSettingContract;
 import com.antriansehat.application.util.SharedPreferencesUtil;
 

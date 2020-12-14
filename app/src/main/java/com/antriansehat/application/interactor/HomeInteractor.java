@@ -1,12 +1,8 @@
 package com.antriansehat.application.interactor;
 
-import android.util.Log;
-
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.androidnetworking.interfaces.ParsedRequestListener;
-import com.antriansehat.application.api_response.ListBookResponse;
 import com.antriansehat.application.api_response.NearestWaitingListResponse;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.constant.ApiConstant;
@@ -14,9 +10,6 @@ import com.antriansehat.application.contract.HomeContract;
 import com.antriansehat.application.model.Article;
 import com.antriansehat.application.model.WaitingList;
 import com.antriansehat.application.util.SharedPreferencesUtil;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
 

@@ -16,6 +16,7 @@
         <activity android:name=".view.RiwayatTiketActivity"/>
         <activity android:name=".view.ShowTicketActivity" />
         <activity android:name=".view.ProfileActivity"/>
+        <activity android:name=".view.ProfileSettingActivity"/>
         <activity android:name=".view.PuskesmasListActivity" />
         <activity android:name=".view.ListBookActivity" />
         <activity android:name=".view.RegisterActivity" />

@@ -1,7 +1,5 @@
 package com.antriansehat.application.interactor;
 
-import android.util.Log;
-
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
@@ -9,7 +7,6 @@ import com.antriansehat.application.api_response.ListScheduleResponse;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.contract.ListScheduleContract;
-import com.antriansehat.application.model.Schedule;
 import com.antriansehat.application.model.ScheduleOfHA;
 import com.antriansehat.application.util.SharedPreferencesUtil;
 
