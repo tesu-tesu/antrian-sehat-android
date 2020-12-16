@@ -21,13 +21,14 @@ public class ProfileSettingInteractor implements ProfileSettingContract.Interact
 
     @Override
     public void requestUpdateProfile(String id, String name, String email, String nik, String phone, final RequestCallback<User> requestCallback) {
-        AndroidNetworking.put(ApiConstant.BASE_URL + "user/"+ id)
+        AndroidNetworking.post(ApiConstant.BASE_URL + "user/"+ id)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .addBodyParameter("name", name)
                 .addBodyParameter("phone", phone)
                 .addBodyParameter("email", email)
                 .addBodyParameter("residence_number", nik)
                 .addBodyParameter("role", "Pasien")
+                .addBodyParameter("_method", "PUT")
                 .build()
                 .getAsObject(UserDataResponse.class, new ParsedRequestListener<UserDataResponse>() {
                     @Override
@@ -43,7 +44,6 @@ public class ProfileSettingInteractor implements ProfileSettingContract.Interact
 
                     @Override
                     public void onError(ANError anError) {
-//                        Log.d("errorny", anError.getErrorBody());
                         requestCallback.requestFailed(anError.getErrorBody());
                     }
                 });
