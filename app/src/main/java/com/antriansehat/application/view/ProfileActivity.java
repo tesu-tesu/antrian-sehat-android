@@ -35,6 +35,8 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     private void initView() {
         binding.btnLogout.setOnClickListener(this);
+        binding.btnPengaturan.setOnClickListener(this);
+        binding.bottomNav.setOnNavigationItemSelectedListener(this);
     }
 
     @Override

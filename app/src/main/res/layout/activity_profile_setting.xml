@@ -15,7 +15,7 @@
         <LinearLayout
             android:id="@+id/topNav"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="72dp"
             android:background="@drawable/gradient_navbar"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,6 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_begin="20dp" />
 
-
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -75,7 +74,8 @@
                 android:id="@+id/cardView"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_margin="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="8dp"
                 app:cardCornerRadius="50dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +111,7 @@
             android:id="@+id/fsNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="36dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/profileCard"
@@ -154,6 +154,28 @@
             app:layout_constraintStart_toStartOf="@+id/fsEmail"
             app:layout_constraintTop_toTopOf="@+id/fsEmail" />
 
+        <ImageView
+            android:id="@+id/fsPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fsEmail"
+            app:srcCompat="@drawable/rectangle_1593" />
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="text|number"
+            android:hint="Masukkan no. handphone"
+            app:layout_constraintBottom_toBottomOf="@+id/fsPhone"
+            app:layout_constraintEnd_toEndOf="@+id/fsPhone"
+            app:layout_constraintStart_toStartOf="@+id/fsPhone"
+            app:layout_constraintTop_toTopOf="@+id/fsPhone" />
 
         <ImageView
             android:id="@+id/fsNIK"
@@ -162,7 +184,7 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fsEmail"
+            app:layout_constraintTop_toBottomOf="@id/fsPhone"
             app:srcCompat="@drawable/rectangle_1593" />
 
         <EditText
