@@ -13,6 +13,7 @@ import com.antriansehat.application.R;
 import com.antriansehat.application.contract.ProfileContract;
 import com.antriansehat.application.databinding.ActivityProfilePageBinding;
 import com.antriansehat.application.interactor.ProfileInteractor;
+import com.antriansehat.application.model.User;
 import com.antriansehat.application.presenter.ProfilePresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         setContentView(binding.getRoot());
 
         presenter = new ProfilePresenter(this, new ProfileInteractor(UtilProvider.getSharedPreferencesUtil()));
+        presenter.setName();
 
         initView();
     }
@@ -37,6 +39,11 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         binding.btnLogout.setOnClickListener(this);
         binding.btnPengaturan.setOnClickListener(this);
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public void showUserData(User user) {
+        binding.tvProfileName.setText(user.getName());
     }
 
     @Override
