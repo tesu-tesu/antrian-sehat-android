@@ -3,6 +3,7 @@ package com.antriansehat.application.contract;
 import com.antriansehat.application.api_response.ProfileSettingResponse;
 import com.antriansehat.application.api_response.RegisterResponse;
 import com.antriansehat.application.callback.RequestCallback;
+import com.antriansehat.application.model.User;
 
 public interface ProfileSettingContract {
     interface View {
@@ -11,13 +12,16 @@ public interface ProfileSettingContract {
         void onSaveUpdateClick();
         void updateSuccess(String message);
         void updateFailed(String message);
+        void showUserData(User user);
     }
 
     interface Presenter {
-        void updateProfile(String name, String email, String nik);
+        void setUserData();
+        void updateProfile(String name, String email, String nik, String phone);
     }
 
     interface Interactor {
-        void requestUpdateProfile(String name, String email, String nik, RequestCallback<ProfileSettingResponse> requestCallback);
+        void setDataUser(final RequestCallback<User> requestCallback);
+        void requestUpdateProfile(String id, String name, String email, String nik, String phone, RequestCallback<User> requestCallback);
     }
 }
