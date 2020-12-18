@@ -104,22 +104,22 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
     @Override
     public void setPrevPage(String prevPage) {
         if(prevPage != null){
-            binding.btPrev.setEnabled(true);
+            binding.btPrev.setVisibility(View.VISIBLE);
             String[] arr =  prevPage.split("=");
             this.prevPage = arr[1];
         }else{
-            binding.btPrev.setEnabled(false);
+            binding.btPrev.setVisibility(View.INVISIBLE);
         }
     }
 
     @Override
     public void setNextPage(String nextPage) {
         if(nextPage != null){
-            binding.btNext.setEnabled(true);
+            binding.btNext.setVisibility(View.VISIBLE);
             String[] arr =  nextPage.split("=");
             this.nextPage = arr[1];
         }else{
-            binding.btNext.setEnabled(false);
+            binding.btNext.setVisibility(View.INVISIBLE);
         }
     }
 
