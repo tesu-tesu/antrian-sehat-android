@@ -2,6 +2,8 @@ package com.antriansehat.application.presenter;
 
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.ListPolyclinicContract;
 import com.antriansehat.application.model.Pagination;
@@ -21,12 +23,14 @@ public class ListPolyclinicPresenter implements ListPolyclinicContract.Presenter
     }
 
     @Override
-    public void getPolyclinic() {
+    public void getPolyclinic(@Nullable int page) {
         view.startLoading();
         interactor.requestListPolyclinic(new RequestCallback<Pagination<Polyclinic>>() {
             @Override
             public void requestSuccess(Pagination<Polyclinic> data) {
                 view.endLoading();
+                view.setNextPage(data.getNext_page_url());
+                view.setPrevPage(data.getPrev_page_url());
                 view.showListPolyclinics(data.getData());
             }
 
@@ -35,7 +39,7 @@ public class ListPolyclinicPresenter implements ListPolyclinicContract.Presenter
                 view.endLoading();
                 view.showError(errorMessage);
             }
-        });
+        }, page);
     }
 
     @Override

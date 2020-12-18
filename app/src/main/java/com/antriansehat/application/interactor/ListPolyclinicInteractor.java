@@ -25,8 +25,8 @@ public class ListPolyclinicInteractor implements ListPolyclinicContract.Interact
     }
 
     @Override
-    public void requestListPolyclinic(final RequestCallback<Pagination<Polyclinic>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "admin/poly-master")
+    public void requestListPolyclinic(final RequestCallback<Pagination<Polyclinic>> requestCallback, int page) {
+        AndroidNetworking.get(ApiConstant.BASE_URL + "admin/poly-master?page=" + page)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListPolyclinicResponse.class, new ParsedRequestListener<ListPolyclinicResponse>() {
