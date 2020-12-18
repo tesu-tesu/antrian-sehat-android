@@ -4,15 +4,18 @@ import java.util.List;
 
 public class Pagination<T>{
     private int current_page, from, last_page, per_page, to, total;
+    private String next_page_url, prev_page_url;
     private List<T> data;
 
-    public Pagination(int current_page, int from, int last_page, int per_page, int to, int total, List<T> data) {
+    public Pagination(int current_page, int from, int last_page, int per_page, int to, int total, String next_page_url, String prev_page_url, List<T> data) {
         this.current_page = current_page;
         this.from = from;
         this.last_page = last_page;
         this.per_page = per_page;
         this.to = to;
         this.total = total;
+        this.next_page_url = next_page_url;
+        this.prev_page_url = prev_page_url;
         this.data = data;
     }
 
@@ -62,6 +65,22 @@ public class Pagination<T>{
 
     public void setTotal(int total) {
         this.total = total;
+    }
+
+    public String getNext_page_url() {
+        return next_page_url;
+    }
+
+    public void setNext_page_url(String next_page_url) {
+        this.next_page_url = next_page_url;
+    }
+
+    public String getPrev_page_url() {
+        return prev_page_url;
+    }
+
+    public void setPrev_page_url(String prev_page_url) {
+        this.prev_page_url = prev_page_url;
     }
 
     public List<T> getData() {

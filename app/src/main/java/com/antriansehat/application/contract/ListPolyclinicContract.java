@@ -13,15 +13,17 @@ public interface ListPolyclinicContract {
         void endLoading();
         void showListPolyclinics(List<Polyclinic> data);
         void showError(String errorMessage);
+        void setPrevPage(String prevPage);
+        void setNextPage(String nextPage);
     }
 
     interface Presenter {
-        void getPolyclinic();
+        void getPolyclinic(int page);
         void getPolyclinicFromHA(String idHA);
     }
 
     interface Interactor {
-        void requestListPolyclinic(RequestCallback<Pagination<Polyclinic>> requestCallback);
+        void requestListPolyclinic(RequestCallback<Pagination<Polyclinic>> requestCallback, int page);
         void requestListPolyclinic(RequestCallback<List<PolymasterFromSelectedHA>> requestCallback, String idHA);
     }
 }

@@ -32,6 +32,8 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
     private ActivityListPolyBinding binding;
     private ListPolyclinicPresenter presenter;
     private boolean isFromHA = false;
+    private String nextPage;
+    private String prevPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,7 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
         String idHa = intent.getStringExtra("idHA");
 
         if (idHa == null){
-            presenter.getPolyclinic();
+            presenter.getPolyclinic(1);
         }else{
             this.isFromHA = true;
             presenter.getPolyclinicFromHA(idHa);
@@ -56,12 +58,20 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
 
         binding.rvListPoly.setLayoutManager(new LinearLayoutManager(this));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
+        binding.btBack.setOnClickListener(this);
+        binding.btPrev.setOnClickListener(this);
+        binding.btNext.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
         if(view.getId() == binding.btBack.getId()){
             finish();
+        }else if(view.getId() == binding.btPrev.getId()){
+            presenter.getPolyclinic(Integer.parseInt(prevPage));
+        }else if(view.getId() == binding.btNext.getId()){
+            presenter.getPolyclinic(Integer.parseInt(nextPage));
         }
     }
 
@@ -89,6 +99,28 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
     public void showError(String errorMessage) {
         Toast.makeText(getApplicationContext(), errorMessage,
                 Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setPrevPage(String prevPage) {
+        if(prevPage != null){
+            binding.btPrev.setEnabled(true);
+            String[] arr =  prevPage.split("=");
+            this.prevPage = arr[1];
+        }else{
+            binding.btPrev.setEnabled(false);
+        }
+    }
+
+    @Override
+    public void setNextPage(String nextPage) {
+        if(nextPage != null){
+            binding.btNext.setEnabled(true);
+            String[] arr =  nextPage.split("=");
+            this.nextPage = arr[1];
+        }else{
+            binding.btNext.setEnabled(false);
+        }
     }
 
     @Override
