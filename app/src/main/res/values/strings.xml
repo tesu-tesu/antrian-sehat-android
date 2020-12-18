@@ -52,6 +52,8 @@
     <string name="entry_nik">Masukkan NIK</string>
     <string name="simpan">Simpan</string>
     <string name="selesai">Selesai</string>
+    <string name="list_poliklinik">List Poliklinik</string>
+    <string name="list_puskesmas">List Puskesmas</string>
 
     <!--Spinner-->
     <string-array name="pilihan_register">

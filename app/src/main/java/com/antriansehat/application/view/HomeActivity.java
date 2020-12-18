@@ -37,8 +37,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
     private void initView() {
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
-        binding.btListHA.setOnClickListener(this);
-        binding.btListPoly.setOnClickListener(this);
+        binding.ivHA.setOnClickListener(this);
+        binding.ivPoly.setOnClickListener(this);
     }
   
     @Override
@@ -84,9 +84,9 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     public void onClick(View view) {
         if(view.getId() == binding.cWaitingList.getId()){
             onCardNearestWaitingList();
-        }else if(view.getId() == binding.btListPoly.getId()){
+        }else if(view.getId() == binding.ivPoly.getId()){
             onButtonListPoly();
-        }else if(view.getId() == binding.btListHA.getId()){
+        }else if(view.getId() == binding.ivHA.getId()){
             onButtonListHA();
         }else if(view.getId() == binding.cardWaitingList.getId()) {
             onButtonShowSpecificTicket();
