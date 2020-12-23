@@ -12,15 +12,17 @@ public interface ListHealthAgencyContract {
         void endLoading();
         void showListHealthAgencies(List<HealthAgency> healthAgencies);
         void showError(String errorMessage);
+        void setPrevPage(String prevPage);
+        void setNextPage(String nextPage);
     }
 
     interface Presenter {
-        void getHealthAgency();
+        void getHealthAgency(int page);
         void getHealthAgencyOfPolyId(String idPoly);
     }
 
     interface Interactor {
-        void requestListHealthAgency(RequestCallback<Pagination<HealthAgency>> requestCallback);
+        void requestListHealthAgency(RequestCallback<Pagination<HealthAgency>> requestCallback, int page);
         void requestListHealthAgencyOfPolyId(RequestCallback<List<HealthAgency>> requestCallback, String poly_id);
     }
 }

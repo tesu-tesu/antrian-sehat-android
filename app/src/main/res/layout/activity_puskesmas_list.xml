@@ -83,6 +83,47 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/navigationPage"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topNav"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/btPrev"
+                    android:layout_width="23dp"
+                    android:layout_height="30dp"
+                    android:background="@color/bottom_bar"
+                    app:layout_constraintEnd_toStartOf="@id/btNext"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_left_back" />
+
+                <ImageView
+                    android:id="@+id/btNext"
+                    android:layout_width="23dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="122dp"
+                    android:background="@color/bottom_bar"
+                    android:rotation="180"
+                    app:layout_constraintBottom_toBottomOf="@+id/btPrev"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btPrev"
+                    app:layout_constraintTop_toTopOf="@+id/btPrev"
+                    app:srcCompat="@drawable/ic_left_back" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
@@ -90,7 +131,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topNav" />
+            app:layout_constraintTop_toBottomOf="@+id/navigationPage" />
 
         <ScrollView
             android:id="@+id/scrollViewWrapper"
@@ -105,6 +146,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -144,7 +186,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                app:itemBackground="@color/bottom_bar"
+                android:background="@drawable/bottom_nav_rounded"
                 app:itemIconTint="@android:color/white"
                 app:itemTextColor="@android:color/white"
                 app:labelVisibilityMode="unlabeled"

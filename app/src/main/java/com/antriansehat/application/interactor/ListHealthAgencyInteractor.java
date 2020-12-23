@@ -22,8 +22,8 @@ public class ListHealthAgencyInteractor implements ListHealthAgencyContract.Inte
     }
 
     @Override
-    public void requestListHealthAgency(final RequestCallback<Pagination<HealthAgency>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "admin/health-agency")
+    public void requestListHealthAgency(final RequestCallback<Pagination<HealthAgency>> requestCallback, int page) {
+        AndroidNetworking.get(ApiConstant.BASE_URL + "admin/health-agency?page=" + page)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListHealthAgencyResponse.class, new ParsedRequestListener<ListHealthAgencyResponse>() {

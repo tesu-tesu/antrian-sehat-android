@@ -31,6 +31,8 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     private ActivityPuskesmasListBinding binding;
     private ListHealthAgencyPresenter presenter;
     private boolean isFromPoly = false;
+    private String nextPage;
+    private String prevPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,21 +49,33 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
         String idPoly = intent.getStringExtra("idPoly");
 
         if (idPoly == null){
-            presenter.getHealthAgency();
+            presenter.getHealthAgency(1);
+            binding.btPrev.setVisibility(View.VISIBLE);
+            binding.btNext.setVisibility(View.VISIBLE);
         }else{
             this.isFromPoly = true;
             presenter.getHealthAgencyOfPolyId(idPoly);
+            binding.btPrev.setVisibility(View.GONE);
+            binding.btNext.setVisibility(View.GONE);
         }
 
         binding.rvListHealthAgencies.setLayoutManager(new LinearLayoutManager(this));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);    //BottomNavigationView.OnNavigationItemSelectedListener
         binding.btBack.setOnClickListener(this);
+        binding.btPrev.setOnClickListener(this);
+        binding.btNext.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         if(view.getId() == binding.btBack.getId()){
             finish();
+        }else if(view.getId() == binding.btPrev.getId()){
+            System.out.println("bef: "+ prevPage);
+            presenter.getHealthAgency(Integer.parseInt(prevPage));
+        }else if(view.getId() == binding.btNext.getId()){
+            System.out.println("neks: "+ nextPage);
+            presenter.getHealthAgency(Integer.parseInt(nextPage));
         }
     }
 
@@ -89,6 +103,28 @@ public class ListHealthAgencyActivity extends AppCompatActivity implements ListH
     public void showError(String errorMessage) {
         Toast.makeText(getApplicationContext(), errorMessage,
                 Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setPrevPage(String prevPage) {
+        if(prevPage != null){
+            binding.btPrev.setVisibility(View.VISIBLE);
+            String[] arr =  prevPage.split("=");
+            this.prevPage = arr[1];
+        }else{
+            binding.btPrev.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    @Override
+    public void setNextPage(String nextPage) {
+        if(nextPage != null){
+            binding.btNext.setVisibility(View.VISIBLE);
+            String[] arr =  nextPage.split("=");
+            this.nextPage = arr[1];
+        }else{
+            binding.btNext.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override

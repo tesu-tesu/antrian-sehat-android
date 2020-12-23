@@ -51,9 +51,13 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
 
         if (idHa == null){
             presenter.getPolyclinic(1);
+            binding.btPrev.setVisibility(View.VISIBLE);
+            binding.btNext.setVisibility(View.VISIBLE);
         }else{
             this.isFromHA = true;
             presenter.getPolyclinicFromHA(idHa);
+            binding.btPrev.setVisibility(View.GONE);
+            binding.btNext.setVisibility(View.GONE);
         }
 
         binding.rvListPoly.setLayoutManager(new LinearLayoutManager(this));

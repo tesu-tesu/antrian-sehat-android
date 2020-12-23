@@ -17,12 +17,14 @@ public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Prese
     }
 
     @Override
-    public void getHealthAgency() {
+    public void getHealthAgency(int page) {
         view.startLoading();
         interactor.requestListHealthAgency(new RequestCallback<Pagination<HealthAgency>>() {
             @Override
             public void requestSuccess(Pagination<HealthAgency> data) {
                 view.endLoading();
+                view.setNextPage(data.getNext_page_url());
+                view.setPrevPage(data.getPrev_page_url());
                 view.showListHealthAgencies(data.getData());
             }
 
@@ -31,7 +33,7 @@ public class ListHealthAgencyPresenter implements ListHealthAgencyContract.Prese
                 view.endLoading();
                 view.showError(errorMessage);
             }
-        });
+        }, page);
     }
 
     @Override

@@ -172,7 +172,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                app:itemBackground="@color/bottom_bar"
+                android:background="@drawable/bottom_nav_rounded"
                 app:itemIconTint="@android:color/white"
                 app:itemTextColor="@android:color/white"
                 app:labelVisibilityMode="unlabeled"

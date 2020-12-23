@@ -53,7 +53,6 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
         idSchedule = getIntent().getExtras().get("idSchedule").toString();
         date = (Date) getIntent().getSerializableExtra("date");
 
-        binding.bottomNav.setOnNavigationItemSelectedListener(this);
         binding.spinner.setOnItemSelectedListener(this);
 
         // Create ArrayAdapter using the string array and default spinner layout.

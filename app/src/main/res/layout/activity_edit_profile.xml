@@ -13,30 +13,6 @@
         android:backgroundTint="@color/whiteBlue"   >
 
         <LinearLayout
-            android:id="@+id/linearLayout9"
-            android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:gravity="center|bottom"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNav"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                app:itemBackground="@color/bottom_bar"
-                app:itemIconTint="@android:color/white"
-                app:itemTextColor="@android:color/white"
-                app:labelVisibilityMode="unlabeled"
-                app:menu="@menu/bottom_nav_menu" />
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/topNav"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -213,8 +189,8 @@
             android:fontFamily="@font/open_sans_semibold"
             android:text="@string/selesai"
             android:textColor="@color/blackFont"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent" />
