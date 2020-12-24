@@ -52,8 +52,8 @@ public class ListScheduleAdapter extends RecyclerView.Adapter<ListScheduleAdapte
         });
     }
 
-    public void setListHealthAgencyClickListener(ListScheduleListener listHealthAgencyListener) {
-        this.listScheduleListener = listHealthAgencyListener;
+    public void setListScheduleClickListener(ListScheduleListener listScheduleListener) {
+        this.listScheduleListener = listScheduleListener;
     }
 
     public interface ListScheduleListener {

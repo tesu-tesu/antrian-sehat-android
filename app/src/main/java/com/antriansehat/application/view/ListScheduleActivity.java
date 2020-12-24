@@ -2,7 +2,6 @@ package com.antriansehat.application.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +22,7 @@ import java.util.Date;
 public class ListScheduleActivity extends AppCompatActivity implements ListScheduleContract.View, View.OnClickListener{
     private ActivityScheduleBinding binding;
     private ListSchedulePresenter presenter;
+    private Schedule choosedSchedule = null;
     private String choice = "-1";
 
     @Override
@@ -39,11 +39,16 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
         Intent intent = getIntent();
         presenter.getScheduleOfHA(intent.getStringExtra("idHA"), intent.getStringExtra("idPoly"));
         binding.rvListSchedule.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        binding.btBack.setOnClickListener(this);
+        binding.btChoice.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-
+        if(view.getId() == binding.btBack.getId()){
+            finish();
+        }else if(view.getId() == binding.btChoice.getId())
+            redirectToRegister();
     }
 
     @Override
@@ -67,21 +72,26 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
 
         final ListScheduleAdapter listScheduleAdapter = new ListScheduleAdapter(scheduleOfHA.getSorted(), getLayoutInflater());
         binding.rvListSchedule.setAdapter(listScheduleAdapter);
-        listScheduleAdapter.setListHealthAgencyClickListener(new ListScheduleAdapter.ListScheduleListener() {
+        listScheduleAdapter.setListScheduleClickListener(new ListScheduleAdapter.ListScheduleListener() {
             @Override
             public void onCardClick(Schedule schedule) {
                 if(schedule.getId() != null)
-                    redirectToRegister(schedule);
+                    setChoosedSchedule(schedule);
             }
         });
     }
 
-    private void redirectToRegister(Schedule schedule) {
-        Intent registerWaitingList = new Intent(ListScheduleActivity.this, DaftarAntrianActivity.class);
-        registerWaitingList.putExtra("idSchedule", schedule.getId());
-        registerWaitingList.putExtra("date", schedule.getDate());
+    private void setChoosedSchedule(Schedule schedule) {
+        this.choosedSchedule = schedule;
+    }
 
-        startActivity(registerWaitingList);
+    private void redirectToRegister() {
+        if (choosedSchedule != null){
+            Intent registerWaitingList = new Intent(ListScheduleActivity.this, DaftarAntrianActivity.class);
+            registerWaitingList.putExtra("idSchedule", choosedSchedule.getId());
+            registerWaitingList.putExtra("date", choosedSchedule.getDate());
+            startActivity(registerWaitingList);
+        }
     }
 
     @Override
