@@ -22,7 +22,7 @@ public class ShowTicketPresenter implements ShowTicketContract.Presenter {
     public void requestQRCode(WaitingList waitingList) {
         Bitmap bitmap;
         // Initializing the QR Encoder with your value to be encoded, type you required and Dimension
-        QRGEncoder qrgEncoder = new QRGEncoder(waitingList.getBarcode(), null, QRGContents.Type.TEXT, 500);
+        QRGEncoder qrgEncoder = new QRGEncoder(waitingList.getBarcode(), null, QRGContents.Type.TEXT, 768);
         // Getting QR-Code as Bitmap
         bitmap = qrgEncoder.getBitmap();
         view.showTicket(bitmap);
