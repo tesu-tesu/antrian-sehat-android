@@ -31,8 +31,8 @@
     <string name="show_ticket_bt_label">Show Ticket</string>
     <string name="tvPuskesmasTitle">Daftar Puskesmas</string>
     <string name="profile">Profile</string>
-    <string name="profile_name"> </string>
-    <string name="total_antrian">0x mengantri</string>
+    <string name="profile_name">Jane</string>
+    <string name="total_antrian">x mengantri</string>
     <string name="kerabat_terdaftar_text_view">Kerabat yang Pernah Anda Daftarkan</string>
     <string name="pengaturan">Pengaturan</string>
     <string name="error_message">error message</string>

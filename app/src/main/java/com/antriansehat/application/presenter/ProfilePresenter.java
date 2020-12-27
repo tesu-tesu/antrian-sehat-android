@@ -4,6 +4,8 @@ import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.ProfileContract;
 import com.antriansehat.application.model.User;
 
+import java.util.List;
+
 public class ProfilePresenter implements ProfileContract.Presenter {
     private ProfileContract.View view;
     private ProfileContract.Interactor interactor;
@@ -20,7 +22,22 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     }
 
     @Override
-    public void setName() {
+    public void requestBookedResidenceNumber() {
+        interactor.requestBookedResidenceNumber(new RequestCallback<List<String>>() {
+            @Override
+            public void requestSuccess(List<String> data) {
+                view.showBookedResidenceNumbers(data);
+            }
+
+            @Override
+            public void requestFailed(String errorMessage) {
+                view.showErrorGetResidenceNumbers(errorMessage);
+            }
+        });
+    }
+
+    @Override
+    public void setDataUser() {
         interactor.setDataUser(new RequestCallback<User>() {
             @Override
             public void requestSuccess(User data) {
