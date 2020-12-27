@@ -38,6 +38,7 @@ public class  ProfileSettingActivity extends AppCompatActivity implements Profil
     public void onClick(View v) {
         if(v.getId() == binding.btnSave.getId()){
             onSaveUpdateClick();
+            backToProfile();
         }else if(v.getId() == binding.btnCancel.getId()){
             backToProfile();
         }
