@@ -6,19 +6,19 @@ public class User {
     private String email;
     private String phone;
     private String password;
+    private String profile_image;
+    private String totalWaitingList;
     private String residence_number;
 
-    public User(String id, String name, String email, String password, String residence_number, String phone) {
+    public User(String id, String name, String email, String phone, String password, String profile_image, String totalWaitingList, String residence_number) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
-        this.residence_number = residence_number;
         this.phone = phone;
-    }
-
-    public String getPhone() {
-        return phone;
+        this.password = password;
+        this.profile_image = profile_image;
+        this.totalWaitingList = totalWaitingList;
+        this.residence_number = residence_number;
     }
 
     public String getId() {
@@ -33,11 +33,23 @@ public class User {
         return email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
     public String getPassword() {
         return password;
     }
 
-    public String getResidenceNumber() {
+    public String getProfile_image() {
+        return profile_image;
+    }
+
+    public String getTotalWaitingList() {
+        return totalWaitingList;
+    }
+
+    public String getResidence_number() {
         return residence_number;
     }
 }

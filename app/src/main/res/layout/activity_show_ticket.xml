@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:contentDescription="@{waitingList.barcode}"
+                    android:contentDescription="@string/back_button"
                     android:id="@+id/btBack"
                     android:layout_width="28dp"
                     android:layout_height="30dp"
@@ -108,20 +108,21 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/poppins_light"
                     android:text="@{waitingList.registered_date}"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/qrCode" />
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                     android:id="@+id/qrCode"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_gravity="center|center_vertical"
                     android:layout_marginTop="12dp"
+                    android:contentDescription="@{waitingList.barcode}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.Guideline
@@ -153,7 +154,7 @@
                         android:fontFamily="@font/poppins_semibold"
                         android:text="@string/nomer_antrian_label"
                         android:textColor="#fff"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -163,7 +164,7 @@
                         android:fontFamily="@font/poppins_semibold"
                         android:text="@{waitingList.order_number}"
                         android:textColor="#ffffff"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -173,7 +174,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:text="@{waitingList.residence_number}"
                     android:textColor="@color/whiteBone"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -182,7 +183,7 @@
                     android:text="@{waitingList.health_agency}"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                     android:textColor="#ffffff"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -191,7 +192,7 @@
                     android:text="@{waitingList.polyclinic}"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                     android:textColor="#ffffff"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 

@@ -42,10 +42,10 @@ public class ListScheduleAdapter extends RecyclerView.Adapter<ListScheduleAdapte
                 if(schedules.get(position).getId() != null){
                     if (!schedules.get(position).isChoice()) {
                         holder.binding.cardScheduleItem.setBackgroundResource(R.drawable.bt_blue_schedule);
-                        schedules.get(position).setChoice(true);
+                        schedules.get(position).setChoice(false);
                     } else {
                         holder.binding.cardScheduleItem.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                        schedules.get(position).setChoice(false);
+                        schedules.get(position).setChoice(true);
                     }
                 }
             }

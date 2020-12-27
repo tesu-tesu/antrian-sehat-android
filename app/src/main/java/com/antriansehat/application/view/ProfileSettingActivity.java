@@ -85,7 +85,7 @@ public class  ProfileSettingActivity extends AppCompatActivity implements Profil
     public void showUserData(User user) {
         binding.etNama.setText(user.getName());
         binding.etEmail.setText(user.getEmail());
-        binding.etNIK.setText(user.getResidenceNumber());
+        binding.etNIK.setText(user.getResidence_number());
         binding.etPhone.setText(user.getPhone());
     }
 
