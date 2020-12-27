@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data></data>
+    <data/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pageProfile"
@@ -13,7 +13,6 @@
         android:backgroundTint="@color/whiteBlue"
         android:elevation="10dp"
         app:cardCornerRadius="8dp">
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/topNav"
@@ -51,8 +50,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/profileCard"
-            android:layout_width="356dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30sp"
             android:background="@drawable/bt_white"
             android:layout_marginTop="80dp"
             android:paddingVertical="12dp"
@@ -60,58 +60,66 @@
             app:layout_constraintTop_toTopOf="@+id/topNav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/bt_white"
-            tools:ignore="NotSibling"
-            tools:layout_editor_absoluteY="84dp">
+            >
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfileImage"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="8dp"
-                app:cardCornerRadius="50dp"
-                app:layout_constraintHorizontal_bias="0.5"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_user_def"
+                app:civ_border_width="1dp"
+                app:civ_border_color="#FF3C3C3C"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-                <ImageView
-                    android:id="@+id/ivProfile"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:srcCompat="@tools:sample/avatars" />
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toTopOf="parent"/>
 
-            <TextView
-                android:id="@+id/tvProfileName"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="90sp"
-                android:layout_marginEnd="5sp"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="@string/profile_name"
-                android:textColor="@color/blackFont"
-                android:textSize="20sp"
+                android:orientation="vertical"
+                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.553"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivProfileImage"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.404" />
+                >
+                <TextView
+                    android:id="@+id/tvProfileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/profile_name"
+                    android:textColor="@color/blackFont"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivProfileImage"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvTotalAntrian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:layout_marginBottom="28dp"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/total_antrian"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.691"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvProfileName"
-                app:layout_constraintVertical_bias="0.437" />
+                <LinearLayout
+                    android:id="@+id/layout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivProfileImage"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProfileName">
+                    <TextView
+                        android:id="@+id/tvTotalAntrian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:fontFamily="@font/open_sans" />
+                    <TextView
+                        android:id="@+id/tvTotalAntrianLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans"
+                        android:text="@string/total_antrian"/>
+                </LinearLayout>
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -134,51 +142,46 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profileCard" />
 
-        <LinearLayout
-            android:id="@+id/ivKerabatList"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="30sp"
-            android:layout_marginEnd="30sp"
-            android:background="@drawable/bt_white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvKerabatList"
-            app:layout_constraintVertical_bias="0.017"
-            app:srcCompat="@drawable/bt_white">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="93dp"
-                tools:layout_editor_absoluteY="295dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout5"
+        <ScrollView
+            android:id="@+id/scrollViewWrapper"
             android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:gravity="center|bottom"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="16dp"
+            app:layout_constraintBottom_toTopOf="@id/btnPengaturan"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvKerabatList">
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNav"
+            <LinearLayout
+                android:id="@+id/ivKerabatList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                app:itemBackground="@color/bottom_bar"
-                app:itemIconTint="@android:color/white"
-                app:itemTextColor="@android:color/white"
-                app:labelVisibilityMode="unlabeled"
-                app:menu="@menu/bottom_nav_menu" />
+                android:layout_marginStart="30sp"
+                android:layout_marginEnd="30sp"
+                android:background="@drawable/bt_white"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@id/btnPengaturan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvKerabatList"
+                app:layout_constraintVertical_bias="0.017"
+                app:srcCompat="@drawable/bt_white">
 
-        </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvResidenceNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout_editor_absoluteX="93dp"
+                    tools:layout_editor_absoluteY="295dp" />
+                <TextView
+                    android:id="@+id/tvResidenceInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+        </ScrollView>
 
         <Button
             android:id="@+id/btnPengaturan"
@@ -210,6 +213,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                app:itemBackground="@color/bottom_bar"
+                app:itemIconTint="@android:color/white"
+                app:itemTextColor="@android:color/white"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/bottom_nav_menu" />
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </layout>
