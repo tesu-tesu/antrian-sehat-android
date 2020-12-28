@@ -22,8 +22,12 @@ public class LoginPresenter implements LoginContract.Presenter {
             @Override
             public void requestSuccess(LoginResponse data) {
                 view.endLoading();
-                view.loginSuccess(data.message);
-                interactor.saveToken(data.access_token);
+                if (data.user.getRole() != "Pasien"){
+                    view.loginFailed("Selain user pasien tidak bisa login !");
+                }else{
+                    view.loginSuccess(data.message);
+                    interactor.saveToken(data.access_token);
+                }
             }
 
             @Override

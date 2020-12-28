@@ -21,7 +21,7 @@
     <string name="no_antrian_label">No. Antrian:</string>
     <string name="saat_ini_label">saat ini:   </string>
     <string name="artikel_kesehatan_label">Tahukah Anda?</string>
-    <string name="waiting_list_label">Antrian Terdekat Anda</string>
+    <string name="waiting_list_label">Antrian Terdekat Anda:</string>
     <string name="order_number_label">No. Antrian: </string>
     <string name="slash">/</string>
     <string name="current_waiting_list_label">Saat ini: </string>
