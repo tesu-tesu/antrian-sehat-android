@@ -2,6 +2,8 @@ package com.antriansehat.application.model;
 
 import android.text.format.Time;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;

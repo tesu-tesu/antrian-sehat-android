@@ -20,6 +20,7 @@ public class ListScheduleAdapter extends RecyclerView.Adapter<ListScheduleAdapte
     private List<Schedule> schedules;
     private LayoutInflater layoutInflater;
     private ListScheduleListener listScheduleListener;
+    private int checkedPosition = -1;
 
     public ListScheduleAdapter(List<Schedule> schedules, LayoutInflater layoutInflater) {
         this.schedules = schedules;
@@ -35,25 +36,16 @@ public class ListScheduleAdapter extends RecyclerView.Adapter<ListScheduleAdapte
     @Override
     public void onBindViewHolder(@NonNull final ListScheduleAdapter.ViewHolder holder, final int position) {
         holder.binding.setSchedule(schedules.get(position));
-        holder.binding.cardScheduleItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listScheduleListener.onCardClick(schedules.get(position));
-                if(schedules.get(position).getId() != null){
-                    if (!schedules.get(position).isChoice()) {
-                        holder.binding.cardScheduleItem.setBackgroundResource(R.drawable.bt_blue_schedule);
-                        schedules.get(position).setChoice(false);
-                    } else {
-                        holder.binding.cardScheduleItem.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                        schedules.get(position).setChoice(true);
-                    }
-                }
-            }
-        });
+        holder.bind();
     }
 
     public void setListScheduleClickListener(ListScheduleListener listScheduleListener) {
         this.listScheduleListener = listScheduleListener;
+        notifyDataSetChanged();
+    }
+
+    public Schedule getSelectedSchedule() {
+        return schedules.get(checkedPosition);
     }
 
     public interface ListScheduleListener {
@@ -76,6 +68,29 @@ public class ListScheduleAdapter extends RecyclerView.Adapter<ListScheduleAdapte
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ItemScheduleBinding binding;
+
+        void bind() {
+            if (checkedPosition == -1) {
+                binding.cardScheduleItem.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            } else {
+                if (checkedPosition == getAdapterPosition()) {
+                    binding.cardScheduleItem.setBackgroundResource(R.drawable.bt_blue_schedule);
+                } else {
+                    binding.cardScheduleItem.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                }
+            }
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    binding.cardScheduleItem.setBackgroundResource(R.drawable.bt_blue_schedule);
+                    if (checkedPosition != getAdapterPosition()) {
+                        notifyItemChanged(checkedPosition);
+                        checkedPosition = getAdapterPosition();
+                    }
+                }
+            });
+        }
 
         public ViewHolder(ItemScheduleBinding binding) {
             super(binding.getRoot());

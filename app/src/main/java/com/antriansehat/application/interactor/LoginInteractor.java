@@ -19,28 +19,31 @@ public class LoginInteractor implements LoginContract.Interactor {
     @Override
     public void requestLogin(String username, String password, final RequestCallback<LoginResponse> requestCallback) {
         AndroidNetworking.post(ApiConstant.BASE_URL + "auth/login")
-                .addBodyParameter("email", username)
-                .addBodyParameter("password", password)
-                .build()
-                .getAsObject(LoginResponse.class, new ParsedRequestListener<LoginResponse>() {
-                    @Override
-                    public void onResponse(LoginResponse response) {
-                        if(response == null){
-                            requestCallback.requestFailed("Null Response");
-                        }
-                        else if(response.success){
+            .addBodyParameter("email", username)
+            .addBodyParameter("password", password)
+            .build()
+            .getAsObject(LoginResponse.class, new ParsedRequestListener<LoginResponse>() {
+                @Override
+                public void onResponse(LoginResponse response) {
+                    if(response == null){
+                        requestCallback.requestFailed("Null Response");
+                    }
+                    else if(response.success){
+                        if(response.user.getRole().equals("Pasien"))
                             requestCallback.requestSuccess(response);
-                        }
-                        else {
-                            requestCallback.requestFailed(response.message);
-                        }
+                        else
+                            requestCallback.requestFailed("Selain user pasien tidak bisa login !");
                     }
+                    else {
+                        requestCallback.requestFailed(response.message);
+                    }
+                }
 
-                    @Override
-                    public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getErrorDetail());
-                    }
-                });
+                @Override
+                public void onError(ANError anError) {
+                    requestCallback.requestFailed(anError.getErrorDetail());
+                }
+            });
     }
 
     @Override

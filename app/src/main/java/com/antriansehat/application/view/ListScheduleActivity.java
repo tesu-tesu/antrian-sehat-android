@@ -75,18 +75,15 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
         listScheduleAdapter.setListScheduleClickListener(new ListScheduleAdapter.ListScheduleListener() {
             @Override
             public void onCardClick(Schedule schedule) {
-                if(schedule.getId() != null)
-                    setChoosedSchedule(schedule);
+
             }
         });
     }
 
-    private void setChoosedSchedule(Schedule schedule) {
-        this.choosedSchedule = schedule;
-    }
-
     private void redirectToRegister() {
-        if (choosedSchedule != null){
+        choosedSchedule = ((ListScheduleAdapter) binding.rvListSchedule.getAdapter()).getSelectedSchedule();
+        System.out.println("cex: "+ choosedSchedule);
+        if (choosedSchedule != null && !choosedSchedule.getTime_close().equals("-")){
             Intent registerWaitingList = new Intent(ListScheduleActivity.this, DaftarAntrianActivity.class);
             registerWaitingList.putExtra("idSchedule", choosedSchedule.getId());
             registerWaitingList.putExtra("date", choosedSchedule.getDate());

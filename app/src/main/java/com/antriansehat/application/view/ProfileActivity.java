@@ -50,6 +50,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
 
     @Override
     public void showUserData(User user) {
+        binding.tvTotalAntrianLabel.setVisibility(View.VISIBLE);
         binding.tvProfileName.setText(user.getName());
         binding.tvTotalAntrian.setText(user.getTotalWaitingList());
         // nanti insert profile pict di sini
