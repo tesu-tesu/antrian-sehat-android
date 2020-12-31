@@ -64,6 +64,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
     @Override
     public void showBookedResidenceNumbers(List<String> residenceNumbers) {
         binding.rvResidenceNumber.setAdapter(new ListBookedResidenceNumberAdapter(residenceNumbers, getLayoutInflater()));
+
         binding.tvResidenceInfo.setVisibility(View.GONE);
     }
 

@@ -67,7 +67,7 @@ public class ProfileInteractor implements ProfileContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getErrorBody());
+                        requestCallback.requestFailed(anError.getMessage());
                     }
                 });
     }
