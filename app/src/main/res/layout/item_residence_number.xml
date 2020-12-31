@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         >
@@ -23,7 +23,8 @@
             android:layout_gravity="center_vertical|start"
             android:fontFamily="@font/poppins_light"
             android:text="@{residenceNumber}"
-            android:textSize="12sp"
+            android:textSize="14sp"
+            android:textColor="#3C3C3C"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="NIK" />

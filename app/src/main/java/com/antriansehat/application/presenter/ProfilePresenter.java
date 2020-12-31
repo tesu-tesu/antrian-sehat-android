@@ -27,11 +27,13 @@ public class ProfilePresenter implements ProfileContract.Presenter {
             @Override
             public void requestSuccess(List<String> data) {
                 view.showBookedResidenceNumbers(data);
+                System.out.println(data.get(0));
             }
 
             @Override
             public void requestFailed(String errorMessage) {
                 view.showErrorGetResidenceNumbers(errorMessage);
+                System.out.println("error " + errorMessage);
             }
         });
     }
