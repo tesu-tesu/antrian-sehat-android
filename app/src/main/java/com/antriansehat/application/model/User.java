@@ -7,18 +7,20 @@ public class User {
     private String phone;
     private String password;
     private String role;
-    private String profile_image;
+    private String imagePath;
+    private String profile_img;
     private String totalWaitingList;
     private String residence_number;
 
-    public User(String id, String name, String email, String phone, String password, String role, String profile_image, String totalWaitingList, String residence_number) {
+    public User(String id, String name, String email, String phone, String password, String role, String imagePath, String profile_img, String totalWaitingList, String residence_number) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.password = password;
         this.role = role;
-        this.profile_image = profile_image;
+        this.imagePath = imagePath;
+        this.profile_img = profile_img;
         this.totalWaitingList = totalWaitingList;
         this.residence_number = residence_number;
     }
@@ -47,8 +49,8 @@ public class User {
         return role;
     }
 
-    public String getProfile_image() {
-        return profile_image;
+    public String getProfile_img() {
+        return profile_img;
     }
 
     public String getTotalWaitingList() {
@@ -57,5 +59,9 @@ public class User {
 
     public String getResidence_number() {
         return residence_number;
+    }
+
+    public String getImagePath() {
+        return imagePath;
     }
 }

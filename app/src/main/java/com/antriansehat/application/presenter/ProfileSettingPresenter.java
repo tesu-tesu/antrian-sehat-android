@@ -1,14 +1,12 @@
 package com.antriansehat.application.presenter;
 
-import android.util.Log;
-
-import com.antriansehat.application.api_response.ProfileSettingResponse;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.ProfileSettingContract;
 import com.antriansehat.application.interactor.ProfileSettingInteractor;
 import com.antriansehat.application.model.User;
-import com.antriansehat.application.model.UserWaitingList;
 import com.antriansehat.application.view.ProfileSettingActivity;
+
+import java.io.File;
 
 public class ProfileSettingPresenter implements ProfileSettingContract.Presenter {
     private ProfileSettingContract.View view;
@@ -56,6 +54,22 @@ public class ProfileSettingPresenter implements ProfileSettingContract.Presenter
             public void requestFailed(String errorMessage) {
                 view.endLoading();
                 view.updateFailed(errorMessage);
+            }
+        });
+    }
+
+    @Override
+    public void updateProfileImage(File imageFile) {
+        interactor.updateProfileImage(currentUser.getId(), imageFile, new RequestCallback<String>() {
+            @Override
+            public void requestSuccess(String path) {
+                view.updateProfileImageSuccess("Berhasil mengubah foto profil", path);
+            }
+
+            @Override
+            public void requestFailed(String errorMessage) {
+                view.updateFailed(errorMessage);
+                System.out.println(errorMessage);
             }
         });
     }
