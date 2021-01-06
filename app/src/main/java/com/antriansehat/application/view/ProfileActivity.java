@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.antriansehat.application.R;
 import com.antriansehat.application.adapter.ListBookedResidenceNumberAdapter;
+import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.contract.ProfileContract;
 import com.antriansehat.application.databinding.ActivityProfilePageBinding;
 import com.antriansehat.application.interactor.ProfileInteractor;
@@ -20,6 +20,7 @@ import com.antriansehat.application.model.User;
 import com.antriansehat.application.presenter.ProfilePresenter;
 import com.antriansehat.application.util.UtilProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -53,7 +54,14 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         binding.tvTotalAntrianLabel.setVisibility(View.VISIBLE);
         binding.tvProfileName.setText(user.getName());
         binding.tvTotalAntrian.setText(user.getTotalWaitingList());
-        // nanti insert profile pict di sini
+        binding.ivProfileImage.setImageURI(null);
+        if(user.getImagePath() != null) {
+            System.out.println("PATH " + ApiConstant.SERVER_NAME + user.getImagePath());
+            Picasso.get()
+                    .load(ApiConstant.SERVER_NAME + user.getImagePath())
+                    .fit()
+                    .into(binding.ivProfileImage);
+        }
     }
 
     @Override
