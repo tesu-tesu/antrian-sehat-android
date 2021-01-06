@@ -40,6 +40,11 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         initView();
     }
 
+    protected void onResume() {
+        super.onResume();
+        presenter.setDataUser();
+    }
+
     private void initView() {
         binding.btnLogout.setOnClickListener(this);
         binding.btnPengaturan.setOnClickListener(this);
