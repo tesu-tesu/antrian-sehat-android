@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.antriansehat.application.R;
+import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.databinding.ItemPolyBinding;
 import com.antriansehat.application.model.HealthAgency;
 import com.antriansehat.application.model.Polyclinic;
@@ -40,6 +41,14 @@ public class ListPolyclinicAdapter extends RecyclerView.Adapter<ListPolyclinicAd
                 listPolyclinicListener.onCardClick(polyclinics.get(position));
             }
         });
+        if(polyclinics.get(position).getImage() != null) {
+            System.out.println("PATH " + ApiConstant.SERVER_NAME + polyclinics.get(position).getImage());
+            Picasso.get()
+                    .load(ApiConstant.SERVER_NAME + polyclinics.get(position).getImage())
+                    .fit()
+                    .error(R.drawable.group_26)
+                    .into(holder.binding.ivPoly);
+        }
     }
 
     public void setListPolyclinicClickListener(ListPolyclinicAdapter.ListPolyclinicListener listPolyclinicListener) {

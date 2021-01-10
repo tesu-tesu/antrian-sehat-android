@@ -3,10 +3,12 @@ package com.antriansehat.application.model;
 public class Polyclinic {
     private String id;
     private String name;
+    private String image;
 
-    public Polyclinic(String id, String name) {
+    public Polyclinic(String id, String name, String image) {
         this.id = id;
         this.name = name;
+        this.image = image;
     }
 
     public String getId() {
@@ -15,5 +17,9 @@ public class Polyclinic {
 
     public String getName() {
         return name;
+    }
+
+    public String getImage() {
+        return image;
     }
 }
