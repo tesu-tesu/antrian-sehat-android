@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <data>
-    </data>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data/>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:background="@color/app_backg_main"
     android:layout_width="match_parent"
@@ -16,7 +14,6 @@
         android:layout_height="72dp"
         android:background="@drawable/gradient_navbar"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/scrollViewWrapper"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,127 +51,38 @@
                 app:layout_constraintTop_toTopOf="@id/puskesmasTitle"
                 app:srcCompat="@drawable/ic_left_back" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topNav" />
-
-    <ScrollView
-        android:id="@+id/scrollViewWrapper"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@id/linBottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topNav">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/topNav"
+        app:layout_constraintBottom_toTopOf="@id/linBottom">
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:id="@+id/hariIniWrapper"
-                android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill">
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="12dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/tvHariIni"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/txt_hari_ini"
-                    android:textAlignment="textStart"
-                    android:textColor="#9A9A9A"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/hariIniWrapper" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/historyHariIni"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/akanDatangWrapper"
-                android:layout_width="match_parent"
+                android:text="@string/selesai_label"/>
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="12dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hariIniWrapper">
-
-                <TextView
-                    android:id="@+id/tvAkanDatang"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/tv_akan_datang"
-                    android:textAlignment="textStart"
-                    android:textColor="#9A9A9A"
-                    android:textSize="20sp" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/historyAkanDatang"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/selesaiWrapper"
-                android:layout_width="match_parent"
+                android:text="@string/hari_ini_label"/>
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="12dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/akanDatangWrapper">
-
-                <TextView
-                    android:id="@+id/tvSelesai"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/tv_selesai"
-                    android:textAlignment="textStart"
-                    android:textColor="#9A9A9A"
-                    android:textSize="20sp" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/historySelesai"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
-
+                android:text="@string/akan_datang_label"/>
+        </com.google.android.material.tabs.TabLayout>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/linBottom"
         app:layout_constraintBottom_toBottomOf="parent"

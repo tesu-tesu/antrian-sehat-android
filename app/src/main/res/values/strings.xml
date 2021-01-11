@@ -55,6 +55,10 @@
     <string name="list_poliklinik">List Poliklinik</string>
     <string name="list_puskesmas">List Puskesmas</string>
     <string name="back_button">backButton</string>
+    <string name="no_ticket_label">Belum ada tiket untuk ditampilkan</string>
+    <string name="selesai_label">Selesai</string>
+    <string name="hari_ini_label">Hari Ini</string>
+    <string name="akan_datang_label">Akan Datang</string>
 
     <!--Spinner-->
     <string-array name="pilihan_register">

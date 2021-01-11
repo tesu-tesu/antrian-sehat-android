@@ -3,6 +3,9 @@ package com.antriansehat.application.presenter;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.contract.RiwayatTiketContract;
 import com.antriansehat.application.model.UserWaitingList;
+import com.antriansehat.application.model.WaitingList;
+
+import java.util.List;
 
 public class RiwayatTiketPresenter implements RiwayatTiketContract.Presenter {
     private RiwayatTiketContract.View view;
@@ -14,26 +17,30 @@ public class RiwayatTiketPresenter implements RiwayatTiketContract.Presenter {
     }
 
     @Override
-    public void requestTicket() {
+    public void requestTicket(final int ticketType) {
         view.startLoading();
-        System.out.println("MENGHUBUNGI");
-        interactor.requestTicket(new RequestCallback<UserWaitingList>() {
-
+        System.out.println("menghubungkan");
+        new Thread() {
             @Override
-            public void requestSuccess(UserWaitingList data) {
-                view.endLoading();
-                System.out.println("BERHASIL");
-                view.showCurrentWaitingList(data.getCurrentWaitingList());
-                view.showFutureWaitingList(data.getFutureWaitingList());
-                view.showHistoryWaitingList(data.getHistoryWaitingList());
-            }
+            public void run() {
+                super.run();
+                interactor.requestTicket(ticketType, new RequestCallback<List<WaitingList>>() {
+                    @Override
+                    public void requestSuccess(List<WaitingList> data) {
+                        System.out.println("BERHASIL");
+                        view.endLoading();
+                        view.showWaitingList(data);
+                    }
 
-            @Override
-            public void requestFailed(String errorMessage) {
-                System.out.println("GAGAL");
-                view.endLoading();
-                view.showError(errorMessage);
+                    @Override
+                    public void requestFailed(String errorMessage) {
+                        System.out.println("GAGAL");
+                        view.endLoading();
+                        view.showError(errorMessage);
+                    }
+                });
             }
-        });
+        }.start();
     }
+
 }
