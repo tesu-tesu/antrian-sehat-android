@@ -39,6 +39,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
         binding.ivHA.setOnClickListener(this);
         binding.ivPoly.setOnClickListener(this);
+        binding.layoutAboutUs.setOnClickListener(this);
     }
   
     @Override
@@ -90,7 +91,14 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
             onButtonListHA();
         }else if(view.getId() == binding.cardWaitingList.getId()) {
             onButtonShowSpecificTicket();
+        } else if(view.getId() == binding.layoutAboutUs.getId()) {
+            onAboutUs();
         }
+    }
+
+    private void onAboutUs() {
+        Intent info = new Intent(HomeActivity.this, AboutUsActivity.class);
+        startActivity(info);
     }
 
     private void onButtonShowSpecificTicket() {
