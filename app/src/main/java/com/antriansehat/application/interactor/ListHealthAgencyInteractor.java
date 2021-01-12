@@ -23,7 +23,7 @@ public class ListHealthAgencyInteractor implements ListHealthAgencyContract.Inte
 
     @Override
     public void requestListHealthAgency(final RequestCallback<Pagination<HealthAgency>> requestCallback, int page) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "admin/health-agency?page=" + page)
+        AndroidNetworking.get(ApiConstant.BASE_URL + "health-agency?page=" + page)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListHealthAgencyResponse.class, new ParsedRequestListener<ListHealthAgencyResponse>() {
@@ -49,7 +49,7 @@ public class ListHealthAgencyInteractor implements ListHealthAgencyContract.Inte
 
     @Override
     public void requestListHealthAgencyOfPolyId(final RequestCallback<List<HealthAgency>> requestCallback, String poly_id) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "user/health-agency/"+Integer.parseInt(poly_id))
+        AndroidNetworking.get(ApiConstant.BASE_URL + "health-agency/of-poly/"+Integer.parseInt(poly_id))
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListHealthAgencyFromPolyResponse.class, new ParsedRequestListener<ListHealthAgencyFromPolyResponse>() {

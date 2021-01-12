@@ -74,7 +74,7 @@ public class TiketHariIniFragment extends Fragment implements RiwayatTiketContra
 
     @Override
     public void showError(String errorMessage) {
-        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
         binding.tvNoTicket.setVisibility(View.VISIBLE);
     }
 

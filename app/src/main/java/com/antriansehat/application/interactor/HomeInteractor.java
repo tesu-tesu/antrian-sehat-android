@@ -1,5 +1,7 @@
 package com.antriansehat.application.interactor;
 
+import android.util.Log;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
@@ -29,7 +31,7 @@ public class HomeInteractor implements HomeContract.Interactor {
 
     @Override
     public void requestNearestWaitingList(final RequestCallback<WaitingList> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "user/show-nearest-waiting-list")
+        AndroidNetworking.get(ApiConstant.BASE_URL + "waiting-list/nearest")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(NearestWaitingListResponse.class, new ParsedRequestListener<NearestWaitingListResponse>() {
@@ -38,7 +40,6 @@ public class HomeInteractor implements HomeContract.Interactor {
                     public void onResponse(NearestWaitingListResponse response) {
                             if(response.success) {
                                 requestCallback.requestSuccess(response.data);
-//                                Log.d("WAITINGLIST", "onResponse: " + response.waiting_list.getStatus());
                             } else {
                                 requestCallback.requestFailed("Anda belum memiliki antrian yang akan datang");
                             }

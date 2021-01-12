@@ -16,6 +16,7 @@ public interface DaftarAntrianContract {
         void registerSuccess(WaitingList waitingList);
         void registerFailed(String message);
         void showError(String errorMessage);
+        void makeToast(String message);
     }
 
     public interface Presenter {

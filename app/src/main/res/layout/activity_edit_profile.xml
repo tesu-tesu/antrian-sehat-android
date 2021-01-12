@@ -125,7 +125,7 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:ems="10"
-            android:inputType="text|number"
+            android:inputType="text|textPersonName"
             android:hint="@string/entry_nama"
             app:layout_constraintBottom_toBottomOf="@+id/fsNama"
             app:layout_constraintEnd_toEndOf="@+id/fsNama"
