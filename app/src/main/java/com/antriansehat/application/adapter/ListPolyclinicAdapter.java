@@ -13,6 +13,7 @@ import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.databinding.ItemPolyBinding;
 import com.antriansehat.application.model.HealthAgency;
 import com.antriansehat.application.model.Polyclinic;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
