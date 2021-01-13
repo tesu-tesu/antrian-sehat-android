@@ -36,17 +36,17 @@ public class AboutUsActivity extends AppCompatActivity implements BaseAuthentica
 
     private void prepareImage() {
         binding.ivDevRefano.setImageBitmap(
-                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_3_refano, 100, 100));
+                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_3_refano, 300, 300));
         binding.ivDevYanu.setImageBitmap(
-                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_4_yanu, 100, 100));
+                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_4_yanu, 300, 300));
         binding.ivDevIim.setImageBitmap(
-                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_15_rochimatus, 100, 100));
+                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_15_rochimatus, 300, 300));
         binding.ivDevBella.setImageBitmap(
-                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_21_sabillah, 100, 100));
+                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_21_sabillah, 300, 300));
         binding.ivDevGhozy.setImageBitmap(
-                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_22_ghozy, 100, 100));
+                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_22_ghozy, 300, 300));
         binding.ivDevAji.setImageBitmap(
-                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_27_aji, 100, 100));
+                decodeSampledBitmapFromResource(getResources(), R.drawable.dev_27_aji, 300, 300));
         binding.ivVirtuaHive.setImageBitmap(
                 decodeSampledBitmapFromResource(getResources(), R.drawable.sponsored_virtuahive, 100, 100));
         binding.ivRasyidTech.setImageBitmap(
