@@ -22,7 +22,7 @@ public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor
 
     @Override
     public void requestResidenceNumber(final RequestCallback<String> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "user/get-residence-number")
+        AndroidNetworking.get(ApiConstant.BASE_URL + "user/residence-number")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ResidenceNumberResponse.class, new ParsedRequestListener<ResidenceNumberResponse>() {
@@ -31,7 +31,7 @@ public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor
                         if(response.success) {
                             requestCallback.requestSuccess(response.data);
                         } else {
-                            requestCallback.requestFailed(null);
+                            requestCallback.requestFailed("Anda belum mengisi NIK pada akun ini");
                         }
                     }
 
@@ -44,7 +44,7 @@ public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor
 
     @Override
     public void requestWaitingList(String idSchedule, String date, final RequestCallback<WaitingListFromSchedule> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "user/get-waiting-list/" + idSchedule+ "/" + date)
+        AndroidNetworking.get(ApiConstant.BASE_URL + "waiting-list/current-regist/" + idSchedule+ "/" + date)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(WaitingListFromScheduleResponse.class, new ParsedRequestListener<WaitingListFromScheduleResponse>() {
@@ -66,7 +66,7 @@ public class DaftarAntrianInteractor implements DaftarAntrianContract.Interactor
 
     @Override
     public void requestRegister(String idSchedule, String date, String residenceNumber, final RequestCallback<WaitingList> requestCallback) {
-        AndroidNetworking.post(ApiConstant.BASE_URL + "admin/waiting-list/")
+        AndroidNetworking.post(ApiConstant.BASE_URL + "waiting-list/")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .addBodyParameter("schedule", idSchedule)
                 .addBodyParameter("registered_date", String.valueOf(date))

@@ -57,11 +57,16 @@ public class TiketSelesaiFragment extends Fragment implements RiwayatTiketContra
     @Override
     public void showWaitingList(List<WaitingList> waitingLists) {
         binding.rvWaitingList.setAdapter(new RiwayatTiketSelesaiAdapter(waitingLists, getLayoutInflater()));
+        if(waitingLists.size() == 0) {
+            binding.tvNoTicket.setVisibility(View.VISIBLE);
+            return;
+        }
+
     }
 
     @Override
     public void showError(String errorMessage) {
-        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
         binding.tvNoTicket.setVisibility(View.VISIBLE);
     }
 

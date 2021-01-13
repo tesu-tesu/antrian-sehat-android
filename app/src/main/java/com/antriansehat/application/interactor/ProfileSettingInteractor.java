@@ -86,7 +86,7 @@ public class ProfileSettingInteractor implements ProfileSettingContract.Interact
 
     @Override
     public void setDataUser(final RequestCallback<User> requestCallback){
-        AndroidNetworking.get(ApiConstant.BASE_URL + "user/get-current-user")
+        AndroidNetworking.get(ApiConstant.BASE_URL + "user/current")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(UserDataResponse.class, new ParsedRequestListener<UserDataResponse>() {

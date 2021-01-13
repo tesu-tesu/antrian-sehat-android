@@ -128,7 +128,7 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
         finish();
     }
 
-    private void makeToast(String message){
+    public void makeToast(String message){
         Toast.makeText(getApplicationContext(), message,
                 Toast.LENGTH_SHORT).show();
     }
