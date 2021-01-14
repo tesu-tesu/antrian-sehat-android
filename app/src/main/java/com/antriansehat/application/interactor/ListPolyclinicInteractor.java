@@ -26,7 +26,7 @@ public class ListPolyclinicInteractor implements ListPolyclinicContract.Interact
 
     @Override
     public void requestListPolyclinic(final RequestCallback<Pagination<Polyclinic>> requestCallback, int page) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "admin/poly-master?page=" + page)
+        AndroidNetworking.get(ApiConstant.BASE_URL + "poly-master?page=" + page)
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListPolyclinicResponse.class, new ParsedRequestListener<ListPolyclinicResponse>() {
@@ -52,7 +52,8 @@ public class ListPolyclinicInteractor implements ListPolyclinicContract.Interact
 
     @Override
     public void requestListPolyclinic(final RequestCallback<List<PolymasterFromSelectedHA>> requestCallback, String idHA) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "admin/health-agency/"+Integer.parseInt(idHA)+"/polyclinic")
+        Log.d("TAG", "requestListPolyclinic: " + idHA);
+        AndroidNetworking.get(ApiConstant.BASE_URL + "schedule/of-ha/"+Integer.parseInt(idHA))
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListPolyclinicResponseFromHA.class, new ParsedRequestListener<ListPolyclinicResponseFromHA>() {
@@ -71,7 +72,6 @@ public class ListPolyclinicInteractor implements ListPolyclinicContract.Interact
 
                     @Override
                     public void onError(ANError anError) {
-                        Log.d("responnya: ", anError.getMessage());
                         requestCallback.requestFailed(anError.getErrorDetail());
                     }
                 });

@@ -26,6 +26,7 @@
         <activity android:name=".view.ListHealthAgencyActivity"/>
         <activity android:name=".view.ListPolyclinicActivity"/>
         <activity android:name=".view.HomeActivity"/>
+        <activity android:name=".view.AboutUsActivity"/>
         <activity android:name=".view.ListScheduleActivity"/>
         <activity android:name=".view.DaftarAntrianActivity"/>
         <activity

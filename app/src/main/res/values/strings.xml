@@ -59,6 +59,36 @@
     <string name="selesai_label">Selesai</string>
     <string name="hari_ini_label">Hari Ini</string>
     <string name="akan_datang_label">Akan Datang</string>
+    <string name="about_us_label">About Us</string>
+    <string name="bella_label">Sabillah Ferdiana Febrianti</string>
+    <string name="iim_label">Rochimatus Sa\'diyah</string>
+    <string name="yanu_label">Yanu Adi Nugraha</string>
+    <string name="refano_label">Refano Pradana Y.</string>
+    <string name="developer_team_label">Developer Team</string>
+    <string name="ghozy_label">M. Ghozy Al Ghifary</string>
+    <string name="aji_label">M. Satriyo Aji</string>
+    <string name="sponsored_by_label">Sponsored By</string>
+    <string name="supported_by_label">Supported By</string>
+    <string name="supervisors_and_mentors_label">Supervisors and Mentors</string>
+    <string name="umi_sa_adah">Umi Sa\'adah</string>
+    <string name="desy_intan_permatasari">Desy Intan Permatasari</string>
+    <string name="andhik_ampuh_yunanto">Andhik Ampuh Yunanto</string>
+    <string name="maulidan_bagus_afridian_rasyid">Maulidan Bagus Afridian Rasyid</string>
+    <string name="willy_achmat_fauzi">Willy Achmat Fauzi</string>
+    <string name="verent_flourencia_irene">Verent Flourencia Irene</string>
+    <string name="mayshella_ainun_wakhidah">Mayshella Ainun Wakhidah</string>
+    <string name="andika_ahmad_ramadhan">Andika Ahmad Ramadhan</string>
+    <string name="fandi_ahmad">Fandi Ahmad</string>
+    <string name="ardian_kristya_pratama">Ardian Kristya Pratama</string>
+    <string name="angga_pradipta_kurnia_putra">Angga Pradipta Kurnia Putra</string>
+    <string name="muhammad_alif_pradipta_adp">Muhammad Alif Pradipta ADP</string>
+    <string name="rafly_arief_kanza">Rafly Arief Kanza</string>
+    <string name="ahmad_jarir_at_thobari">Ahmad Jarir At Thobari</string>
+    <string name="ajie_dibyo_respati">Ajie Dibyo Respati</string>
+    <string name="achmad_zulkarnain">Achmad Zulkarnain</string>
+    <string name="arie_affianto">Arie Affianto</string>
+    <string name="tegar_imansyah">Tegar Imansyah</string>
+    <string name="with_love_label">With ❤ Antrian Sehat</string>
 
     <!--Spinner-->
     <string-array name="pilihan_register">

@@ -78,343 +78,298 @@
 
         </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardWaitingList"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            app:cardCornerRadius="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/topNav"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/topNav">
-
+            app:layout_constraintEnd_toEndOf="parent">
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cWaitingList"
                 android:layout_width="match_parent"
-                android:layout_height="152dp">
-
-                <LinearLayout
-                    android:id="@+id/leftLabel"
-                    android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardWaitingList"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="16dp"
-                    android:orientation="vertical"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toStartOf="@+id/rightLabel"
+                    android:layout_marginEnd="24dp"
+                    app:cardCornerRadius="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvWaitingListLabel">
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/tvResidenceNumber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="4dp"
-                        android:text="@{waitingList.residence_number}"
-                        android:textColor="@color/blackFont"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:layout_editor_absoluteY="48dp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cWaitingList"
+                        android:layout_width="match_parent"
+                        android:layout_height="152dp">
 
-                    <TextView
-                        android:id="@+id/tvHA"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="4dp"
-                        android:text="@{waitingList.health_agency}"
-                        android:textColor="@color/blackFont"
-                        tools:layout_editor_absoluteX="27dp"
-                        tools:layout_editor_absoluteY="78dp" />
+                        <LinearLayout
+                            android:id="@+id/leftLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="16dp"
+                            android:orientation="vertical"
+                            android:visibility="invisible"
+                            app:layout_constraintEnd_toStartOf="@+id/rightLabel"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvWaitingListLabel">
 
-                    <TextView
-                        android:id="@+id/tvPoly"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{waitingList.polyclinic}"
-                        android:textColor="@color/blackFont"
-                        tools:layout_editor_absoluteX="26dp"
-                        tools:layout_editor_absoluteY="110dp" />
-                </LinearLayout>
+                            <TextView
+                                android:id="@+id/tvResidenceNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="4dp"
+                                android:text="@{waitingList.residence_number}"
+                                android:textColor="@color/blackFont"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:layout_editor_absoluteY="48dp" />
+
+                            <TextView
+                                android:id="@+id/tvHA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="4dp"
+                                android:text="@{waitingList.health_agency}"
+                                android:textColor="@color/blackFont"
+                                tools:layout_editor_absoluteX="27dp"
+                                tools:layout_editor_absoluteY="78dp" />
+
+                            <TextView
+                                android:id="@+id/tvPoly"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{waitingList.polyclinic}"
+                                android:textColor="@color/blackFont"
+                                tools:layout_editor_absoluteX="26dp"
+                                tools:layout_editor_absoluteY="110dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/rightLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="24dp"
+                            android:orientation="vertical"
+                            android:visibility="invisible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvWaitingListLabel">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvOrderNumberLabel"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="4dp"
+                                    android:paddingEnd="4dp"
+                                    android:paddingBottom="4dp"
+                                    android:text="@string/order_number_label"
+                                    android:textColor="@color/blackFont"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvOrderNumber"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4dp"
+                                    android:text="@{waitingList.order_number}"
+                                    android:textColor="#2196F3"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingBottom="4dp">
+
+                                <TextView
+                                    android:id="@+id/tvCurrentWaitingListLabel"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="4dp"
+                                    android:paddingEnd="4dp"
+                                    android:text="@string/current_waiting_list_label"
+                                    android:textColor="@color/blackFont" />
+
+                                <TextView
+                                    android:id="@+id/tvCurrentWaitingList"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="4dp"
+                                    android:text="@{waitingList.current_number}"
+                                    android:textColor="@color/green" />
+
+                                <TextView
+                                    android:id="@+id/slash"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/slash"
+                                    android:textColor="@color/blackFont" />
+
+                                <TextView
+                                    android:id="@+id/tvLatestWaitingList"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{waitingList.latest_number}"
+                                    android:textColor="@color/blackFont" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvRegDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="4dp"
+                                android:text="@{waitingList.registered_date}"
+                                android:textColor="@color/blackFont" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvWaitingListLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:text="@string/waiting_list_label"
+                            android:textColor="@color/blackFont"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvErrorMessage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="48dp"
+                            android:layout_marginHorizontal="12dp"
+                            android:text="@string/error_message"
+                            android:textAlignment="center"
+                            android:textColor="@color/blackFont"
+                            android:textSize="16sp"
+                            android:visibility="invisible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvWaitingListLabel" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/cvPolyList"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardWaitingList" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvPolyList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="48dp"
+                    app:cardCornerRadius="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/cardWaitingList"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/ivPoly"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="@id/PolyTitle"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/PolyTitle"
+                            app:srcCompat="@drawable/poly" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="@string/list_poliklinik"
+                            android:textColor="#3C3C3C"
+                            android:textSize="24sp"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvHAList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="48dp"
+                    app:cardCornerRadius="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/cvPolyList"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/ivHA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="@id/PolyTitle"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/PolyTitle"
+                            app:srcCompat="@drawable/puseksmas" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="@string/list_puskesmas"
+                            android:textColor="#3C3C3C"
+                            android:textSize="24sp"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
 
                 <LinearLayout
-                    android:id="@+id/rightLabel"
+                    android:id="@+id/layoutAboutUs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
-                    android:orientation="vertical"
-                    android:visibility="invisible"
+                    android:layout_marginTop="32dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvWaitingListLabel">
-
-                    <LinearLayout
+                    app:layout_constraintTop_toBottomOf="@id/cvHAList">
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/tvOrderNumberLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="4dp"
-                            android:paddingEnd="4dp"
-                            android:paddingBottom="4dp"
-                            android:text="@string/order_number_label"
-                            android:textColor="@color/blackFont"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvOrderNumber"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="4dp"
-                            android:text="@{waitingList.order_number}"
-                            android:textColor="#2196F3"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingBottom="4dp">
-
-                        <TextView
-                            android:id="@+id/tvCurrentWaitingListLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="4dp"
-                            android:paddingEnd="4dp"
-                            android:text="@string/current_waiting_list_label"
-                            android:textColor="@color/blackFont" />
-
-                        <TextView
-                            android:id="@+id/tvCurrentWaitingList"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:text="@{waitingList.current_number}"
-                            android:textColor="@color/green" />
-
-                        <TextView
-                            android:id="@+id/slash"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/slash"
-                            android:textColor="@color/blackFont" />
-
-                        <TextView
-                            android:id="@+id/tvLatestWaitingList"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{waitingList.latest_number}"
-                            android:textColor="@color/blackFont" />
-                    </LinearLayout>
-
+                        android:src="@drawable/ic_baseline_info_24"
+                        android:layout_marginRight="8dp"
+                        app:tint="@color/blue" />
                     <TextView
-                        android:id="@+id/tvRegDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingHorizontal="4dp"
-                        android:text="@{waitingList.registered_date}"
-                        android:textColor="@color/blackFont" />
-
+                        android:text="@string/about_us_label"/>
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tvWaitingListLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/waiting_list_label"
-                    android:textColor="@color/blackFont"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvErrorMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="48dp"
-                    android:layout_marginHorizontal="12dp"
-                    android:text="@string/error_message"
-                    android:textAlignment="center"
-                    android:textColor="@color/blackFont"
-                    android:textSize="16sp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvWaitingListLabel" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/cvPolyList"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardWaitingList" />
-
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:id="@+id/choice"-->
-<!--            android:layout_width="360dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:layout_marginVertical="32dp"-->
-<!--            android:layout_marginEnd="24dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/cardWaitingList">-->
-
-<!--            <Button-->
-<!--                android:id="@+id/btListPoly"-->
-<!--                android:layout_width="144dp"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginEnd="8dp"-->
-<!--                android:background="@drawable/bt_green"-->
-<!--                android:text="@string/list_poly_bt_label"-->
-<!--                android:textAllCaps="false"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/btListHA"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--            <Button-->
-<!--                android:id="@+id/btListHA"-->
-<!--                android:layout_width="144dp"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginEnd="8dp"-->
-<!--                android:background="@drawable/bt_green"-->
-<!--                android:text="@string/list_HA_bt_label"-->
-<!--                android:textAllCaps="false"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/btListPoly"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:layout_marginTop="24dp"-->
-<!--            android:layout_marginEnd="24dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/choice">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/acticlesLabel"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/poppins_semibold"-->
-<!--                android:text="@string/artikel_kesehatan_label"-->
-<!--                android:textColor="@color/blackFont"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/listArticles"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="8dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:scrollbars="horizontal"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/acticlesLabel" />-->
-
-<!--            &lt;!&ndash;horizontal gak nya liat di sini, diatur di recyclerview linearlayoutmanager-->
-<!--             https://www.geeksforgeeks.org/android-horizontal-recyclerview-with-examples/&ndash;&gt;-->
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvPolyList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="48dp"
-            app:cardCornerRadius="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/cardWaitingList"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/ivPoly"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@id/PolyTitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/PolyTitle"
-                    app:srcCompat="@drawable/poly" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/list_poliklinik"
-                    android:textColor="#3C3C3C"
-                    android:textSize="24sp"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:textStyle="bold" />
-            </FrameLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvHAList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="48dp"
-            app:cardCornerRadius="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/cvPolyList"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/ivHA"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@id/PolyTitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/PolyTitle"
-                    app:srcCompat="@drawable/puseksmas" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/list_puskesmas"
-                    android:textColor="#3C3C3C"
-                    android:textSize="24sp"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:textStyle="bold" />
-            </FrameLayout>
-
-        </androidx.cardview.widget.CardView>
-
+        </ScrollView>
         <LinearLayout
+            android:id="@+id/layoutBottomNav"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

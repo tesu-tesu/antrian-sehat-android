@@ -43,7 +43,6 @@ public class ListPolyclinicAdapter extends RecyclerView.Adapter<ListPolyclinicAd
             }
         });
         if(polyclinics.get(position).getImage() != null) {
-            System.out.println("PATH " + ApiConstant.SERVER_NAME + polyclinics.get(position).getImage());
             Picasso.get()
                     .load(ApiConstant.SERVER_NAME + polyclinics.get(position).getImage())
                     .fit()

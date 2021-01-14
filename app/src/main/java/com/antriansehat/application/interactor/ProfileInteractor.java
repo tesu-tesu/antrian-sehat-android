@@ -30,7 +30,7 @@ public class ProfileInteractor implements ProfileContract.Interactor {
 
     @Override
     public void setDataUser(final RequestCallback<User> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "user/get-current-user")
+        AndroidNetworking.get(ApiConstant.BASE_URL + "user/current")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(UserDataResponse.class, new ParsedRequestListener<UserDataResponse>() {
@@ -38,22 +38,25 @@ public class ProfileInteractor implements ProfileContract.Interactor {
                     public void onResponse(UserDataResponse response) {
                         if(response.success){
                             requestCallback.requestSuccess(response.data);
+                            Log.d("message", "onResponse: " + response.message);
                         }
                         else {
                             Log.d("get user:", "error");
+                            Log.d("LOG", "onResponse: " + response.message);
                         }
                     }
 
                     @Override
                     public void onError(ANError anError) {
                         requestCallback.requestFailed(anError.getErrorBody());
+                        Log.d("LOG", "onError: " + anError.getErrorBody());
                     }
                 });
     }
 
     @Override
     public void requestBookedResidenceNumber(final RequestCallback<List<String>> requestCallback) {
-        AndroidNetworking.get(ApiConstant.BASE_URL + "user/get-booked-residence-number")
+        AndroidNetworking.get(ApiConstant.BASE_URL + "user/booked-residence-number")
                 .addHeaders("Authorization", "Bearer " + sharedPreferencesUtil.getToken())
                 .build()
                 .getAsObject(ListBookedResidenceNumberResponse.class, new ParsedRequestListener<ListBookedResidenceNumberResponse>() {
