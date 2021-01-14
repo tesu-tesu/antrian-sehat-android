@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.antriansehat.application.R;
+import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.databinding.ItemPuskesmasBinding;
 import com.antriansehat.application.model.HealthAgency;
 import com.antriansehat.application.model.User;
@@ -42,6 +42,14 @@ public class ListHealthAgencyAdapter extends RecyclerView.Adapter<ListHealthAgen
                 listHealthAgencyListener.onCardClick(healthAgencies.get(position));
             }
         });
+        if(healthAgencies.get(position).getImage() != null) {
+            System.out.println("PATH " + ApiConstant.SERVER_NAME + healthAgencies.get(position).getImage());
+            Picasso.get()
+                    .load(ApiConstant.SERVER_NAME + healthAgencies.get(position).getImage())
+                    .fit()
+                    .error(R.drawable.ic_puskesmas_icon)
+                    .into(holder.binding.ivImageHealthAgency);
+         }
     }
 
     public void setListHealthAgencyClickListener(ListHealthAgencyListener listHealthAgencyListener) {
