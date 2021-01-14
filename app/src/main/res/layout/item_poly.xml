@@ -19,6 +19,7 @@
         android:layout_height="80dp"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="5dp"
         android:foreground="?android:attr/selectableItemBackground"
         android:background="@drawable/rounded_list_card"
         android:backgroundTint="@color/green"
