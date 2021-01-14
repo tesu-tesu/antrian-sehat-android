@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.antriansehat.application.R;
@@ -41,7 +42,6 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
         binding = ActivityListPolyBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         presenter = new ListPolyclinicPresenter(this, new ListPolyclinicInteractor(UtilProvider.getSharedPreferencesUtil()));
-
         initView();
     }
 
@@ -60,7 +60,7 @@ public class ListPolyclinicActivity extends AppCompatActivity implements ListPol
             binding.btNext.setVisibility(View.GONE);
         }
 
-        binding.rvListPoly.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvListPoly.setLayoutManager(new GridLayoutManager(this, 2));
         binding.bottomNav.setOnNavigationItemSelectedListener(this);
         binding.btBack.setOnClickListener(this);
         binding.btPrev.setOnClickListener(this);
