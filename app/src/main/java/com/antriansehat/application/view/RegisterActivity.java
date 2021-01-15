@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
 
     @Override
     public void registerSuccess(String message) {
-        makeToast(message);
+        makeToast(message, Toast.LENGTH_SHORT);
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
@@ -63,12 +63,12 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
 
     @Override
     public void registerFailed(String message) {
-        makeToast(message);
+        makeToast(message, Toast.LENGTH_LONG);
     }
 
-    private void makeToast(String message){
+    private void makeToast(String message, int duration){
         Toast.makeText(getApplicationContext(), message,
-                Toast.LENGTH_SHORT).show();
+                duration).show();
     }
 
     @Override
