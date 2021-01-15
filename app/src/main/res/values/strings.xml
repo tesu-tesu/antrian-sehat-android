@@ -89,6 +89,7 @@
     <string name="arie_affianto">Arie Affianto</string>
     <string name="tegar_imansyah">Tegar Imansyah</string>
     <string name="with_love_label">With ❤ Antrian Sehat</string>
+    <string name="edit_profile_label">Edit Profile</string>
 
     <!--Spinner-->
     <string-array name="pilihan_register">

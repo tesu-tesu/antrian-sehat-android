@@ -161,6 +161,7 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String spinnerLabel = parent.getItemAtPosition(position).toString();
         if(spinnerLabel.equalsIgnoreCase("Diri Sendiri")) {
+            binding.etNIK.setEnabled(false);
             presenter.getResidenceNumber();
         } else {
             binding.etNIK.setEnabled(true);
