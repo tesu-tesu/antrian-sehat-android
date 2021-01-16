@@ -43,9 +43,9 @@ public class ListPolyclinicAdapter extends RecyclerView.Adapter<ListPolyclinicAd
             }
         });
         if(polyclinics.get(position).getImage() != null) {
-            System.out.println(polyclinics.get(position).getImage());
+            System.out.println(ApiConstant.SERVER_NAME + "/storage/img/polymasters/" + polyclinics.get(position).getImage());
             Picasso.get()
-                    .load(ApiConstant.SERVER_NAME + "/polymasters/"+ polyclinics.get(position).getImage())
+                    .load(ApiConstant.SERVER_NAME + "/storage/img/polymasters/" + polyclinics.get(position).getImage())
                     .fit()
                     .error(R.drawable.group_26)
                     .into(holder.binding.ivPoly);
