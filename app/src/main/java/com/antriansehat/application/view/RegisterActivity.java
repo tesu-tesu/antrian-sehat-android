@@ -58,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         makeToast(message, Toast.LENGTH_SHORT);
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
-        finish();
+        this.finishAffinity();
     }
 
     @Override
