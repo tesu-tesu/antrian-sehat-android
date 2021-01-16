@@ -63,7 +63,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         if(user.getImagePath() != null) {
             System.out.println("PATH " + ApiConstant.SERVER_NAME + user.getImagePath());
             Picasso.get()
-                    .load(ApiConstant.SERVER_NAME + "/users/" + user.getImagePath())
+                    .load(ApiConstant.SERVER_NAME + user.getImagePath())
                     .fit()
                     .into(binding.ivProfileImage);
         }
