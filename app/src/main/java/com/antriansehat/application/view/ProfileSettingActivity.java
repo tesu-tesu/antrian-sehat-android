@@ -129,7 +129,7 @@ public class  ProfileSettingActivity extends AppCompatActivity implements Profil
         binding.etPhone.setText(user.getPhone());
         if(user.getImagePath() != null) {
             Picasso.get()
-                    .load(ApiConstant.SERVER_NAME + "/users/" + user.getImagePath())
+                    .load(ApiConstant.SERVER_NAME + user.getImagePath())
                     .fit()
                     .into(binding.ivProfileImage);
         }
@@ -139,7 +139,7 @@ public class  ProfileSettingActivity extends AppCompatActivity implements Profil
     public void updateProfileImageSuccess(String message, String path) {
         makeToast(message);
         if(path != null) {
-            Picasso.get().load(ApiConstant.SERVER_NAME + "/users/" + path).into(binding.ivProfileImage);
+            Picasso.get().load(ApiConstant.SERVER_NAME + path).into(binding.ivProfileImage);
             System.out.println("PATH: " + ApiConstant.SERVER_NAME + path);
         }
     }
