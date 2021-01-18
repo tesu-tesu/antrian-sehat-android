@@ -78,6 +78,7 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
     }
 
     private void registerNewWaitingList() {
+
         String residenceNumber = binding.etNIK.getText().toString();
         presenter.register(idSchedule, date, residenceNumber);
     }
@@ -160,12 +161,19 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String spinnerLabel = parent.getItemAtPosition(position).toString();
-        if(spinnerLabel.equalsIgnoreCase("Diri Sendiri")) {
-            binding.etNIK.setEnabled(false);
-            presenter.getResidenceNumber();
+
+        if(spinnerLabel.equals("Pilih Pendaftar")) {
+            binding.btDaftarAntrian.setEnabled(false);
+            makeToast("Pilih pendaftar terlebih dahulu");
         } else {
-            binding.etNIK.setEnabled(true);
-            binding.etNIK.setText("");
+            binding.btDaftarAntrian.setEnabled(true);
+            if(spinnerLabel.equals("Diri Sendiri")) {
+                binding.etNIK.setEnabled(false);
+                presenter.getResidenceNumber();
+            }else{
+                binding.etNIK.setEnabled(true);
+                binding.etNIK.setText("");
+            }
         }
     }
 

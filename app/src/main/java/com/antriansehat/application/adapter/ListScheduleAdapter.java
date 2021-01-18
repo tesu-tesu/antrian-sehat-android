@@ -45,6 +45,8 @@ public class ListScheduleAdapter extends RecyclerView.Adapter<ListScheduleAdapte
     }
 
     public Schedule getSelectedSchedule() {
+        if(checkedPosition == -1)
+            return null;
         return schedules.get(checkedPosition);
     }
 

@@ -3,6 +3,7 @@ package com.antriansehat.application.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -83,12 +84,20 @@ public class ListScheduleActivity extends AppCompatActivity implements ListSched
     private void redirectToRegister() {
         choosedSchedule = ((ListScheduleAdapter) binding.rvListSchedule.getAdapter()).getSelectedSchedule();
         System.out.println("cex: "+ choosedSchedule);
+
         if (choosedSchedule != null && !choosedSchedule.getTime_close().equals("-")){
             Intent registerWaitingList = new Intent(ListScheduleActivity.this, DaftarAntrianActivity.class);
             registerWaitingList.putExtra("idSchedule", choosedSchedule.getId());
             registerWaitingList.putExtra("date", choosedSchedule.getDate());
             startActivity(registerWaitingList);
+        } else {
+            makeToast("Pilih jadwal yang tersedia terlebih dahulu");
         }
+    }
+
+    public void makeToast(String message){
+        Toast.makeText(getApplicationContext(), message,
+                Toast.LENGTH_SHORT).show();
     }
 
     @Override

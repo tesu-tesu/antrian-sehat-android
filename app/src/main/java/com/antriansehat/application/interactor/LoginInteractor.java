@@ -1,5 +1,7 @@
 package com.antriansehat.application.interactor;
 
+import android.util.Log;
+
 import com.antriansehat.application.api_response.LoginResponse;
 import com.antriansehat.application.api_response.ValidationResponse;
 import com.antriansehat.application.callback.RequestCallback;

@@ -9,20 +9,26 @@ import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.androidnetworking.interfaces.UploadProgressListener;
 import com.antriansehat.application.api_response.BaseResponse;
 import com.antriansehat.application.api_response.UserDataResponse;
+import com.antriansehat.application.api_response.ValidationResponse;
 import com.antriansehat.application.callback.RequestCallback;
 import com.antriansehat.application.constant.ApiConstant;
 import com.antriansehat.application.contract.ProfileSettingContract;
 import com.antriansehat.application.model.User;
 import com.antriansehat.application.util.SharedPreferencesUtil;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.util.concurrent.Executors;
 
 public class ProfileSettingInteractor implements ProfileSettingContract.Interactor {
     private SharedPreferencesUtil sharedPreferencesUtil;
+    private Gson gson;
 
     public ProfileSettingInteractor(SharedPreferencesUtil sharedPreferencesUtil) {
         this.sharedPreferencesUtil = sharedPreferencesUtil;
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gson = gsonBuilder.create();
     }
 
     public void requestUpdateProfile(String id, String name, String email, String nik, String phone, final RequestCallback<User> requestCallback) {
@@ -49,7 +55,13 @@ public class ProfileSettingInteractor implements ProfileSettingContract.Interact
 
                     @Override
                     public void onError(ANError anError) {
-                        requestCallback.requestFailed(anError.getErrorBody());
+                        Log.d("TAG", "onError: " + anError.getErrorBody());
+                        ValidationResponse validation = gson.fromJson(anError.getErrorBody(), ValidationResponse.class);
+                        try {
+                            requestCallback.requestFailed(validation.getData());
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
     }
