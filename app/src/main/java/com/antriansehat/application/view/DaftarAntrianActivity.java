@@ -92,7 +92,7 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
 
     @Override
     public void setResidenceNumber(String residenceNumber) {
-        if(residenceNumber != null || !residenceNumber.equals("")) {
+        if(residenceNumber != null && !residenceNumber.equals("")) {
             binding.etNIK.setText(residenceNumber);
             binding.etNIK.setEnabled(false);
         }
@@ -168,6 +168,7 @@ public class DaftarAntrianActivity extends AppCompatActivity implements DaftarAn
         } else {
             binding.btDaftarAntrian.setEnabled(true);
             if(spinnerLabel.equals("Diri Sendiri")) {
+                binding.etNIK.setText("");
                 binding.etNIK.setEnabled(false);
                 presenter.getResidenceNumber();
             }else{
