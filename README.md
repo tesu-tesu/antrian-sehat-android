@@ -4,9 +4,10 @@ Antrian Sehat merupakan aplikasi yang memudahkan untuk mengantri ke suatu puskes
 ## Instalasi
 1. Upgrade SDK jika diperlukan
 2. Jalankan project antrian-sehat-backend di server terlebih dahulu
-3. Masukkan url dari antrian-sehat-backend pada file _constant/ApiConstant.java_ tepatnya di atribut _BASE_URL_
+3. Masukkan url dari antrian-sehat-backend pada file _constant/ApiConstant.java_ tepatnya di atribut _SERVER_NAME_
    misal http://localhost:8000
-4. _Build & Run_ aplikasi
+4. Ubah url pada file _app/src/main/res/xml/network_security_config.xml_
+5. _Build & Run_ aplikasi
 
 ## Fitur - Fitur yang Tersedia
 - Login & Register (sebagai pasien)
@@ -16,4 +17,3 @@ Antrian Sehat merupakan aplikasi yang memudahkan untuk mengantri ke suatu puskes
 - Melihat riwayat antrian yang pernah kita buat serta statusnya
 - Ticketing (QR code untuk tiap antrian)
 - Profile (menampilkan data & update data diri)
-
